@@ -29,14 +29,14 @@ const UI_MAX_SCALE = 1.6;
 type Variant = 'display' | 'title' | 'heading' | 'body' | 'bodyStrong' | 'caption' | 'label' | 'scripture';
 
 const VARIANTS: Record<Variant, TextStyle> = {
-  display: { fontFamily: FONTS.scriptureBold, fontSize: 30, lineHeight: 38 },
-  title: { fontFamily: FONTS.uiBold, fontSize: 24, lineHeight: 30 },
-  heading: { fontFamily: FONTS.uiSemiBold, fontSize: 18, lineHeight: 24 },
+  display: { fontFamily: FONTS.uiExtraBold, fontSize: 32, lineHeight: 38, letterSpacing: -0.8 },
+  title: { fontFamily: FONTS.uiExtraBold, fontSize: 24, lineHeight: 30, letterSpacing: -0.4 },
+  heading: { fontFamily: FONTS.uiBold, fontSize: 18, lineHeight: 24 },
   body: { fontFamily: FONTS.ui, fontSize: 16, lineHeight: 24 },
   bodyStrong: { fontFamily: FONTS.uiSemiBold, fontSize: 16, lineHeight: 24 },
   caption: { fontFamily: FONTS.ui, fontSize: 13, lineHeight: 18 },
-  label: { fontFamily: FONTS.uiSemiBold, fontSize: 12, lineHeight: 16, letterSpacing: 0.8, textTransform: 'uppercase' },
-  scripture: { fontFamily: FONTS.scripture, fontSize: 18, lineHeight: 30 },
+  label: { fontFamily: FONTS.uiBold, fontSize: 12, lineHeight: 16, letterSpacing: 1.2, textTransform: 'uppercase' },
+  scripture: { fontFamily: FONTS.scripture, fontSize: 19, lineHeight: 31 },
 };
 
 export function T({
@@ -97,15 +97,17 @@ export function Card({
   style?: StyleProp<ViewStyle>;
   onPress?: () => void;
   accessibilityLabel?: string;
-  tone?: 'surface' | 'soft' | 'alt';
+  tone?: 'surface' | 'soft' | 'alt' | 'primary';
 }) {
-  const { c } = useTheme();
-  const bg = tone === 'soft' ? c.primarySoft : tone === 'alt' ? c.surfaceAlt : c.surface;
+  const { c, dark } = useTheme();
+  const bg =
+    tone === 'soft' ? c.primarySoft : tone === 'alt' ? c.surfaceAlt : tone === 'primary' ? c.primary : c.surface;
   const base: ViewStyle = {
     backgroundColor: bg,
     borderRadius: RADIUS.lg,
-    padding: SPACE.lg,
-    borderWidth: StyleSheet.hairlineWidth,
+    padding: SPACE.lg + 4,
+    // Estilo Luz: cartões sem contorno no claro; no escuro, um contorno sutil separa as camadas.
+    borderWidth: dark && tone === 'surface' ? StyleSheet.hairlineWidth : 0,
     borderColor: c.border,
     gap: SPACE.sm,
   };
@@ -151,7 +153,7 @@ export function Button({
       accessibilityHint={accessibilityHint}
       style={({ pressed }) => [
         {
-          minHeight: 50,
+          minHeight: 52,
           borderRadius: RADIUS.pill,
           backgroundColor: bg,
           paddingHorizontal: SPACE.xl,
@@ -167,7 +169,7 @@ export function Button({
       ]}
     >
       {icon && <Ionicons name={icon} size={20} color={fg} />}
-      <T variant="bodyStrong" color={fg}>
+      <T variant="bodyStrong" color={fg} style={{ fontFamily: FONTS.uiBold }}>
         {title}
       </T>
     </Pressable>
@@ -195,9 +197,9 @@ export function Option({
       accessibilityRole="radio"
       accessibilityState={{ selected }}
       style={({ pressed }) => ({
-        borderRadius: RADIUS.md,
+        borderRadius: RADIUS.md + 2,
         borderWidth: 2,
-        borderColor: selected ? c.primary : c.border,
+        borderColor: selected ? c.primary : 'transparent',
         backgroundColor: selected ? c.primarySoft : c.surface,
         padding: SPACE.lg,
         flexDirection: 'row',
@@ -272,10 +274,8 @@ export function AngelSays({ text, mood = 'feliz', size = 72 }: { text: string; m
           flex: 1,
           backgroundColor: c.surface,
           borderRadius: RADIUS.lg,
-          borderTopLeftRadius: 4,
-          padding: SPACE.md,
-          borderWidth: StyleSheet.hairlineWidth,
-          borderColor: c.border,
+          borderTopLeftRadius: 6,
+          padding: SPACE.md + 2,
         }}
       >
         <T>{text}</T>
@@ -356,7 +356,7 @@ export function Chip({ label, selected, onPress }: { label: string; selected?: b
         paddingHorizontal: SPACE.md,
         borderRadius: RADIUS.pill,
         borderWidth: 1.5,
-        borderColor: selected ? c.primary : c.border,
+        borderColor: selected ? c.primary : 'transparent',
         backgroundColor: selected ? c.primary : c.surface,
         alignItems: 'center',
         justifyContent: 'center',

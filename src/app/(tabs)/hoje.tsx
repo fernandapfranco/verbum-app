@@ -84,8 +84,8 @@ export default function Hoje() {
           accessibilityLabel={`Ofensiva de ${g.streak} dias, ${g.talentos} talentos, ${g.velas} velas`}
           style={{ flexDirection: 'row', gap: SPACE.sm }}
         >
-          <Pill icon="flame" color="#E8902A" value={g.streak} />
-          <Pill icon="diamond" color={c.primary} value={g.talentos} />
+          <Pill icon="flame" value={g.streak} />
+          <Pill icon="diamond" value={g.talentos} />
         </Pressable>
       </View>
       <AngelSays text={message} mood={welcomeBack ? 'festa' : 'feliz'} />
@@ -93,85 +93,79 @@ export default function Hoje() {
         — {angelName}
       </T>
 
-      <Card onPress={() => router.push('/ofensiva')} accessibilityLabel="Ver ofensiva">
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-          <T variant="label" color={c.goldText}>
-            Check-in de hoje
+      {/* Cartão principal (azul): o check-in de hoje, ligado à leitura do plano */}
+      <Card tone="primary">
+        <T variant="label" color={c.onPrimary} style={{ opacity: 0.85 }}>
+          {g.checkedInToday ? 'Check-in feito ✓' : 'Check-in de hoje'}
+        </T>
+        {plan.config && today && today.status !== 'concluido' && today.status !== 'dia-livre' && nextToRead ? (
+          <>
+            <T variant="title" color={c.onPrimary}>
+              {g.checkedInToday
+                ? `Leitura de hoje: ${today.chapters.map((u) => chapterLabel(u.bookId, u.chapter)).join(' · ')}`
+                : `Leia ${today.chapters.map((u) => chapterLabel(u.bookId, u.chapter)).join(' e ')} e ganhe +${REWARDS.checkin} talentos`}
+            </T>
+            <T color={c.onPrimary} style={{ opacity: 0.85 }}>
+              {minutesLabel(today.minutes)}
+              {today.doneToday > 0 ? ` · ${today.doneToday} de ${today.chapters.length} lido(s)` : ''}
+            </T>
+            <OnPrimaryButton
+              title={today.doneToday > 0 ? 'Continuar' : 'Começar'}
+              onPress={() =>
+                router.push({
+                  pathname: '/leitor/[livro]/[capitulo]',
+                  params: { livro: nextToRead.bookId, capitulo: String(nextToRead.chapter) },
+                })
+              }
+            />
+          </>
+        ) : plan.config && today?.status === 'concluido' ? (
+          <>
+            <T variant="title" color={c.onPrimary}>
+              Plano concluído! 🎉
+            </T>
+            <T color={c.onPrimary} style={{ opacity: 0.85 }}>
+              Você leu {scopeLabel(plan.config.scope)} inteiro. Que tal escolher o próximo?
+            </T>
+            <OnPrimaryButton title="Novo plano" onPress={() => router.push('/plano/novo')} />
+          </>
+        ) : plan.config && today && (today.status === 'dia-livre' || !nextToRead) ? (
+          <>
+            <T variant="title" color={c.onPrimary}>
+              {today.status === 'dia-livre' ? 'Hoje é dia livre 🌿' : 'Leitura de hoje concluída ✨'}
+            </T>
+            <T color={c.onPrimary} style={{ opacity: 0.85 }}>
+              {g.checkedInToday ? 'Até amanhã! Se quiser, pode adiantar um capítulo.' : 'Leia qualquer capítulo ou faça uma lição para o check-in.'}
+            </T>
+            <OnPrimaryButton title="Ver plano" onPress={() => router.push('/plano')} />
+          </>
+        ) : (
+          <>
+            <T variant="title" color={c.onPrimary}>
+              {g.checkedInToday ? 'Que tal montar seu plano de leitura?' : `Leia um capítulo ou faça uma lição e ganhe +${REWARDS.checkin} talentos`}
+            </T>
+            <T color={c.onPrimary} style={{ opacity: 0.85 }}>
+              Bíblia inteira, Evangelhos, Salmos… no seu ritmo.
+            </T>
+            <OnPrimaryButton title="Montar plano" onPress={() => router.push('/plano/novo')} />
+          </>
+        )}
+        {plan.config && today && (
+          <T variant="caption" color={c.onPrimary} style={{ opacity: 0.85 }} onPress={() => router.push('/plano')} accessibilityRole="link">
+            {scopeLabel(plan.config.scope)} · {today.readChapters} de {today.totalChapters} capítulos · ver plano ›
           </T>
+        )}
+      </Card>
+
+      <Card onPress={() => router.push('/ofensiva')} accessibilityLabel="Ver ofensiva e velas">
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+          <T variant="heading">Sua ofensiva</T>
           <T variant="caption" muted>
             {g.velas} {g.velas === 1 ? 'vela' : 'velas'} de proteção
           </T>
         </View>
-        <T variant="bodyStrong">
-          {g.checkedInToday
-            ? `Feito! ${g.streak} ${g.streak === 1 ? 'dia' : 'dias'} de ofensiva ✓`
-            : `Leia um capítulo ou faça uma lição e ganhe +${REWARDS.checkin} talentos`}
-        </T>
         <WeekStrip week={g.week} />
       </Card>
-
-      {plan.config && today ? (
-        <Card>
-          <T variant="label" color={c.goldText}>
-            Sua leitura de hoje
-          </T>
-          {today.status === 'concluido' ? (
-            <>
-              <T variant="heading">Plano concluído! 🎉</T>
-              <T muted>Você leu {scopeLabel(plan.config.scope)} inteiro. Que tal escolher o próximo?</T>
-              <Button title="Novo plano" onPress={() => router.push('/plano/novo')} />
-            </>
-          ) : today.status === 'dia-livre' ? (
-            <>
-              <T variant="heading">Hoje é dia livre 🌿</T>
-              <T muted>Seu plano não tem leitura para hoje. Se quiser, pode adiantar um capítulo.</T>
-              <Button title="Ver plano" kind="secondary" onPress={() => router.push('/plano')} />
-            </>
-          ) : (
-            <>
-              <T variant="heading">
-                {today.chapters.map((u) => chapterLabel(u.bookId, u.chapter)).join(' · ')}
-              </T>
-              <T muted>
-                {minutesLabel(today.minutes)}
-                {today.doneToday > 0 ? ` · ${today.doneToday} de ${today.chapters.length} lido(s)` : ''}
-              </T>
-              {nextToRead ? (
-                <Button
-                  title={today.doneToday > 0 ? 'Continuar' : 'Começar a leitura'}
-                  icon="book-outline"
-                  onPress={() =>
-                    router.push({
-                      pathname: '/leitor/[livro]/[capitulo]',
-                      params: { livro: nextToRead.bookId, capitulo: String(nextToRead.chapter) },
-                    })
-                  }
-                />
-              ) : (
-                <T color={c.success} variant="bodyStrong">
-                  Leitura de hoje concluída ✨
-                </T>
-              )}
-            </>
-          )}
-          <View style={{ gap: SPACE.xs, marginTop: SPACE.sm }}>
-            <ProgressBar value={today.readChapters / today.totalChapters} label="Progresso do plano" />
-            <T variant="caption" muted onPress={() => router.push('/plano')} accessibilityRole="link">
-              {scopeLabel(plan.config.scope)} · {today.readChapters} de {today.totalChapters} capítulos · ver plano ›
-            </T>
-          </View>
-        </Card>
-      ) : (
-        <Card tone="soft" onPress={() => router.push('/plano/novo')} accessibilityLabel="Montar um plano de leitura">
-          <View style={{ flexDirection: 'row', alignItems: 'center', gap: SPACE.md }}>
-            <Ionicons name="calendar-outline" size={28} color={c.primary} />
-            <View style={{ flex: 1 }}>
-              <T variant="heading">Monte seu plano de leitura</T>
-              <T muted>Bíblia inteira, Evangelhos, Salmos… no seu ritmo.</T>
-            </View>
-          </View>
-        </Card>
-      )}
 
       {trailCard && (
         <Card
@@ -241,24 +235,41 @@ export default function Hoje() {
   );
 }
 
-function Pill({ icon, color, value }: { icon: 'flame' | 'diamond'; color: string; value: number }) {
-  const { c } = useTheme();
+function Pill({ icon, value }: { icon: 'flame' | 'diamond'; value: number }) {
+  const { c, dark } = useTheme();
+  const flame = icon === 'flame';
+  const bg = flame ? (dark ? '#3A2A10' : '#FFF1D6') : c.primarySoft;
+  const fg = flame ? (dark ? '#F5C76A' : '#7A4A06') : dark ? c.text : '#1F2FA0';
   return (
-    <View
-      style={{
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: 4,
-        backgroundColor: c.surface,
-        borderRadius: 999,
-        paddingHorizontal: 12,
-        minHeight: 36,
-        borderWidth: 1,
-        borderColor: c.border,
-      }}
-    >
-      <Ionicons name={icon} size={16} color={color} />
-      <T variant="bodyStrong">{value}</T>
+    <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: bg, borderRadius: 999, paddingHorizontal: 12, minHeight: 36 }}>
+      <Ionicons name={icon} size={16} color={flame ? '#E8902A' : c.primary} />
+      <T variant="bodyStrong" color={fg}>
+        {value}
+      </T>
     </View>
+  );
+}
+
+/** Botão branco usado sobre o cartão azul. */
+function OnPrimaryButton({ title, onPress }: { title: string; onPress: () => void }) {
+  const { c, dark } = useTheme();
+  return (
+    <Pressable
+      onPress={onPress}
+      accessibilityRole="button"
+      style={({ pressed }) => ({
+        minHeight: 52,
+        borderRadius: 999,
+        backgroundColor: dark ? c.onPrimary : '#FFFFFF',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: SPACE.xs,
+        opacity: pressed ? 0.85 : 1,
+      })}
+    >
+      <T variant="bodyStrong" color={dark ? c.text : '#1F2FA0'}>
+        {title}
+      </T>
+    </Pressable>
   );
 }

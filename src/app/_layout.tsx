@@ -1,10 +1,11 @@
-import { Inter_400Regular } from '@expo-google-fonts/inter/400Regular';
-import { Inter_500Medium } from '@expo-google-fonts/inter/500Medium';
-import { Inter_600SemiBold } from '@expo-google-fonts/inter/600SemiBold';
-import { Inter_700Bold } from '@expo-google-fonts/inter/700Bold';
-import { Literata_400Regular } from '@expo-google-fonts/literata/400Regular';
-import { Literata_400Regular_Italic } from '@expo-google-fonts/literata/400Regular_Italic';
-import { Literata_600SemiBold } from '@expo-google-fonts/literata/600SemiBold';
+import { Newsreader_400Regular } from '@expo-google-fonts/newsreader/400Regular';
+import { Newsreader_400Regular_Italic } from '@expo-google-fonts/newsreader/400Regular_Italic';
+import { Newsreader_600SemiBold } from '@expo-google-fonts/newsreader/600SemiBold';
+import { PlusJakartaSans_400Regular } from '@expo-google-fonts/plus-jakarta-sans/400Regular';
+import { PlusJakartaSans_500Medium } from '@expo-google-fonts/plus-jakarta-sans/500Medium';
+import { PlusJakartaSans_600SemiBold } from '@expo-google-fonts/plus-jakarta-sans/600SemiBold';
+import { PlusJakartaSans_700Bold } from '@expo-google-fonts/plus-jakarta-sans/700Bold';
+import { PlusJakartaSans_800ExtraBold } from '@expo-google-fonts/plus-jakarta-sans/800ExtraBold';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
@@ -26,13 +27,14 @@ SplashScreen.preventAutoHideAsync().catch(() => {});
 
 export default function RootLayout() {
   const [fontsLoaded, fontError] = useFonts({
-    Literata_400Regular,
-    Literata_400Regular_Italic,
-    Literata_600SemiBold,
-    Inter_400Regular,
-    Inter_500Medium,
-    Inter_600SemiBold,
-    Inter_700Bold,
+    Newsreader_400Regular,
+    Newsreader_400Regular_Italic,
+    Newsreader_600SemiBold,
+    PlusJakartaSans_400Regular,
+    PlusJakartaSans_500Medium,
+    PlusJakartaSans_600SemiBold,
+    PlusJakartaSans_700Bold,
+    PlusJakartaSans_800ExtraBold,
   });
 
   // No celular as operações síncronas do SQLite funcionam de imediato. Na web
@@ -101,7 +103,7 @@ function RootStack() {
         screenOptions={{
           headerStyle: { backgroundColor: c.bg },
           headerTintColor: c.primary,
-          headerTitleStyle: { fontFamily: FONTS.uiSemiBold, color: c.text },
+          headerTitleStyle: { fontFamily: FONTS.uiBold, color: c.text },
           headerShadowVisible: false,
           headerBackTitle: 'Voltar',
           contentStyle: { backgroundColor: c.bg },

@@ -1,71 +1,81 @@
 /**
- * O anjo da guarda do Verbum — desenho original, vetorial.
- * Fase 1: estático, com três expressões. Fase 2: animações e itens.
+ * O anjo da guarda do Verbum — identidade "Luz".
+ * Formas simples e chapadas, sem contorno. Túnica azul mariano com um ponto
+ * de luz no peito, que brilha mais nas comemorações.
+ * Expressões: feliz (padrão), sereno (olhos fechados) e festa (asas para cima).
  */
-import Svg, { Circle, Ellipse, G, Path } from 'react-native-svg';
+import Svg, { Circle, Ellipse, G, Path, Rect } from 'react-native-svg';
 
 import { useTheme } from '@/theme';
 
 export type AngelMood = 'feliz' | 'sereno' | 'festa';
 
-export function Angel({ size = 96, mood = 'feliz' }: { size?: number; mood?: AngelMood }) {
+export function Angel({
+  size = 96,
+  mood = 'feliz',
+  onPrimary = false,
+}: {
+  size?: number;
+  mood?: AngelMood;
+  /** Sobre fundo azul: túnica branca, para não sumir. */
+  onPrimary?: boolean;
+}) {
   const { dark } = useTheme();
-  const wing = dark ? '#C9D6F0' : '#DCE6F7';
-  const wingLine = dark ? '#8FA6D6' : '#A9BDE3';
-  const robe = dark ? '#F4EFE4' : '#FFFFFF';
-  const robeLine = dark ? '#CFC5B0' : '#E4D9C4';
-  const skin = '#F6D7BE';
-  const ink = '#3A3226';
-  const halo = '#D9AE5C';
+  const wing = onPrimary ? '#DCE2FF' : dark ? '#3A4590' : '#DCE2FF';
+  const robe = onPrimary ? '#FFFFFF' : '#2F45D6';
+  const skin = '#FFE2CC';
+  const ink = '#12142B';
+  const light = '#F2B544';
+  const party = mood === 'festa';
 
   return (
-    <Svg
-      width={size}
-      height={size}
-      viewBox="0 0 120 120"
-      accessibilityRole="image"
-      accessibilityLabel="Seu anjo da guarda"
-    >
-      {/* asas */}
-      <G>
-        <Path d="M40 66 C18 56 10 38 20 30 C30 36 36 48 46 58 Z" fill={wing} stroke={wingLine} strokeWidth={1.5} />
-        <Path d="M80 66 C102 56 110 38 100 30 C90 36 84 48 74 58 Z" fill={wing} stroke={wingLine} strokeWidth={1.5} />
-        <Path d="M24 38 C30 44 34 50 40 56" stroke={wingLine} strokeWidth={1.2} fill="none" strokeLinecap="round" />
-        <Path d="M96 38 C90 44 86 50 80 56" stroke={wingLine} strokeWidth={1.2} fill="none" strokeLinecap="round" />
-      </G>
-      {/* túnica */}
-      <Path d="M60 56 C44 56 36 80 34 104 C46 110 74 110 86 104 C84 80 76 56 60 56 Z" fill={robe} stroke={robeLine} strokeWidth={1.5} />
-      <Path d="M52 66 Q60 72 68 66" stroke={halo} strokeWidth={2} fill="none" strokeLinecap="round" />
-      {/* cabeça */}
-      <Circle cx={60} cy={42} r={19} fill={skin} />
-      {/* cabelo */}
-      <Path d="M42 40 C42 26 54 21 62 23 C70 21 80 28 78 40 C74 32 68 30 62 31 C56 30 48 32 42 40 Z" fill="#E9C27A" />
+    <Svg width={size} height={size} viewBox="0 0 120 120" accessibilityRole="image" accessibilityLabel="Seu anjo da guarda">
+      {party && <Circle cx={60} cy={64} r={54} fill={onPrimary ? '#FFFFFF' : light} opacity={onPrimary ? 0.1 : 0.14} />}
       {/* auréola */}
-      <Ellipse cx={60} cy={15} rx={15} ry={4.5} fill="none" stroke={halo} strokeWidth={3} />
-      {/* rosto */}
-      {mood === 'sereno' ? (
+      <Ellipse cx={60} cy={16} rx={20} ry={5.5} fill="none" stroke={light} strokeWidth={4} />
+      {/* asas */}
+      {party ? (
         <G>
-          <Path d="M50 44 Q53 46 56 44" stroke={ink} strokeWidth={2} fill="none" strokeLinecap="round" />
-          <Path d="M64 44 Q67 46 70 44" stroke={ink} strokeWidth={2} fill="none" strokeLinecap="round" />
-          <Path d="M56 51 Q60 53 64 51" stroke={ink} strokeWidth={1.8} fill="none" strokeLinecap="round" />
+          <Path d="M38 62 C18 54 10 32 16 22 C30 28 38 42 46 54 Z" fill={wing} />
+          <Path d="M82 62 C102 54 110 32 104 22 C90 28 82 42 74 54 Z" fill={wing} />
         </G>
       ) : (
         <G>
-          <Path d="M50 45 Q53 41 56 45" stroke={ink} strokeWidth={2} fill="none" strokeLinecap="round" />
-          <Path d="M64 45 Q67 41 70 45" stroke={ink} strokeWidth={2} fill="none" strokeLinecap="round" />
-          {mood === 'festa' ? (
-            <Path d="M54 50 Q60 58 66 50 Z" fill={ink} />
-          ) : (
-            <Path d="M55 50 Q60 55 65 50" stroke={ink} strokeWidth={1.8} fill="none" strokeLinecap="round" />
-          )}
+          <Path d="M38 66 C20 62 12 44 18 34 C30 38 38 48 46 58 Z" fill={wing} />
+          <Path d="M82 66 C100 62 108 44 102 34 C90 38 82 48 74 58 Z" fill={wing} />
         </G>
       )}
-      <Circle cx={48} cy={49} r={3} fill="#F2A7A0" opacity={0.6} />
-      <Circle cx={72} cy={49} r={3} fill="#F2A7A0" opacity={0.6} />
-      {mood === 'festa' && (
+      {/* túnica */}
+      <Rect x={38} y={56} width={44} height={54} rx={22} fill={robe} />
+      <Circle cx={60} cy={78} r={party ? 6.5 : 5} fill={light} />
+      {party && <Circle cx={60} cy={78} r={11} fill={light} opacity={0.25} />}
+      {/* cabeça */}
+      <Circle cx={60} cy={42} r={20} fill={skin} />
+      {mood === 'sereno' ? (
         <G>
-          <Path d="M14 18 l3 6 l6 1 l-5 4 l1 6 l-5 -3 l-5 3 l1 -6 l-5 -4 l6 -1 Z" fill={halo} opacity={0.8} />
-          <Path d="M102 12 l2 4 l4 1 l-3 3 l1 4 l-4 -2 l-4 2 l1 -4 l-3 -3 l4 -1 Z" fill={halo} opacity={0.8} />
+          <Path d="M50 43 Q53 46 56 43" stroke={ink} strokeWidth={2.4} fill="none" strokeLinecap="round" />
+          <Path d="M64 43 Q67 46 70 43" stroke={ink} strokeWidth={2.4} fill="none" strokeLinecap="round" />
+          <Path d="M55 50 Q60 53 65 50" stroke={ink} strokeWidth={2.2} fill="none" strokeLinecap="round" />
+        </G>
+      ) : party ? (
+        <G>
+          <Path d="M50 42 Q53 38 56 42" stroke={ink} strokeWidth={2.4} fill="none" strokeLinecap="round" />
+          <Path d="M64 42 Q67 38 70 42" stroke={ink} strokeWidth={2.4} fill="none" strokeLinecap="round" />
+          <Path d="M53 49 Q60 57 67 49 Z" fill={ink} />
+        </G>
+      ) : (
+        <G>
+          <Circle cx={53} cy={42} r={2.8} fill={ink} />
+          <Circle cx={67} cy={42} r={2.8} fill={ink} />
+          <Path d="M54 50 Q60 55 66 50" stroke={ink} strokeWidth={2.4} fill="none" strokeLinecap="round" />
+        </G>
+      )}
+      <Circle cx={47} cy={48} r={3} fill="#FFB3A7" opacity={0.55} />
+      <Circle cx={73} cy={48} r={3} fill="#FFB3A7" opacity={0.55} />
+      {party && (
+        <G>
+          <Path d="M14 18 l2.5 5 l5.5 1 l-4 3.5 l1 5.5 l-5 -2.7 l-5 2.7 l1 -5.5 l-4 -3.5 l5.5 -1 Z" fill={light} />
+          <Path d="M104 10 l2 4 l4 0.8 l-3 2.8 l0.8 4 l-3.8 -2 l-3.8 2 l0.8 -4 l-3 -2.8 l4 -0.8 Z" fill={light} />
         </G>
       )}
     </Svg>

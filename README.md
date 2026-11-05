@@ -14,27 +14,42 @@ celular pelo Expo Go. O computador e o celular precisam estar ligados durante o
 teste.
 
 **Uma vez só (preparação):**
-1. No computador, instale o **Node.js** (versão "LTS") em https://nodejs.org.
-2. Instale o **Git** em https://git-scm.com (no Mac ele já costuma vir instalado).
-3. No celular, instale o **Expo Go** (App Store ou Google Play) e mantenha atualizado.
+1. No computador, instale o **Node.js** (versão "LTS") em https://nodejs.org —
+   aceite as opções padrão do instalador.
+2. No celular, instale o **Expo Go** (App Store ou Google Play) e mantenha atualizado.
 
-**Para rodar:**
-1. Abra o **Terminal** (Mac) ou o **Prompt de Comando** (Windows).
-2. Copie e cole, uma linha por vez, apertando Enter:
-   ```bash
-   git clone https://github.com/fernandapfranco/verbum-app.git
-   cd verbum-app
-   git checkout claude/biblia-catolica-app-kyivax
+**Baixar o app (sem precisar de Git):**
+1. Abra no computador:
+   https://github.com/fernandapfranco/verbum-app/archive/refs/heads/claude/biblia-catolica-app-kyivax.zip
+2. Salve o arquivo e **extraia** (Windows: clique com o botão direito → "Extrair
+   tudo…"). Vai surgir uma pasta chamada `verbum-app-claude-biblia-catolica-app-kyivax`.
+
+**Rodar:**
+1. Abra a pasta extraída. **Windows:** clique na barra de endereço da janela,
+   apague o que estiver escrito, digite `cmd` e aperte Enter — abre um Prompt de
+   Comando já dentro da pasta. **Mac:** clique com o botão direito na pasta →
+   "Novo Terminal na Pasta".
+2. Digite e aperte Enter (demora alguns minutos na primeira vez):
+   ```
    npm install
+   ```
+3. Depois:
+   ```
    npx expo start --tunnel
    ```
-   (`npm install` demora alguns minutos na primeira vez. Se perguntar se pode
-   instalar algo, responda `y` e Enter.)
-3. Vai aparecer um **QR code** no terminal.
+   Se perguntar se pode instalar algo (por exemplo `@expo/ngrok`), digite `y` e Enter.
+4. Vai aparecer um **QR code**.
    - **iPhone**: abra a câmera, aponte para o QR code e toque no aviso do Expo Go.
    - **Android**: abra o Expo Go → "Scan QR code".
-4. Para atualizar depois de novas mudanças: pare com `Ctrl + C`, rode
-   `git pull` e de novo `npx expo start --tunnel`.
+5. Para parar: `Ctrl + C`. Para pegar uma versão nova, baixe o ZIP de novo,
+   extraia e repita os passos.
+
+**Erro "'npm' não é reconhecido…"?** O Node.js não foi instalado (ou o Prompt
+foi aberto antes da instalação). Instale e abra um Prompt de Comando novo.
+
+**Prefere Git?** Instale em https://git-scm.com, abra um Prompt **novo** e use
+`git clone https://github.com/fernandapfranco/verbum-app.git`, `cd verbum-app` e
+`git checkout claude/biblia-catolica-app-kyivax`.
 
 Na primeira abertura o app copia a Bíblia (≈10 MB) para o aparelho; leva alguns
 segundos. Depois funciona **sem internet**. Para recomeçar do zero (ver o

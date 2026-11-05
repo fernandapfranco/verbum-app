@@ -1,9 +1,9 @@
 import { router, useLocalSearchParams } from 'expo-router';
-import { View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Angel } from '@/components/Angel';
-import { Button, T } from '@/components/ui';
+import { T } from '@/components/ui';
 import { useGamification } from '@/hooks/useGamification';
 import { FONTS, RADIUS, SPACE, useTheme } from '@/theme';
 
@@ -24,34 +24,46 @@ export default function Checkin() {
         : `${streak} dias seguidos. Até bati as asinhas de alegria!`;
 
   const Stat = ({ value, label }: { value: number; label: string }) => (
-    <View style={{ backgroundColor: c.surface, borderRadius: RADIUS.md, paddingVertical: SPACE.md, paddingHorizontal: SPACE.lg, alignItems: 'center', minWidth: 88 }}>
-      <T variant="title">{value}</T>
-      <T variant="caption" muted>
+    <View style={{ backgroundColor: 'rgba(255,255,255,0.14)', borderRadius: RADIUS.md, paddingVertical: SPACE.md, paddingHorizontal: SPACE.lg, alignItems: 'center', minWidth: 88 }}>
+      <T variant="title" color="#FFFFFF">
+        {value}
+      </T>
+      <T variant="caption" color="#E6EAFF">
         {label}
       </T>
     </View>
   );
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: c.primarySoft }}>
+    <SafeAreaView style={{ flex: 1, backgroundColor: '#2F45D6' }}>
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding: SPACE.xl, gap: SPACE.lg }}>
-        <Angel size={150} mood="festa" />
-        <T variant="label" color={c.goldText}>
+        <Angel size={150} mood="festa" onPrimary />
+        <T variant="label" color="#E6EAFF">
           Check-in feito
         </T>
-        <T style={{ fontFamily: FONTS.uiBold, fontSize: 40, lineHeight: 48 }} accessibilityLabel={`Mais ${reward + bonus} talentos`}>
+        <T color="#FFFFFF" style={{ fontFamily: FONTS.uiExtraBold, fontSize: 42, lineHeight: 50, letterSpacing: -1 }} accessibilityLabel={`Mais ${reward + bonus} talentos`}>
           +{reward + bonus} talentos
         </T>
-        <T style={{ textAlign: 'center' }}>{message}</T>
+        <T color="#E6EAFF" style={{ textAlign: 'center' }}>
+          {message}
+        </T>
         <View style={{ flexDirection: 'row', gap: SPACE.sm }}>
           <Stat value={streak} label={streak === 1 ? 'dia' : 'dias'} />
           <Stat value={g.talentos} label="talentos" />
           <Stat value={g.velas} label={g.velas === 1 ? 'vela' : 'velas'} />
         </View>
-        <T variant="caption" muted style={{ textAlign: 'center' }}>
+        <T variant="caption" color="#E6EAFF" style={{ textAlign: 'center' }}>
           Talentos compram velas de proteção: se um dia não der, a vela guarda sua ofensiva.
         </T>
-        <Button title="Continuar" onPress={() => router.back()} style={{ alignSelf: 'stretch' }} />
+        <Pressable
+          onPress={() => router.back()}
+          accessibilityRole="button"
+          style={({ pressed }) => ({ alignSelf: 'stretch', minHeight: 54, borderRadius: 999, backgroundColor: c.gold, alignItems: 'center', justifyContent: 'center', opacity: pressed ? 0.85 : 1 })}
+        >
+          <T variant="bodyStrong" color="#12142B" style={{ fontFamily: FONTS.uiExtraBold }}>
+            Continuar
+          </T>
+        </Pressable>
       </View>
     </SafeAreaView>
   );

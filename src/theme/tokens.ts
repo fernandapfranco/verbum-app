@@ -1,6 +1,7 @@
 /**
- * Identidade visual: creme, azul mariano e dourado; serifada (Literata) para o
- * texto bíblico e sem serifa (Inter) para a interface.
+ * Identidade visual "Luz": minimalista, clara e arejada. Azul mariano vivo,
+ * dourado como luz, cantos bem arredondados. Newsreader (serifada) para o
+ * texto bíblico e Plus Jakarta Sans para a interface.
  *
  * Contraste: todas as combinações de texto abaixo foram escolhidas para atingir
  * WCAG AA (4,5:1) sobre o fundo correspondente. O dourado `gold` é decorativo;
@@ -27,36 +28,36 @@ export interface Palette {
 }
 
 export const LIGHT: Palette = {
-  bg: '#FBF7EF',
+  bg: '#F6F7FB',
   surface: '#FFFFFF',
-  surfaceAlt: '#F3ECDD',
-  border: '#E4D9C4',
-  text: '#1F2430',
-  textMuted: '#585E6B',
-  primary: '#1E3A6E',
+  surfaceAlt: '#EEF0F6',
+  border: '#E1E4EE',
+  text: '#12142B',
+  textMuted: '#4A4E6A',
+  primary: '#2F45D6',
   onPrimary: '#FFFFFF',
-  primarySoft: '#E3EAF6',
-  gold: '#C9A04A',
-  goldText: '#7D5A12',
-  success: '#2F6B4F',
-  danger: '#A23B3B',
-  overlay: 'rgba(16, 20, 31, 0.45)',
+  primarySoft: '#E6EAFF',
+  gold: '#F2B544',
+  goldText: '#8A5A00',
+  success: '#1F7A55',
+  danger: '#B42335',
+  overlay: 'rgba(18, 20, 43, 0.45)',
 };
 
 export const DARK: Palette = {
-  bg: '#10141F',
-  surface: '#1A2030',
-  surfaceAlt: '#222A3D',
-  border: '#2E3850',
-  text: '#EDE8DD',
-  textMuted: '#A9AFBD',
-  primary: '#9DB8EA',
-  onPrimary: '#0E1525',
-  primarySoft: '#23324F',
-  gold: '#D9AE5C',
-  goldText: '#E2BD72',
+  bg: '#0E1022',
+  surface: '#181B33',
+  surfaceAlt: '#20243F',
+  border: '#2C3152',
+  text: '#EEF0FF',
+  textMuted: '#A7ABC8',
+  primary: '#8C9BFF',
+  onPrimary: '#0E1022',
+  primarySoft: '#232A5C',
+  gold: '#F2B544',
+  goldText: '#F5C76A',
   success: '#7CC4A0',
-  danger: '#E58A8A',
+  danger: '#F08A8A',
   overlay: 'rgba(0, 0, 0, 0.6)',
 };
 
@@ -71,9 +72,9 @@ export interface ReaderPalette {
 }
 
 export const READER_THEMES: Record<ReaderThemeId, ReaderPalette> = {
-  claro: { bg: '#FFFDF8', text: '#1F2430', muted: '#5D6370', verseNumber: '#8A6A2A', link: '#1E3A6E' },
+  claro: { bg: '#FFFFFF', text: '#12142B', muted: '#4A4E6A', verseNumber: '#2F45D6', link: '#2F45D6' },
   sepia: { bg: '#F4ECD8', text: '#3D3020', muted: '#6B5A40', verseNumber: '#8A5A1E', link: '#5A3A10' },
-  noturno: { bg: '#0F1218', text: '#DDD6C8', muted: '#9AA0AC', verseNumber: '#C9A04A', link: '#9DB8EA' },
+  noturno: { bg: '#0E1022', text: '#E3E5F5', muted: '#A7ABC8', verseNumber: '#F2B544', link: '#8C9BFF' },
 };
 
 export type HighlightColor = 'amarelo' | 'verde' | 'azul' | 'rosa';
@@ -86,14 +87,15 @@ export const HIGHLIGHTS: Record<HighlightColor, { light: string; dark: string; l
 };
 
 export const FONTS = {
-  scripture: 'Literata_400Regular',
-  scriptureItalic: 'Literata_400Regular_Italic',
-  scriptureBold: 'Literata_600SemiBold',
-  ui: 'Inter_400Regular',
-  uiMedium: 'Inter_500Medium',
-  uiSemiBold: 'Inter_600SemiBold',
-  uiBold: 'Inter_700Bold',
+  scripture: 'Newsreader_400Regular',
+  scriptureItalic: 'Newsreader_400Regular_Italic',
+  scriptureBold: 'Newsreader_600SemiBold',
+  ui: 'PlusJakartaSans_400Regular',
+  uiMedium: 'PlusJakartaSans_500Medium',
+  uiSemiBold: 'PlusJakartaSans_600SemiBold',
+  uiBold: 'PlusJakartaSans_700Bold',
+  uiExtraBold: 'PlusJakartaSans_800ExtraBold',
 } as const;
 
 export const SPACE = { xs: 4, sm: 8, md: 12, lg: 16, xl: 24, xxl: 32 } as const;
-export const RADIUS = { sm: 8, md: 14, lg: 20, pill: 999 } as const;
+export const RADIUS = { sm: 12, md: 18, lg: 28, pill: 999 } as const;

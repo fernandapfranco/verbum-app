@@ -27,14 +27,14 @@ Ao fim de cada fase: mostrar o que foi feito e como testar no Expo Go.
 - **Revisão doutrinal**: não há revisor ainda. Todo conteúdo explicativo tem `status` (`rascunho` | `em-revisao` | `aprovado`) e `fontes`; o app mostra etiqueta "em revisão" até aprovar. Processo em `docs/revisao-doutrinal.md`.
 - **Tom**: acolhedor, sem "igrejês", sem culpa. O anjo nunca cobra; volta após sumiço = "Que bom te ver de novo!". Jesus não é personagem animado. Usar linguagem neutra de gênero quando possível ("Boas-vindas", não "Bem-vindo").
 - **Plano de leitura**: nunca guarda "dívida". A leitura de hoje é recalculada a partir do que falta e do tempo que resta (`src/lib/plan/engine.ts`). Peso = minutos (palavras ÷ 170/min), não capítulos.
-- **Visual**: creme `#FBF7EF`, azul mariano `#1E3A6E`, dourado `#C9A04A`; Literata (texto bíblico) + Inter (interface). Contraste AA. Tokens em `src/theme/tokens.ts`. Na Fase 3, `accent` segue o tempo litúrgico.
+- **Visual**: ver "Identidade visual: Luz" abaixo. Contraste AA. Tokens em `src/theme/tokens.ts`. Na Fase 3, `accent` segue o tempo litúrgico.
 - **Testes**: `node:test` via `tsx` (sem Jest), para lógica pura. `npm test`.
 - **Onboarding = questionário** (nome, objetivos, experiência, momento na fé, tempo, horário), cada pergunta com "Pular" e opção de pular tudo; depois notificações, nome do anjo e uma **sugestão** de começo (trilha, plano ou explorar) — `src/lib/recommend.ts`. Trilhas não são mais impostas.
 - **Check-in diário** (antecipado da Fase 2): a primeira atividade do dia (capítulo lido ou lição concluída) é o check-in → +10 talentos, +30 a cada 7 dias seguidos. **Ofensiva** = dias seguidos com check-in ou protegidos. **Velas** (50 talentos, máx. 2, 1 de presente) protegem dias perdidos automaticamente ao abrir o app. Sem velas, a ofensiva recomeça sem bronca. Lógica pura em `src/lib/streak.ts`.
-- **Moeda**: "talentos" (parábola dos talentos), com ícone de diamante — nome ainda aberto para a dona do projeto confirmar.
+- **Moeda**: "talentos" (parábola dos talentos), com ícone de diamante — confirmado.
 - **Notificações locais** (`src/lib/notifications.ts`): lembrete diário no horário escolhido, aviso de ofensiva em risco (20h30) e Angelus (6h/12h/18h), reagendadas para 7 dias a cada abertura/check-in/mudança. Funcionam no Expo Go.
 - **Ofensiva com amigos**: depende de conta e servidor → Fase 4 (Supabase).
-- **Identidade visual**: em escolha. Três propostas (Luz, Vitral, Aurora) no painel de design; aplicar a escolhida trocando `src/theme/tokens.ts`, fontes e `Angel.tsx`.
+- **Identidade visual: "Luz"** (escolhida entre Luz, Vitral e Aurora). Fundo névoa `#F6F7FB`, azul mariano `#2F45D6`, dourado-luz `#F2B544`, tinta `#12142B`; Plus Jakarta Sans (interface, títulos em ExtraBold) + Newsreader (texto bíblico); cantos grandes (cartões 28 px), cartões sem contorno no tema claro; cartão principal azul. Anjo: formas chapadas, túnica azul com ponto de luz no peito (`onPrimary` = túnica branca sobre azul). Ícone e splash em `assets/` gerados a partir do anjo.
 
 ## Estrutura
 ```
