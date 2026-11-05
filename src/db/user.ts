@@ -101,6 +101,15 @@ const MIGRATIONS: string[] = [
     at TEXT NOT NULL
   );
   `,
+  `
+  -- Orações guiadas concluídas (terço, Rosário…), para conquistas e estatísticas
+  CREATE TABLE prayer_log (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    kind TEXT NOT NULL,             -- 'terco' | 'rosario'
+    detail TEXT,                    -- ex.: 'gozosos'
+    at TEXT NOT NULL
+  );
+  `,
 ];
 
 let db: SQLiteDatabase | null = null;
@@ -437,6 +446,7 @@ export function exportAllData(extra: Record<string, unknown>) {
     diario: all('SELECT * FROM journal ORDER BY created_at'),
     trilhas: all('SELECT * FROM trail_progress'),
     checkins: all('SELECT * FROM checkins ORDER BY day'),
+    oracoes: all('SELECT * FROM prayer_log ORDER BY id'),
     diasProtegidos: all('SELECT * FROM protected_days ORDER BY day'),
     carteira: all('SELECT * FROM wallet ORDER BY id'),
     consentimentos: all('SELECT * FROM consent_log ORDER BY id'),
@@ -449,7 +459,7 @@ export function wipeAllData() {
   d.withTransactionSync(() => {
     for (const t of [
       'reading_log', 'plans', 'highlights', 'favorites', 'notes', 'journal', 'trail_progress', 'consent_log',
-      'checkins', 'protected_days', 'wallet',
+      'checkins', 'protected_days', 'wallet', 'prayer_log',
     ])
       d.runSync(`DELETE FROM ${t}`);
   });
@@ -497,7 +507,7 @@ export interface CheckinResult {
  * Registra uma atividade concluída. A primeira do dia vira o check-in e rende
  * talentos (mais um bônus a cada 7 dias seguidos).
  */
-export function recordActivity(source: 'leitura' | 'licao'): CheckinResult {
+export function recordActivity(source: 'leitura' | 'licao' | 'oracao'): CheckinResult {
   const d = userDb();
   const day = todayISO();
   if (d.getFirstSync('SELECT 1 FROM checkins WHERE day = ?', day)) {
@@ -545,4 +555,15 @@ export function buyCandle(): BuyResult {
   });
   bump();
   return 'ok';
+}
+
+// ---------------------------------------------------------------- orações guiadas
+
+export function logPrayer(kind: 'terco' | 'rosario', detail?: string) {
+  userDb().runSync('INSERT INTO prayer_log (kind, detail, at) VALUES (?, ?, ?)', kind, detail ?? null, now());
+  bump();
+}
+
+export function countPrayers(kind: 'terco' | 'rosario'): number {
+  return userDb().getFirstSync<{ n: number }>('SELECT COUNT(*) AS n FROM prayer_log WHERE kind = ?', kind)?.n ?? 0;
 }

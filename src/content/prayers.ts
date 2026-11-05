@@ -142,6 +142,15 @@ export const PRAYERS: readonly Prayer[] = [
     ['CIC 2677', 'CIC 969'],
   ),
 
+  p(
+    'fatima',
+    'marianas',
+    'Ó meu Jesus (oração de Fátima)',
+    'Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno, levai as almas todas para o céu e socorrei principalmente as que mais precisarem da vossa misericórdia.',
+    'Rezada no terço depois de cada Glória. Foi ensinada por Nossa Senhora aos pastorinhos em Fátima (1917).',
+    ['CIC 67 (revelações privadas)'],
+  ),
+
   // Perdão
   p(
     'ato-de-contricao',

@@ -1,4 +1,4 @@
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import { View } from 'react-native';
 
@@ -7,6 +7,7 @@ import { Card, Divider, Row, Screen, T } from '@/components/ui';
 import { PRAYER_GROUPS, PRAYERS } from '@/content/prayers';
 import { today } from '@/lib/dates';
 import { isReginaCaeliTime } from '@/lib/liturgy';
+import { mysteriesForDate, SET_NAME } from '@/lib/rosary';
 import { SPACE, useTheme } from '@/theme';
 
 export default function Orar() {
@@ -38,6 +39,19 @@ export default function Orar() {
         </T>
       </Card>
 
+      <Card onPress={() => router.push('/terco')} accessibilityLabel={`Terço guiado: ${SET_NAME[mysteriesForDate(today())]}`}>
+        <View style={{ flexDirection: 'row', gap: SPACE.md, alignItems: 'center' }}>
+          <MaterialCommunityIcons name="circle-multiple-outline" size={28} color={c.primary} />
+          <View style={{ flex: 1 }}>
+            <T variant="heading">Terço guiado</T>
+            <T variant="caption" muted>
+              Hoje: {SET_NAME[mysteriesForDate(today())]} · com contador de contas
+            </T>
+          </View>
+          <Ionicons name="chevron-forward" size={20} color={c.textMuted} />
+        </View>
+      </Card>
+
       {PRAYER_GROUPS.map((g) => {
         const items = PRAYERS.filter((p) => p.grupo === g.id && (g.id !== 'do-dia' || p.id === marian));
         return (
@@ -61,17 +75,6 @@ export default function Orar() {
         );
       })}
 
-      <Card tone="alt">
-        <View style={{ flexDirection: 'row', gap: SPACE.md, alignItems: 'center' }}>
-          <Ionicons name="ellipse-outline" size={22} color={c.textMuted} />
-          <View style={{ flex: 1 }}>
-            <T variant="bodyStrong">Terço guiado</T>
-            <T variant="caption" muted>
-              Em breve: o terço com os mistérios do dia e um contador de contas.
-            </T>
-          </View>
-        </View>
-      </Card>
     </Screen>
   );
 }

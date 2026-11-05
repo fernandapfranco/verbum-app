@@ -44,7 +44,7 @@ export async function refreshNotifications() {
  * check-in, se este foi o primeiro do dia.
  */
 export function useCheckin() {
-  return useCallback((source: 'leitura' | 'licao') => {
+  return useCallback((source: 'leitura' | 'licao' | 'oracao') => {
     const r = recordActivity(source);
     if (r.isNew) refreshNotifications();
     return r;
