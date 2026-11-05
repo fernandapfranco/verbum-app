@@ -1,0 +1,481 @@
+﻿"tipo","id","arquivo","texto","fontes","status_atual","parecer","comentario"
+"Introdução de livro","genesis","src/content/bookIntros.ts","QUEM: A tradição liga os cinco primeiros livros a Moisés; hoje se entende que reúnem tradições do povo de Israel guardadas e escritas ao longo de séculos.
+CONTEXTO: O livro das origens: do mundo, da humanidade e do povo de Deus.
+O QUE ESPERAR: Começa com a criação e a queda, e segue com as histórias de Abraão, Isaac, Jacó e José. Não é um livro de ciência: ele responde quem fez tudo e por quê — por amor.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","exodo","src/content/bookIntros.ts","QUEM: Faz parte do Pentateuco, as tradições ligadas a Moisés.
+CONTEXTO: Israel escravo no Egito e libertado por Deus.
+O QUE ESPERAR: Saída do Egito, travessia do mar, a Aliança no Sinai e os Dez Mandamentos. É a grande história de libertação que prepara a Páscoa de Jesus.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","levitico","src/content/bookIntros.ts","QUEM: Faz parte do Pentateuco; reúne leis guardadas pelos sacerdotes da tribo de Levi.
+CONTEXTO: Como o povo libertado devia viver e celebrar diante de um Deus santo.
+O QUE ESPERAR: Muitas normas de culto e de pureza. Dica: leia buscando a ideia central — ""Sede santos, porque eu sou santo"" — sem se prender aos detalhes.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","numeros","src/content/bookIntros.ts","QUEM: Faz parte do Pentateuco.
+CONTEXTO: Os quarenta anos de Israel no deserto, a caminho da Terra Prometida.
+O QUE ESPERAR: Recenseamentos (daí o nome), murmurações e a fidelidade paciente de Deus a um povo que tropeça. Muito parecido com a nossa caminhada.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","deuteronomio","src/content/bookIntros.ts","QUEM: Faz parte do Pentateuco; apresenta-se como os discursos de despedida de Moisés.
+CONTEXTO: O povo está às portas da Terra Prometida.
+O QUE ESPERAR: Uma ""segunda lei"" que recorda a Aliança com o coração. Aqui está o ""Escuta, Israel… amarás o Senhor teu Deus"", que Jesus chamou de primeiro mandamento.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","josue","src/content/bookIntros.ts","QUEM: Leva o nome de Josué, sucessor de Moisés; faz parte das narrativas históricas de Israel.
+CONTEXTO: A entrada do povo na Terra Prometida.
+O QUE ESPERAR: Batalhas e a partilha da terra. Lembre que são narrativas antigas, com linguagem da época; o centro é a fidelidade de Deus à promessa.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","juizes","src/content/bookIntros.ts","QUEM: Narrativas históricas reunidas e organizadas pela tradição de Israel.
+CONTEXTO: O tempo entre a chegada à terra e os reis.
+O QUE ESPERAR: Um ciclo que se repete: o povo se afasta, sofre, clama, e Deus envia um ""juiz"" libertador, como Gedeão e Sansão.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","rute","src/content/bookIntros.ts","QUEM: Autor desconhecido.
+CONTEXTO: Tempo dos Juízes.
+O QUE ESPERAR: Uma história curta e bonita de amizade e fidelidade. Rute, estrangeira, entra na família de onde nascerá Davi — e, mais tarde, Jesus.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","1-samuel","src/content/bookIntros.ts","QUEM: Leva o nome do profeta Samuel; faz parte das narrativas históricas de Israel.
+CONTEXTO: A passagem dos juízes para a monarquia.
+O QUE ESPERAR: Samuel, o rei Saul e a escolha do jovem Davi, o pastor que vence Golias. Mostra que Deus olha o coração.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","2-samuel","src/content/bookIntros.ts","QUEM: Continuação de 1 Samuel.
+CONTEXTO: O reinado de Davi.
+O QUE ESPERAR: As vitórias e as quedas de Davi, seu pecado e seu arrependimento sincero, e a promessa de que de sua família viria um rei eterno.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","1-reis","src/content/bookIntros.ts","QUEM: Narrativas históricas de Israel.
+CONTEXTO: De Salomão à divisão do reino.
+O QUE ESPERAR: A sabedoria de Salomão, a construção do Templo e o profeta Elias. Mostra como a fidelidade (ou não) a Deus marca a vida do povo.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","2-reis","src/content/bookIntros.ts","QUEM: Continuação de 1 Reis.
+CONTEXTO: Até a destruição de Jerusalém e o exílio na Babilônia.
+O QUE ESPERAR: O profeta Eliseu e a sucessão de reis. Termina com a dor do exílio — e uma pequena luz de esperança.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","1-cronicas","src/content/bookIntros.ts","QUEM: Obra do ""cronista"", que releu a história de Israel após o exílio. Em edições antigas, chama-se Paralipômenos.
+CONTEXTO: Escrito para um povo que reconstruía sua fé depois do exílio.
+O QUE ESPERAR: Genealogias longas no começo (pode passar mais rápido) e depois o reinado de Davi, com foco no culto e no Templo.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","2-cronicas","src/content/bookIntros.ts","QUEM: Continuação de 1 Crônicas.
+CONTEXTO: De Salomão ao exílio, recontado com foco no Templo.
+O QUE ESPERAR: Uma releitura da história dos reis de Judá que convida a confiar em Deus e a cuidar da oração.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","esdras","src/content/bookIntros.ts","QUEM: Leva o nome de Esdras, sacerdote e escriba.
+CONTEXTO: A volta do exílio e a reconstrução do Templo.
+O QUE ESPERAR: Recomeçar depois da crise: o povo volta, reconstrói e renova a Aliança com Deus.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","neemias","src/content/bookIntros.ts","QUEM: Leva o nome de Neemias, governador judeu.
+CONTEXTO: A reconstrução das muralhas de Jerusalém.
+O QUE ESPERAR: Oração e trabalho andando juntos. Um livro inspirador para quem está reconstruindo a própria vida.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","tobias","src/content/bookIntros.ts","QUEM: Autor desconhecido. É um dos livros que só estão no cânon católico (deuterocanônicos).
+CONTEXTO: Uma família judia fiel vivendo longe da sua terra.
+O QUE ESPERAR: Uma história cheia de ternura, com o anjo Rafael acompanhando o jovem Tobias. Fala de oração, família, caridade — e de anjos da guarda.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","judite","src/content/bookIntros.ts","QUEM: Autor desconhecido; livro deuterocanônico.
+CONTEXTO: Narrativa sobre a fé em tempos de ameaça.
+O QUE ESPERAR: Judite, mulher de oração e coragem, salva seu povo. Mais do que crônica, é uma história que ensina a confiar em Deus.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","ester","src/content/bookIntros.ts","QUEM: Autor desconhecido. A versão católica inclui trechos em grego (no fim, nesta tradução).
+CONTEXTO: Judeus vivendo no império persa.
+O QUE ESPERAR: A rainha Ester arrisca a vida para salvar seu povo. Mostra Deus agindo de forma discreta na história.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","1-macabeus","src/content/bookIntros.ts","QUEM: Autor desconhecido; livro deuterocanônico.
+CONTEXTO: Século II antes de Cristo: perseguição à fé judaica.
+O QUE ESPERAR: A resistência da família dos Macabeus para continuar fiel a Deus. Fala de coragem e de identidade.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","2-macabeus","src/content/bookIntros.ts","QUEM: Autor desconhecido; livro deuterocanônico.
+CONTEXTO: Os mesmos acontecimentos de 1 Macabeus, com outro olhar.
+O QUE ESPERAR: Testemunhos de martírio e uma fé clara na ressurreição e na oração pelos falecidos (cap. 12).","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","jo","src/content/bookIntros.ts","QUEM: Autor desconhecido; um dos livros sapienciais.
+CONTEXTO: Uma grande reflexão poética sobre o sofrimento.
+O QUE ESPERAR: Por que o justo sofre? Jó discute com amigos e com Deus, com toda a honestidade. Bom para quem está passando por dor.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","salmos","src/content/bookIntros.ts","QUEM: Coleção de 150 orações; muitos são atribuídos a Davi. Nesta tradução, a numeração segue a antiga (grega/latina).
+CONTEXTO: O livro de oração de Israel — e de Jesus.
+O QUE ESPERAR: Louvor, choro, pedido de perdão, gratidão. Há um salmo para cada estado de alma. Leia rezando, devagar.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","proverbios","src/content/bookIntros.ts","QUEM: Atribuído em grande parte a Salomão; reúne a sabedoria de Israel.
+CONTEXTO: Conselhos para a vida do dia a dia.
+O QUE ESPERAR: Frases curtas sobre palavras, trabalho, amizade e humildade. Leia poucos por vez e guarde um.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","eclesiastes","src/content/bookIntros.ts","QUEM: Apresenta-se como palavras do ""Coélet"", o pregador; a tradição o ligou a Salomão.
+CONTEXTO: Uma reflexão sobre o sentido da vida.
+O QUE ESPERAR: ""Vaidade das vaidades"": tudo passa. Um livro honesto que nos leva a buscar o que permanece.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","cantico","src/content/bookIntros.ts","QUEM: Atribuído a Salomão.
+CONTEXTO: Poemas de amor entre o amado e a amada.
+O QUE ESPERAR: Celebra o amor humano e, na leitura da Igreja, o amor de Deus por seu povo e por cada alma.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","sabedoria","src/content/bookIntros.ts","QUEM: Autor judeu anônimo que escreveu em grego, pouco antes de Cristo; deuterocanônico.
+CONTEXTO: Para judeus vivendo no mundo grego.
+O QUE ESPERAR: Um elogio à Sabedoria de Deus e uma fé clara na vida eterna: ""as almas dos justos estão na mão de Deus"".","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","eclesiastico","src/content/bookIntros.ts","QUEM: Escrito por Jesus Ben Sirac (por isso também chamado Sirácida); deuterocanônico.
+CONTEXTO: Ensino de um sábio de Jerusalém, cerca de 180 anos antes de Cristo.
+O QUE ESPERAR: Conselhos práticos sobre família, amizade, trabalho e oração. Um ""manual de vida"" com muitas joias.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","isaias","src/content/bookIntros.ts","QUEM: Leva o nome do profeta Isaías (século VIII a.C.); reúne também oráculos de seus discípulos.
+CONTEXTO: De tempos de crise até a volta do exílio.
+O QUE ESPERAR: Muitas profecias que a Igreja lê no Advento e na Semana Santa: o Emanuel, o Servo Sofredor, a consolação do povo.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","jeremias","src/content/bookIntros.ts","QUEM: O profeta Jeremias, com seu secretário Baruc.
+CONTEXTO: Os anos antes e durante a queda de Jerusalém.
+O QUE ESPERAR: Um profeta sensível, que sofre com sua missão. Promete uma ""nova Aliança"" escrita no coração.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","lamentacoes","src/content/bookIntros.ts","QUEM: Tradicionalmente atribuído a Jeremias.
+CONTEXTO: Depois da destruição de Jerusalém.
+O QUE ESPERAR: Poemas de luto. Ensinam a levar a dor a Deus — e no meio deles: ""as misericórdias do Senhor não têm fim"".","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","baruc","src/content/bookIntros.ts","QUEM: Ligado a Baruc, secretário de Jeremias; deuterocanônico. O último capítulo é a ""Carta de Jeremias"".
+CONTEXTO: Para os judeus no exílio.
+O QUE ESPERAR: Confissão de pecados, elogio da Sabedoria e esperança de volta para casa.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","ezequiel","src/content/bookIntros.ts","QUEM: O profeta Ezequiel, sacerdote levado ao exílio.
+CONTEXTO: Exílio na Babilônia.
+O QUE ESPERAR: Visões fortes e simbólicas. Destaques: o pastor que busca a ovelha perdida e os ossos secos que voltam à vida.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","daniel","src/content/bookIntros.ts","QUEM: Leva o nome de Daniel. A versão católica inclui os capítulos 13 e 14 (Susana, Bel e o dragão).
+CONTEXTO: Judeus fiéis em terra estrangeira e tempos de perseguição.
+O QUE ESPERAR: Histórias de fidelidade (a cova dos leões) e visões sobre o fim dos tempos e o ""Filho do Homem"".","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","oseias","src/content/bookIntros.ts","QUEM: O profeta Oseias.
+CONTEXTO: Reino do Norte, século VIII a.C.
+O QUE ESPERAR: Deus como esposo fiel que continua amando um povo infiel. Um dos livros mais ternos sobre a misericórdia.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","joel","src/content/bookIntros.ts","QUEM: O profeta Joel.
+CONTEXTO: Época de calamidade.
+O QUE ESPERAR: Chamado à conversão e a promessa: ""derramarei o meu Espírito"" — cumprida em Pentecostes.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","amos","src/content/bookIntros.ts","QUEM: O profeta Amós, um pastor.
+CONTEXTO: Tempo de riqueza injusta em Israel.
+O QUE ESPERAR: Um profeta que defende os pobres e denuncia uma religião sem justiça.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","abdias","src/content/bookIntros.ts","QUEM: O profeta Abdias.
+CONTEXTO: O menor livro do Antigo Testamento.
+O QUE ESPERAR: Um só capítulo sobre a justiça de Deus diante da arrogância das nações.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","jonas","src/content/bookIntros.ts","QUEM: Leva o nome do profeta Jonas.
+CONTEXTO: Uma narrativa com lição profunda.
+O QUE ESPERAR: O profeta que foge, o grande peixe e uma cidade inteira que se converte. Deus é misericordioso com todos.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","miqueias","src/content/bookIntros.ts","QUEM: O profeta Miqueias.
+CONTEXTO: Século VIII a.C.
+O QUE ESPERAR: Profecia de que o Messias nasceria em Belém e o resumo da fé: praticar a justiça, amar a misericórdia, caminhar humildemente com Deus.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","naum","src/content/bookIntros.ts","QUEM: O profeta Naum.
+CONTEXTO: A queda de Nínive, capital da Assíria.
+O QUE ESPERAR: Um poema sobre o fim dos opressores. Deus não abandona os pequenos.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","habacuc","src/content/bookIntros.ts","QUEM: O profeta Habacuc.
+CONTEXTO: Antes da invasão babilônica.
+O QUE ESPERAR: Um profeta que pergunta a Deus ""até quando?"" e aprende: ""o justo viverá pela fé"".","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","sofonias","src/content/bookIntros.ts","QUEM: O profeta Sofonias.
+CONTEXTO: Século VII a.C.
+O QUE ESPERAR: O ""Dia do Senhor"" e a alegria de Deus por seu povo: ""ele se alegrará por ti com cânticos"".","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","ageu","src/content/bookIntros.ts","QUEM: O profeta Ageu.
+CONTEXTO: A volta do exílio.
+O QUE ESPERAR: Um convite direto para reconstruir o Templo e colocar Deus em primeiro lugar.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","zacarias","src/content/bookIntros.ts","QUEM: O profeta Zacarias.
+CONTEXTO: A volta do exílio.
+O QUE ESPERAR: Visões de esperança e a profecia do rei humilde que entra montado num jumentinho, cumprida no Domingo de Ramos.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","malaquias","src/content/bookIntros.ts","QUEM: O ""mensageiro"" (é o que significa o nome).
+CONTEXTO: O último livro profético do Antigo Testamento.
+O QUE ESPERAR: Chama a um culto sincero e anuncia o mensageiro que preparará o caminho — que os Evangelhos ligam a João Batista.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","mateus","src/content/bookIntros.ts","QUEM: A tradição o atribui ao apóstolo Mateus, o cobrador de impostos que seguiu Jesus.
+CONTEXTO: Escrito para cristãos vindos do judaísmo.
+O QUE ESPERAR: Mostra Jesus como o Messias prometido. Aqui estão o Sermão da Montanha, as Bem-aventuranças e o Pai-Nosso.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","marcos","src/content/bookIntros.ts","QUEM: A tradição o atribui a Marcos, discípulo e intérprete de São Pedro.
+CONTEXTO: O Evangelho mais curto e, provavelmente, o primeiro escrito.
+O QUE ESPERAR: Rápido e cheio de ação: Jesus cura, ensina e chama. Ótimo para quem está começando. Leia como quem acompanha Jesus de perto.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","lucas","src/content/bookIntros.ts","QUEM: São Lucas, médico e companheiro de São Paulo; também escreveu os Atos.
+CONTEXTO: Dedicado a ""Teófilo"", para comunidades de origem não judaica.
+O QUE ESPERAR: O Evangelho da misericórdia: o Filho Pródigo, o Bom Samaritano, Zaqueu. Também traz a infância de Jesus e o olhar de Maria.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","joao","src/content/bookIntros.ts","QUEM: A tradição o atribui ao apóstolo João, ""o discípulo que Jesus amava"".
+CONTEXTO: O último Evangelho escrito, fruto de longa meditação.
+O QUE ESPERAR: Mais contemplativo: ""No princípio era o Verbo"". Sinais, longos diálogos e o mandamento do amor.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","atos","src/content/bookIntros.ts","QUEM: São Lucas, continuando seu Evangelho.
+CONTEXTO: Os primeiros anos da Igreja.
+O QUE ESPERAR: Pentecostes, Pedro e Paulo, e o Evangelho chegando até Roma. É a história da Igreja nascendo pela força do Espírito Santo.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","romanos","src/content/bookIntros.ts","QUEM: São Paulo.
+CONTEXTO: Carta à comunidade de Roma, antes de visitá-la.
+O QUE ESPERAR: A carta mais profunda de Paulo: somos salvos pela graça de Cristo, que nos dá vida nova no Espírito. Pode ler devagar, por partes.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","1-corintios","src/content/bookIntros.ts","QUEM: São Paulo.
+CONTEXTO: Para a comunidade de Corinto, cheia de dons e de problemas.
+O QUE ESPERAR: Divisões, Eucaristia, ressurreição e o famoso hino do amor (cap. 13): ""o amor é paciente…"".","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","2-corintios","src/content/bookIntros.ts","QUEM: São Paulo.
+CONTEXTO: Para a mesma comunidade, num momento de tensões.
+O QUE ESPERAR: Paulo abre o coração: ""a minha graça te basta, porque a força se aperfeiçoa na fraqueza"".","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","galatas","src/content/bookIntros.ts","QUEM: São Paulo.
+CONTEXTO: Para comunidades da Galácia.
+O QUE ESPERAR: A liberdade de quem vive em Cristo e os frutos do Espírito: amor, alegria, paz…","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","efesios","src/content/bookIntros.ts","QUEM: Tradicionalmente atribuída a São Paulo.
+CONTEXTO: Carta circular às comunidades da Ásia.
+O QUE ESPERAR: O grande plano de Deus de reunir tudo em Cristo, e a Igreja como seu Corpo.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","filipenses","src/content/bookIntros.ts","QUEM: São Paulo, escrevendo da prisão.
+CONTEXTO: Para uma comunidade muito querida.
+O QUE ESPERAR: A carta da alegria. Traz o hino de Cristo que ""se esvaziou"" por nós.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","colossenses","src/content/bookIntros.ts","QUEM: Tradicionalmente atribuída a São Paulo.
+CONTEXTO: Para a comunidade de Colossos.
+O QUE ESPERAR: Cristo no centro de tudo, acima de qualquer poder.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","1-tessalonicenses","src/content/bookIntros.ts","QUEM: São Paulo — provavelmente o escrito mais antigo do Novo Testamento.
+CONTEXTO: Para uma comunidade jovem e perseguida.
+O QUE ESPERAR: Carinho, esperança na volta de Cristo e um conselho: ""orai sem cessar"".","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","2-tessalonicenses","src/content/bookIntros.ts","QUEM: Tradicionalmente atribuída a São Paulo.
+CONTEXTO: Para a mesma comunidade.
+O QUE ESPERAR: Esclarece dúvidas sobre o fim dos tempos e anima a perseverar no bem.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","1-timoteo","src/content/bookIntros.ts","QUEM: Tradicionalmente atribuída a São Paulo.
+CONTEXTO: Ao discípulo Timóteo, que guiava a comunidade de Éfeso.
+O QUE ESPERAR: Conselhos sobre oração, líderes da comunidade e vida cristã.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","2-timoteo","src/content/bookIntros.ts","QUEM: Tradicionalmente atribuída a São Paulo, no fim da vida.
+CONTEXTO: Uma espécie de testamento espiritual.
+O QUE ESPERAR: ""Combati o bom combate, terminei a corrida, guardei a fé."" Fala do valor da Escritura.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","tito","src/content/bookIntros.ts","QUEM: Tradicionalmente atribuída a São Paulo.
+CONTEXTO: Ao discípulo Tito, em Creta.
+O QUE ESPERAR: Como organizar a comunidade e viver a fé de maneira concreta.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","filemom","src/content/bookIntros.ts","QUEM: São Paulo.
+CONTEXTO: Bilhete pessoal a Filêmon sobre Onésimo, um escravo fugitivo.
+O QUE ESPERAR: Um só capítulo: Paulo pede que Onésimo seja recebido ""como irmão"". O Evangelho mudando relações.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","hebreus","src/content/bookIntros.ts","QUEM: Autor desconhecido; a tradição a associou a São Paulo.
+CONTEXTO: Para cristãos de origem judaica, cansados na fé.
+O QUE ESPERAR: Jesus é o Sumo Sacerdote que nos entende. Um grande elogio da fé (cap. 11).","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","tiago","src/content/bookIntros.ts","QUEM: A tradição a atribui a Tiago, ""irmão do Senhor"".
+CONTEXTO: Carta para as comunidades em geral.
+O QUE ESPERAR: Fé que vira obras. Conselhos diretos sobre a língua, os pobres e a oração.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","1-pedro","src/content/bookIntros.ts","QUEM: O apóstolo São Pedro.
+CONTEXTO: Para cristãos que sofrem por sua fé.
+O QUE ESPERAR: Esperança no meio da dificuldade: somos ""pedras vivas"" de um povo santo.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","2-pedro","src/content/bookIntros.ts","QUEM: Tradicionalmente atribuída a São Pedro.
+CONTEXTO: Para comunidades diante de falsos mestres.
+O QUE ESPERAR: Convite a crescer na fé e a esperar a vinda do Senhor com paciência.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","1-joao","src/content/bookIntros.ts","QUEM: A tradição a atribui ao apóstolo João.
+CONTEXTO: Para comunidades ligadas a João.
+O QUE ESPERAR: ""Deus é amor."" Quem ama a Deus ama o irmão. Curta e muito profunda.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","2-joao","src/content/bookIntros.ts","QUEM: Atribuída a João, ""o Ancião"".
+CONTEXTO: Bilhete a uma comunidade (""a Senhora eleita"").
+O QUE ESPERAR: Andar na verdade e no amor.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","3-joao","src/content/bookIntros.ts","QUEM: Atribuída a João, ""o Ancião"".
+CONTEXTO: Bilhete pessoal a Gaio.
+O QUE ESPERAR: Elogio à hospitalidade com os missionários.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","judas","src/content/bookIntros.ts","QUEM: A tradição a atribui a Judas, ""irmão de Tiago"" — não o traidor.
+CONTEXTO: Para comunidades em perigo de se desviar.
+O QUE ESPERAR: Um alerta curto e um belo louvor final.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Introdução de livro","apocalipse","src/content/bookIntros.ts","QUEM: A tradição o atribui ao apóstolo João.
+CONTEXTO: Para igrejas perseguidas no fim do século I.
+O QUE ESPERAR: Linguagem simbólica (números, cores, animais). Não é um mapa do futuro: é uma mensagem de esperança — Cristo vence. Leia sem medo.","Dei Verbum 11–20; CIC 101–141","rascunho","",""
+"Nota de capítulo","marcos 1","src/content/chapterNotes.ts","Marcos não perde tempo: em poucas linhas aparecem João Batista, o batismo de Jesus, o deserto e os primeiros discípulos. Repare como Jesus chama pessoas comuns, no meio do trabalho delas — e elas deixam tudo para segui-lo.","","rascunho","",""
+"Nota de capítulo","marcos 2","src/content/chapterNotes.ts","Jesus perdoa pecados, come com pecadores e diz que veio ""chamar os pecadores"". Os religiosos se escandalizam. Pergunte-se: com quem Jesus faria questão de sentar à mesa hoje?","","rascunho","",""
+"Nota de capítulo","marcos 3","src/content/chapterNotes.ts","Cresce a oposição a Jesus, e ele escolhe os Doze apóstolos. No fim, uma frase bonita: quem faz a vontade de Deus é da família de Jesus.","","rascunho","",""
+"Nota de capítulo","marcos 4","src/content/chapterNotes.ts","Capítulo das parábolas: a semente, o grão de mostarda. Depois, a tempestade acalmada. A pergunta de Jesus aos discípulos com medo também é para nós: ""Ainda não tendes fé?""","","rascunho","",""
+"Nota de capítulo","marcos 5","src/content/chapterNotes.ts","Três encontros com Jesus: um homem atormentado, uma mulher doente há doze anos e uma menina que morreu. Nenhuma situação está perdida para ele.","","rascunho","",""
+"Nota de capítulo","marcos 6","src/content/chapterNotes.ts","Jesus é rejeitado em sua terra, envia os Doze em missão e alimenta uma multidão com cinco pães. Também é narrada a morte de João Batista.","","rascunho","",""
+"Nota de capítulo","marcos 7","src/content/chapterNotes.ts","Jesus mostra que o que torna alguém ""impuro"" não é a comida, mas o que sai do coração. E se deixa tocar pela fé de uma mulher estrangeira.","","rascunho","",""
+"Nota de capítulo","marcos 8","src/content/chapterNotes.ts","Ponto de virada do Evangelho: Pedro reconhece que Jesus é o Cristo. E Jesus anuncia que vai sofrer, morrer e ressuscitar — e que segui-lo é carregar a cruz.","","rascunho","",""
+"Nota de capítulo","marcos 9","src/content/chapterNotes.ts","A Transfiguração: por um instante, os discípulos veem a glória de Jesus. Depois, ele ensina que o maior é aquele que serve.","","rascunho","",""
+"Nota de capítulo","marcos 10","src/content/chapterNotes.ts","Jesus abençoa as crianças, conversa com um jovem rico que se afasta triste e cura o cego Bartimeu, que passa a segui-lo pelo caminho.","","rascunho","",""
+"Nota de capítulo","marcos 11","src/content/chapterNotes.ts","Começa a última semana: Jesus entra em Jerusalém aclamado e purifica o Templo. Fala também da força da oração feita com fé.","","rascunho","",""
+"Nota de capítulo","marcos 12","src/content/chapterNotes.ts","Discussões no Templo. No meio delas, o resumo de tudo: amar a Deus com todo o coração e o próximo como a si mesmo. E o elogio à viúva pobre.","","rascunho","",""
+"Nota de capítulo","marcos 13","src/content/chapterNotes.ts","Discurso sobre o fim dos tempos, com imagens fortes. A mensagem principal é simples: não tenham medo e estejam vigilantes.","","rascunho","",""
+"Nota de capítulo","marcos 14","src/content/chapterNotes.ts","Uma mulher unge Jesus, a Última Ceia (onde Jesus institui a Eucaristia), a oração no Getsêmani, a prisão e as negações de Pedro. Leia com calma.","CIC 1337–1340","rascunho","",""
+"Nota de capítulo","marcos 15","src/content/chapterNotes.ts","A Paixão e a morte de Jesus na cruz. É um texto para ler em silêncio. Note quem reconhece Jesus como Filho de Deus: um soldado romano.","","rascunho","",""
+"Nota de capítulo","marcos 16","src/content/chapterNotes.ts","O túmulo vazio: Jesus ressuscitou! As mulheres são as primeiras a receber a notícia. E os discípulos são enviados a anunciar o Evangelho a toda criatura.","","rascunho","",""
+"Nota de capítulo","lucas 15","src/content/chapterNotes.ts","Três parábolas da misericórdia: a ovelha perdida, a moeda perdida e o filho que volta para casa. Em todas, quem procura e faz festa é Deus. Se você está voltando, este capítulo é para você.","CIC 1439; CIC 545–546","rascunho","",""
+"Nota de capítulo","lucas 19","src/content/chapterNotes.ts","Zaqueu era chefe dos cobradores de impostos, rico e malvisto. Curioso, sobe numa árvore para ver Jesus — e é Jesus quem o chama pelo nome.","","rascunho","",""
+"Nota de capítulo","joao 21","src/content/chapterNotes.ts","Depois da ressurreição, Jesus encontra Pedro, que o havia negado três vezes. Em vez de cobrança, três perguntas: ""Tu me amas?"". O amor recomeça a história.","CIC 553; CIC 881","rascunho","",""
+"Nota de capítulo","salmos 22","src/content/chapterNotes.ts","Na numeração moderna, este é o Salmo 23: ""O Senhor é meu pastor"". Uma oração de confiança para rezar devagar, frase por frase.","","rascunho","",""
+"Nota de capítulo","salmos 50","src/content/chapterNotes.ts","Na numeração moderna, Salmo 51. É o ""Miserere"", a oração de Davi pedindo perdão depois de pecar gravemente. A Igreja reza este salmo há séculos.","CIC 1430–1431","rascunho","",""
+"Nota de capítulo","salmos 102","src/content/chapterNotes.ts","Na numeração moderna, Salmo 103. Um hino à bondade de Deus, que ""perdoa todas as tuas maldades"" e ""não nos trata segundo os nossos pecados"".","","rascunho","",""
+"Glossário","alianca","src/content/glossary.ts","Aliança: Um pacto de amor e fidelidade entre Deus e seu povo. Deus faz alianças com Noé, Abraão, Moisés e Davi; em Jesus, faz a ""nova e eterna Aliança"", selada com o seu sangue.","CIC 54–64; CIC 1964","rascunho","",""
+"Glossário","evangelho","src/content/glossary.ts","Evangelho: Quer dizer ""boa notícia"": a notícia de que Deus nos ama e nos salva em Jesus. Também é o nome dos quatro livros que contam a vida de Jesus (Mateus, Marcos, Lucas e João).","CIC 125–127","rascunho","",""
+"Glossário","messias","src/content/glossary.ts","Messias / Cristo: ""Messias"" (hebraico) e ""Cristo"" (grego) significam ""Ungido"": aquele que Deus consagra para salvar seu povo. Os cristãos reconhecem Jesus como o Messias prometido.","CIC 436–440","rascunho","",""
+"Glossário","reino","src/content/glossary.ts","Reino de Deus: Não é um lugar no mapa: é Deus reinando com seu amor, sua justiça e sua paz. Começa já, no coração de quem acolhe Jesus, e se completará no fim dos tempos.","CIC 541–546","rascunho","",""
+"Glossário","filho-do-homem","src/content/glossary.ts","Filho do Homem: Título que Jesus usa para si mesmo. Lembra a visão de Daniel 7, de alguém que recebe de Deus um reino eterno, e também a sua humanidade.","Dn 7,13-14","rascunho","",""
+"Glossário","parabola","src/content/glossary.ts","Parábola: Uma pequena história do dia a dia (sementes, ovelhas, moedas) que Jesus usa para ensinar algo sobre Deus. Convida a pensar e a tomar posição.","CIC 546","rascunho","",""
+"Glossário","apostolo","src/content/glossary.ts","Apóstolo: ""Enviado"". Os Doze escolhidos por Jesus para estar com ele e anunciar o Evangelho. Os bispos são seus sucessores.","CIC 857–862","rascunho","",""
+"Glossário","discipulo","src/content/glossary.ts","Discípulo: Quem segue um mestre para aprender com ele e viver como ele. Todo cristão é chamado a ser discípulo de Jesus.","","rascunho","",""
+"Glossário","penitencia","src/content/glossary.ts","Penitência / Conversão: Nesta tradução, ""fazer penitência"" traduz o chamado à conversão: mudar de mentalidade e de vida, voltando-se para Deus. Não é castigo: é um recomeço.","CIC 1430–1433","rascunho","",""
+"Glossário","graca","src/content/glossary.ts","Graça: Presente gratuito de Deus: sua própria vida e amor em nós, que não podemos merecer, mas podemos acolher.","CIC 1996–1999","rascunho","",""
+"Glossário","misericordia","src/content/glossary.ts","Misericórdia: O amor de Deus que se inclina sobre a nossa miséria para curar e perdoar. É o coração do Evangelho.","CIC 1846–1848","rascunho","",""
+"Glossário","pecado","src/content/glossary.ts","Pecado: Uma ofensa a Deus que também fere a nós e aos outros: escolher contra o amor. Deus nunca se cansa de perdoar quem volta para ele.","CIC 1849–1851","rascunho","",""
+"Glossário","espirito-santo","src/content/glossary.ts","Espírito Santo: A terceira Pessoa da Santíssima Trindade: o Amor de Deus que nos dá vida, coragem e entendimento. Foi derramado sobre a Igreja em Pentecostes.","CIC 683–747","rascunho","",""
+"Glossário","batismo","src/content/glossary.ts","Batismo: O batismo de João era um sinal de arrependimento. O Batismo cristão nos faz filhos de Deus, nos lava do pecado e nos torna parte da Igreja.","CIC 1213; CIC 1262–1274","rascunho","",""
+"Glossário","pentecostes","src/content/glossary.ts","Pentecostes: Festa judaica cinquenta dias depois da Páscoa. Nesse dia o Espírito Santo desceu sobre os apóstolos e Maria (At 2). É considerado o ""nascimento"" da Igreja em missão.","CIC 731–732","rascunho","",""
+"Glossário","pascoa","src/content/glossary.ts","Páscoa: ""Passagem"". Para os judeus, a libertação do Egito. Para os cristãos, a passagem de Jesus da morte à vida: sua Ressurreição, centro da nossa fé.","CIC 1168–1171","rascunho","",""
+"Glossário","amem","src/content/glossary.ts","Amém: Palavra hebraica que quer dizer ""é verdade"", ""assim seja"". É o nosso ""sim"" a Deus.","CIC 1061–1065","rascunho","",""
+"Glossário","aleluia","src/content/glossary.ts","Aleluia: ""Louvai o Senhor"" em hebraico. Um grito de alegria, especialmente cantado no tempo da Páscoa.","","rascunho","",""
+"Glossário","hosana","src/content/glossary.ts","Hosana: Aclamação hebraica que significa ""salva, por favor!"" e virou um grito de louvor, como no Domingo de Ramos.","","rascunho","",""
+"Glossário","emanuel","src/content/glossary.ts","Emanuel: ""Deus conosco"". Nome do menino anunciado por Isaías e que os Evangelhos aplicam a Jesus.","Is 7,14; Mt 1,23","rascunho","",""
+"Glossário","profeta","src/content/glossary.ts","Profeta: Alguém chamado por Deus para falar em seu nome: consolar, corrigir e anunciar o que Deus prepara. Mais do que ""prever o futuro"", é ler o presente com os olhos de Deus.","CIC 64; CIC 702","rascunho","",""
+"Glossário","lei","src/content/glossary.ts","Lei: A Lei de Moisés (Torá): o caminho de vida que Deus deu a Israel, resumido nos Dez Mandamentos. Jesus a leva à plenitude no mandamento do amor.","CIC 1961–1964","rascunho","",""
+"Glossário","templo","src/content/glossary.ts","Templo: O grande santuário de Jerusalém, lugar da presença de Deus no meio do povo. Jesus fala de seu próprio corpo como o novo Templo.","CIC 583–586","rascunho","",""
+"Glossário","sinagoga","src/content/glossary.ts","Sinagoga: Casa de oração e de estudo da Escritura dos judeus, presente em cada cidade. Jesus ensinava nelas aos sábados.","","rascunho","",""
+"Glossário","sabado","src/content/glossary.ts","Sábado: Dia sagrado de descanso para os judeus, em memória da criação e da libertação. Os cristãos celebram o domingo, dia da Ressurreição.","CIC 2168–2176","rascunho","",""
+"Glossário","fariseus","src/content/glossary.ts","Fariseus: Grupo judeu muito religioso, dedicado a cumprir a Lei nos mínimos detalhes. Jesus elogia seu zelo, mas critica quem se acha melhor que os outros.","","rascunho","",""
+"Glossário","saduceus","src/content/glossary.ts","Saduceus: Grupo ligado aos sacerdotes do Templo. Não acreditavam na ressurreição dos mortos.","","rascunho","",""
+"Glossário","escribas","src/content/glossary.ts","Escribas: Especialistas em ler e interpretar a Lei; os ""doutores da lei"".","","rascunho","",""
+"Glossário","publicanos","src/content/glossary.ts","Publicanos: Cobradores de impostos para Roma. Eram malvistos, considerados traidores e pecadores — e Jesus comia com eles.","","rascunho","",""
+"Glossário","samaritanos","src/content/glossary.ts","Samaritanos: Povo da Samaria, vizinho dos judeus, com quem havia antiga rivalidade. Jesus os coloca como exemplo de fé e de amor.","","rascunho","",""
+"Glossário","levita","src/content/glossary.ts","Levita: Membro da tribo de Levi, encarregado de ajudar no culto do Templo.","","rascunho","",""
+"Glossário","sinedrio","src/content/glossary.ts","Sinédrio / Conselho: O conselho supremo dos judeus em Jerusalém, presidido pelo sumo sacerdote.","","rascunho","",""
+"Glossário","sumo-sacerdote","src/content/glossary.ts","Príncipe dos sacerdotes: Os sacerdotes principais do Templo; ""príncipe dos sacerdotes"" é como esta tradução chama o sumo sacerdote.","","rascunho","",""
+"Glossário","gentios","src/content/glossary.ts","Gentios: Os povos que não eram judeus. O Evangelho é anunciado a todos eles.","","rascunho","",""
+"Glossário","circuncisao","src/content/glossary.ts","Circuncisão: Sinal da Aliança de Deus com Abraão, feito nos meninos judeus. São Paulo ensina que em Cristo o que conta é a fé que age pelo amor.","Gn 17; Gl 5,6","rascunho","",""
+"Glossário","denario","src/content/glossary.ts","Dinheiro / Denário: Moeda romana de prata, mais ou menos o pagamento de um dia de trabalho.","","rascunho","",""
+"Glossário","dracma","src/content/glossary.ts","Dracma: Moeda grega de prata, de valor parecido com o denário.","","rascunho","",""
+"Glossário","talento","src/content/glossary.ts","Talento: Uma quantia enorme de dinheiro (milhares de dias de trabalho). Da parábola dos talentos vem o sentido de ""dom"".","","rascunho","",""
+"Glossário","leproso","src/content/glossary.ts","Leproso: Pessoa com doença de pele grave. Era excluída do convívio. Jesus toca e cura os leprosos.","","rascunho","",""
+"Glossário","possesso","src/content/glossary.ts","Possesso / Espírito imundo: Pessoa dominada pelo mal. Jesus liberta com autoridade, mostrando que o Reino de Deus vence o mal.","CIC 550; CIC 1673","rascunho","",""
+"Glossário","satanas","src/content/glossary.ts","Satanás / Demônio: O Adversário: um anjo que rejeitou a Deus e tenta afastar as pessoas dele. Jesus o venceu.","CIC 391–395","rascunho","",""
+"Glossário","anjo","src/content/glossary.ts","Anjo: Criaturas espirituais que servem a Deus e o louvam; também são mensageiros e protetores. Cada um de nós tem um anjo da guarda.","CIC 328–336","rascunho","",""
+"Glossário","centuriao","src/content/glossary.ts","Centurião: Oficial do exército romano que comandava cerca de cem soldados.","","rascunho","",""
+"Glossário","jordao","src/content/glossary.ts","Rio Jordão: O principal rio da Terra Santa, onde João batizava e onde Jesus foi batizado.","","rascunho","",""
+"Glossário","galileia","src/content/glossary.ts","Galileia: Região do norte da Terra Santa, onde Jesus cresceu (em Nazaré) e começou a pregar.","","rascunho","",""
+"Glossário","cafarnaum","src/content/glossary.ts","Cafarnaum: Cidade à beira do mar da Galileia, onde Jesus morou durante sua pregação.","","rascunho","",""
+"Glossário (palavra antiga)","outrossim","src/content/glossary.ts","outrossim: Também; do mesmo modo.","","rascunho","",""
+"Glossário (palavra antiga)","porventura","src/content/glossary.ts","porventura: Por acaso; será que…","","rascunho","",""
+"Glossário (palavra antiga)","varao","src/content/glossary.ts","varão: Homem.","","rascunho","",""
+"Glossário (palavra antiga)","mancebo","src/content/glossary.ts","mancebo: Rapaz, jovem.","","rascunho","",""
+"Glossário (palavra antiga)","donzela","src/content/glossary.ts","donzela: Moça; jovem solteira.","","rascunho","",""
+"Glossário (palavra antiga)","lombos","src/content/glossary.ts","lombos: Cintura. ""Cingir os lombos"" é amarrar a roupa na cintura para estar pronto para caminhar ou trabalhar.","","rascunho","",""
+"Glossário (palavra antiga)","veredas","src/content/glossary.ts","veredas: Caminhos estreitos, trilhas.","","rascunho","",""
+"Glossário (palavra antiga)","mister","src/content/glossary.ts","mister: ""Ter mister de"" = precisar de.","","rascunho","",""
+"Glossário (palavra antiga)","jornaleiros","src/content/glossary.ts","jornaleiros: Trabalhadores pagos por dia (pela ""jornada"").","","rascunho","",""
+"Glossário (palavra antiga)","landes","src/content/glossary.ts","landes: Bolotas, frutos do carvalho usados para alimentar porcos.","","rascunho","",""
+"Glossário (palavra antiga)","estulticia","src/content/glossary.ts","estultícia: Tolice, falta de juízo.","","rascunho","",""
+"Glossário (palavra antiga)","opróbrio","src/content/glossary.ts","opróbrio: Vergonha, humilhação pública.","","rascunho","",""
+"Glossário (palavra antiga)","iniquidade","src/content/glossary.ts","iniquidade: Maldade, injustiça; pecado.","","rascunho","",""
+"Glossário (palavra antiga)","diuturnidade","src/content/glossary.ts","diuturnidade: Longa duração. ""Por diuturnidade de dias"" = por muitos e muitos dias.","","rascunho","",""
+"Glossário (palavra antiga)","pingue","src/content/glossary.ts","pingue: Gordo, abundante; óleo fino e perfumado.","","rascunho","",""
+"Glossário (palavra antiga)","baculo","src/content/glossary.ts","báculo: Cajado, bordão do pastor.","","rascunho","",""
+"Glossário (palavra antiga)","sicomoro","src/content/glossary.ts","sicômoro: Árvore parecida com a figueira, de galhos baixos e fáceis de subir.","","rascunho","",""
+"Glossário (palavra antiga)","entrouxar","src/content/glossary.ts","entrouxando: Juntando tudo numa trouxa; fazendo as malas.","","rascunho","",""
+"Glossário (palavra antiga)","regalar","src/content/glossary.ts","regalar-se: Divertir-se, festejar com fartura.","","rascunho","",""
+"Glossário (palavra antiga)","cevado","src/content/glossary.ts","cevado: Engordado para a festa.","","rascunho","",""
+"Glossário (palavra antiga)","complacencia","src/content/glossary.ts","complacência: Agrado, alegria. ""Em ti pus toda a minha complacência"" = ""em ti está todo o meu agrado"".","","rascunho","",""
+"Glossário (palavra antiga)","defraudar","src/content/glossary.ts","defraudar: Enganar alguém para tirar o que é dele.","","rascunho","",""
+"Glossário (palavra antiga)","jubilo","src/content/glossary.ts","júbilo: Alegria muito grande.","","rascunho","",""
+"Oração","sinal-da-cruz","src/content/prayers.ts","Sinal da Cruz
+Em nome do Pai, e do Filho, e do Espírito Santo. Amém.
+
+SOBRE: É o jeito de começar e terminar toda oração. Com a mão direita, toque a testa (Pai), o peito (Filho), o ombro esquerdo e o direito (Espírito Santo).","CIC 2157","rascunho","",""
+"Oração","pai-nosso","src/content/prayers.ts","Pai-Nosso
+Pai nosso, que estais nos céus, santificado seja o vosso nome; venha a nós o vosso reino; seja feita a vossa vontade, assim na terra como no céu.
+
+O pão nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas, assim como nós perdoamos a quem nos tem ofendido; e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.
+
+SOBRE: A oração que o próprio Jesus ensinou (Mt 6,9-13). Ela resume todo o Evangelho.","CIC 2759–2865","rascunho","",""
+"Oração","ave-maria","src/content/prayers.ts","Ave-Maria
+Ave Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus.
+
+Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+
+SOBRE: A primeira parte vem do Evangelho: a saudação do anjo Gabriel e de Isabel a Maria (Lc 1,28.42). A segunda é um pedido: que Maria reze por nós.","CIC 2676–2679","rascunho","",""
+"Oração","gloria","src/content/prayers.ts","Glória ao Pai
+Glória ao Pai, e ao Filho, e ao Espírito Santo. Como era no princípio, agora e sempre. Amém.
+
+SOBRE: Uma oração curtinha de louvor à Santíssima Trindade.","CIC 2639–2643","rascunho","",""
+"Oração","santo-anjo","src/content/prayers.ts","Santo Anjo
+Santo Anjo do Senhor, meu zeloso guardador, se a ti me confiou a piedade divina, sempre me rege, me guarda, me governa e me ilumina. Amém.
+
+SOBRE: Oração ao anjo da guarda, que Deus dá a cada pessoa para protegê-la e guiá-la.","CIC 336","rascunho","",""
+"Trilha Primeiros Passos","o-que-e-a-biblia","src/content/trails.ts","O que é a Bíblia?
+
+UMA BIBLIOTECA, NÃO UM LIVRO SÓ: A palavra ""Bíblia"" vem do grego e quer dizer ""livros"". Ela é uma coleção de 73 livros, escritos ao longo de mais de mil anos, em hebraico, aramaico e grego, por pessoas muito diferentes: reis, pastores, profetas, pescadores, um médico.
+
+PALAVRA DE DEUS EM PALAVRAS HUMANAS: A Igreja ensina que Deus inspirou esses autores: eles escreveram com seu jeito, sua cultura e seu estilo, mas o que Deus quis nos dizer está ali. Por isso dizemos que a Bíblia é Palavra de Deus em palavras humanas.
+
+TUDO APONTA PARA JESUS: O Antigo Testamento prepara a vinda de Jesus; o Novo Testamento conta sua vida, morte e ressurreição e os primeiros passos da Igreja. Jesus é o centro: é a Palavra de Deus em pessoa. Ler a Bíblia é, no fundo, conhecer alguém.
+
+[LEITURA salmos 118,105-105] Veja como um salmo descreve a Palavra de Deus (na numeração moderna, Salmo 119):
+
+[LEITURA 2-timoteo 3,14-17] E São Paulo, escrevendo a um jovem amigo, Timóteo:
+
+[REFLEXÃO] O que você espera encontrar lendo a Bíblia?","Dei Verbum 11–13; CIC 101–108; CIC 134","rascunho","",""
+"Trilha Primeiros Passos","como-se-organiza","src/content/trails.ts","Como ela se organiza
+
+DUAS GRANDES PARTES: Antigo Testamento (46 livros): a história da Aliança de Deus com o povo de Israel, antes de Jesus.
+
+Novo Testamento (27 livros): Jesus e a Igreja nascente.
+
+""Testamento"" aqui quer dizer ""Aliança"".
+
+OS GRUPOS DE LIVROS: No Antigo Testamento: Pentateuco (os 5 primeiros), Históricos, Sapienciais (poesia e sabedoria, como Salmos e Provérbios) e Proféticos.
+
+No Novo Testamento: os 4 Evangelhos, os Atos dos Apóstolos, as Cartas e o Apocalipse.
+
+Na aba Bíblia, os livros aparecem exatamente nesses grupos.
+
+POR QUE 73?: As Bíblias protestantes têm 66 livros. A Bíblia católica inclui também Tobias, Judite, 1 e 2 Macabeus, Sabedoria, Eclesiástico e Baruc (e trechos de Ester e Daniel). São os ""deuterocanônicos"": livros que os primeiros cristãos já liam e que a Igreja sempre reconheceu como inspirados.
+
+[REFLEXÃO] Qual grupo de livros deu mais curiosidade em você?","CIC 120–123; Dei Verbum 14–16","rascunho","",""
+"Trilha Primeiros Passos","como-encontrar","src/content/trails.ts","Como encontrar um trecho
+
+LIVRO, CAPÍTULO, VERSÍCULO: Cada livro é dividido em capítulos, e cada capítulo em versículos (frases numeradas). Uma citação funciona como um endereço:
+
+Mc 1,14-20
+• Mc = Evangelho de Marcos
+• 1 = capítulo 1
+• 14-20 = do versículo 14 ao 20
+
+No Brasil se usa vírgula entre capítulo e versículo. Um ponto junta versículos soltos: Lc 1,28.42 = versículos 28 e 42.
+
+[LEITURA marcos 1,14-20] Agora é com você. Este é Mc 1,14-20:
+
+DICA: Os números dos capítulos e versículos foram colocados séculos depois dos textos serem escritos, para facilitar encontrar os trechos. Eles ajudam, mas não precisam interromper a leitura: leia como uma história contínua.","","rascunho","",""
+"Trilha Primeiros Passos","ler-com-o-coracao","src/content/trails.ts","Ler com o coração
+
+NÃO É SÓ INFORMAÇÃO: Dá para ler a Bíblia como um livro de história, mas ela foi feita para um encontro. Há séculos os cristãos praticam a ""Leitura Orante"" (Lectio Divina), em quatro passos simples.
+
+OS QUATRO PASSOS: 1. Ler: o que o texto diz? Leia devagar, talvez duas vezes.
+2. Meditar: o que o texto diz para mim? Guarde uma palavra ou frase.
+3. Rezar: o que eu digo a Deus? Responda com suas palavras.
+4. Contemplar: fique um pouco em silêncio, na presença dele.
+
+[LEITURA marcos 1,35-35] Experimente com este versículo curtinho. Ele mostra o próprio Jesus rezando:
+
+[REFLEXÃO] Que palavra ou frase ficou com você? O que você quer dizer a Deus agora?","CIC 2708; Verbum Domini 86–87","rascunho","",""
+"Trilha Primeiros Passos","oracoes-basicas","src/content/trails.ts","Orações para guardar no coração
+
+NÃO PRECISA SABER DE COR: Muita gente tem vergonha de não saber as orações de cor. Fique tranquilo: aqui elas estão sempre à mão. Com o tempo, de tanto rezar, elas ficam no coração.
+
+[ORAÇÃO sinal-da-cruz]
+
+[ORAÇÃO pai-nosso]
+
+[ORAÇÃO ave-maria]
+
+[ORAÇÃO gloria]
+
+[ORAÇÃO santo-anjo]
+
+[REFLEXÃO] Qual dessas orações você quer rezar todos os dias nesta semana?","CIC 2759–2865; CIC 2676–2679","rascunho","",""
+"Trilha Primeiros Passos","por-onde-comecar","src/content/trails.ts","Por onde começar? Por Marcos!
+
+POR QUE MARCOS?: Começar pelo Gênesis e seguir até o fim parece lógico, mas muita gente desanima no meio das leis do Levítico. Os Evangelhos são o coração da Bíblia, e Marcos é o mais curto: 16 capítulos, cheios de ação. Em poucas semanas você conhece Jesus de perto.
+
+[LEITURA marcos 1,1-13] Este é o começo do Evangelho de Marcos:
+
+[REFLEXÃO] O que chamou sua atenção nesse começo?","CIC 125–127","rascunho","",""
+"Trilha Primeiros Passos","jesus-chama","src/content/trails.ts","Jesus chama você
+
+[LEITURA marcos 1,14-20] Leia de novo, agora devagar, imaginando a cena na beira do mar:
+
+GENTE COMUM: Jesus não chamou os mais preparados: chamou pescadores no meio do trabalho. Ele não espera que você já saiba tudo. Ele chama do jeito que você está — e caminha junto.
+
+[REFLEXÃO] O que você gostaria de ""deixar na praia"" para seguir Jesus mais de perto?
+
+PARABÉNS! 🎉: Você concluiu os Primeiros Passos. Que tal continuar lendo o Evangelho de Marcos inteiro? Você pode montar um plano no seu ritmo.","CIC 787; CIC 1533","rascunho","",""
+"Trilha Voltando para Casa","ovelha-perdida","src/content/trails.ts","Que bom que você voltou
+
+BEM-VINDO DE VOLTA: Talvez você tenha se afastado por decepção, por correria, por alguma ferida ou simplesmente porque a vida levou para outro lado. Não importa o motivo nem quanto tempo passou. Jesus contou três histórias justamente para pessoas como nós.
+
+[LEITURA lucas 15,1-7] Repare em quem estava perto de Jesus quando ele contou esta parábola:
+
+O pastor não fica esperando a ovelha achar o caminho sozinha. Ele vai atrás, encontra, coloca nos ombros — e faz festa. Não há bronca na história. Há alegria.
+
+[REFLEXÃO] Em que momento você sentiu que Deus foi atrás de você?","CIC 605; CIC 1443","rascunho","",""
+"Trilha Voltando para Casa","o-pai-que-corre","src/content/trails.ts","O Pai que corre
+
+[LEITURA lucas 15,11-32] Talvez a história mais famosa que Jesus contou. Leia sem pressa:
+
+REPARE NO PAI: O filho prepara um discurso de desculpas, mas o pai nem deixa terminar: corre (coisa que um senhor daquele tempo não fazia), abraça, beija e devolve a roupa, o anel e os sapatos — sinais de que ele continua filho. É assim que Deus olha para você.
+
+E O IRMÃO MAIS VELHO?: Às vezes a gente se parece com ele: ficou em casa, mas com o coração longe. O pai também sai para buscá-lo. Ninguém fica de fora da festa.
+
+[REFLEXÃO] Com qual personagem você se identifica hoje? Por quê?","CIC 1439; CIC 2839","rascunho","",""
+"Trilha Voltando para Casa","zaqueu","src/content/trails.ts","Zaqueu: hoje é dia de recomeço
+
+[LEITURA lucas 19,1-10] Zaqueu era malvisto por todos. Mas estava curioso:
+
+Jesus não exige que Zaqueu mude primeiro para depois entrar em sua casa. Ele entra, e é o encontro que muda Zaqueu. ""Hoje entrou a salvação nesta casa."" Hoje — não amanhã, não quando você estiver ""pronto"".
+
+[REFLEXÃO] Qual é a ""árvore"" em que você subiu para tentar ver Jesus?","CIC 2412; CIC 545","rascunho","",""
+"Trilha Voltando para Casa","pedro","src/content/trails.ts","Pedro: o amor recomeça
+
+Pedro tinha prometido nunca abandonar Jesus — e, na noite da Paixão, negou conhecê-lo três vezes. Depois da ressurreição, Jesus o encontra na praia, prepara comida para ele e faz uma pergunta.
+
+[LEITURA joao 21,15-19] 
+
+Jesus não pergunta ""por que você me negou?"". Pergunta ""tu me amas?"". E confia a Pedro o cuidado de todo o rebanho. Nossas quedas não são a última palavra.
+
+[REFLEXÃO] Se Jesus te perguntasse hoje ""tu me amas?"", o que você responderia?","CIC 553; CIC 1429","rascunho","",""
+"Trilha Voltando para Casa","confissao","src/content/trails.ts","O abraço da Confissão
+
+O QUE É: A Confissão (sacramento da Reconciliação) é o lugar onde a festa do Pai acontece de verdade. Jesus deu aos apóstolos o poder de perdoar pecados em seu nome, e a Igreja continua fazendo isso por meio dos padres.
+
+PASSO A PASSO: 1. Antes, pense com calma no que pesa na sua consciência (o ""exame de consciência"").
+2. Procure um padre — na paróquia costuma haver horários de confissão.
+3. Se faz tempo, diga isso a ele. É comum, e ele vai te ajudar.
+4. Conte seus pecados com simplicidade.
+5. Ouça o conselho e a penitência (geralmente uma oração ou um gesto).
+6. Reze um ato de arrependimento e receba a absolvição.
+
+SEGREDO ABSOLUTO: O padre é obrigado a guardar segredo total sobre o que ouve, sem nenhuma exceção (é o ""sigilo sacramental""). E lembre: ele está ali para te acolher em nome de Deus, não para te julgar.
+
+[LEITURA salmos 50,3-14] Este salmo (51 na numeração moderna) é uma linda oração para se preparar:
+
+[REFLEXÃO] O que você gostaria de entregar a Deus para recomeçar mais leve?","CIC 1422–1424; CIC 1440–1460; CIC 1467","rascunho","",""
+"Trilha Voltando para Casa","de-volta-a-mesa","src/content/trails.ts","De volta à mesa
+
+O QUE ACONTECE NA MISSA: A Missa tem duas grandes partes. Na Liturgia da Palavra, Deus fala com a gente pelas leituras da Bíblia — muitas que você está conhecendo aqui. Na Liturgia Eucarística, o pão e o vinho se tornam o Corpo e o Sangue de Jesus, que se dá a nós na comunhão.
+
+SEM PRESSA E SEM VERGONHA: Se você não lembra as respostas ou os gestos, tudo bem: acompanhe o folheto ou simplesmente esteja presente. Para comungar, a Igreja pede que a pessoa esteja em paz com Deus — por isso, depois de muito tempo afastado, o caminho é passar antes pela Confissão. Enquanto isso, você pode participar e fazer uma ""comunhão espiritual"", pedindo a Jesus que venha ao seu coração.
+
+[LEITURA salmos 102,1-13] Termine rezando este salmo de gratidão (103 na numeração moderna):
+
+VOCÊ CHEGOU EM CASA 🏠: Você concluiu a trilha Voltando para Casa. Que tal continuar com o Evangelho de Lucas, o Evangelho da misericórdia? Monte um plano no seu ritmo.","CIC 1345–1355; CIC 1385; CIC 2180–2182","rascunho","",""

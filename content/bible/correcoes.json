@@ -1,0 +1,52 @@
+{
+  "_leia": "Correções manuais do texto bíblico. Só corrigimos erros de OCR, usando o que está nas digitalizações — nunca reescrevemos a tradução. Palavras reconstruídas (que nenhuma digitalização trazia legível) ficam listadas em 'conferir' até alguém comparar com a página impressa. Depois de editar, rode `npm run bible:build -- <pastaA> <pastaB>`.",
+  "revisados": [
+    "marcos 1",
+    "lucas 15",
+    "lucas 19",
+    "salmos 22",
+    "salmos 50",
+    "salmos 102"
+  ],
+  "versiculos": {
+    "marcos 1:11": "E ouviu-se dos Céus esta voz: Tu és aquele meu filho singularmente amado, em ti tenho posto toda a minha complacência.",
+    "marcos 1:14": "Mas depois que João foi entregue à prisão, veio Jesus para Galileia, pregando o Evangelho do reino de Deus,",
+    "marcos 1:21": "Entraram depois em Cafarnaum: E Jesus vindo logo nos dias de sábado para a sinagoga, ensinava o povo.",
+    "marcos 1:22": "E os que ouviam a sua doutrina, estavam pasmados: Porque ele os ensinava, como quem tinha autoridade, e não como os escribas.",
+    "marcos 1:30": "E a sogra de Simão estava de cama com febre: E lhe falaram logo a respeito dela.",
+    "marcos 1:34": "E curou a muitos, que se achavam oprimidos de diversas doenças, e expeliu muitos demônios, aos quais não permitia que dissessem que o conheciam.",
+    "marcos 1:35": "E levantando-se muito de madrugada, saiu, e foi a um lugar deserto, e fazia ali oração.",
+    "marcos 1:44": "E lhe disse: Guarda-te, não o contes a alguém: Mas vai, mostra-te ao príncipe dos sacerdotes, e oferece pela tua purificação o que Moisés ordenou, para lhes servir de testemunho.",
+    "marcos 1:45": "Porém o homem tanto que saiu, começou a contar, e a publicar o sucedido, de sorte que Jesus não podia já entrar descobertamente numa cidade, mas ficava fora nos lugares desertos, e de todas as partes vinham ter com ele.",
+    "lucas 15:13": "E passados não muitos dias, entrouxando tudo o que era seu, partiu o filho mais moço para uma terra muito distante num país estranho, e lá dissipou toda a sua fazenda vivendo dissolutamente.",
+    "lucas 15:18": "Levantar-me-ei, e irei buscar a meu pai, e dir-lhe-ei: Pai, pequei contra o Céu, e diante de ti:",
+    "lucas 15:22": "Então disse o pai aos seus servos: Tirai depressa o seu primeiro vestido, e vesti-lho, e metei-lhe um anel no dedo, e os sapatos nos pés:",
+    "lucas 15:27": "este lhe disse: É chegado teu irmão, e teu pai mandou matar um novilho cevado, porque veio com saúde.",
+    "lucas 15:29": "Ele porém deu esta resposta a seu pai: Há tantos anos que te sirvo, sem nunca transgredir mandamento algum teu e tu nunca me deste um cabrito, para me regalar com os meus amigos:",
+    "lucas 19:5": "E quando Jesus chegou àquele lugar, levantando os olhos, ali o viu, e lhe disse: Zaqueu, desce depressa: Porque importa que eu fique hoje em tua casa.",
+    "lucas 19:9": "Sobre o que lhe disse Jesus: Hoje entrou a salvação nesta casa: Porque este também é filho de Abraão:",
+    "joao 21:19": "E isto disse Jesus, para significar com que gênero de morte havia Pedro de dar glória a Deus. E depois de assim ter falado, disse-lhe: Segue-me.",
+    "salmos 22:1": "Salmo de Davi. O Senhor me governa, e nada me faltará:",
+    "salmos 22:5": "Preparaste uma mesa diante de mim, à vista daqueles que me angustiavam. Ungiste com o óleo pingue a minha cabeça: E o meu cálice que embriaga quão precioso é!",
+    "salmos 22:6": "E a tua misericórdia irá após de mim todos os dias da minha vida. E a fim de que eu habite na casa do Senhor, por diuturnidade de dias.",
+    "salmos 50:2": "Quando veio buscá-lo o profeta Natan, depois de haver pecado com Betsabée.",
+    "salmos 50:3": "Tem piedade de mim, ó Deus, segundo a tua grande misericórdia. E segundo as muitas mostras da tua clemência, apaga a minha maldade.",
+    "salmos 50:5": "Porque a minha maldade eu a conheço: E o meu pecado diante de mim está sempre.",
+    "salmos 50:6": "Contra ti só pequei, e fiz o mal diante dos teus olhos: Para que sejas justificado nas tuas palavras e venças quando fores julgado.",
+    "salmos 50:14": "Dá-me a alegria da tua salvação: E conforta-me por meio do espírito principal.",
+    "salmos 50:15": "Ensinarei aos iníquos os teus caminhos: E os ímpios se converterão a ti.",
+    "salmos 102:7": "Fez conhecer a Moisés os seus caminhos, aos filhos de Israel as suas vontades.",
+    "2-timoteo 3:14": "Mas tu, persevera nas coisas que aprendeste e que te foram confiadas: Sabendo de quem as aprendeste:",
+    "2-timoteo 3:17": "A fim de que o homem de Deus seja perfeito, estando preparado para toda a boa obra.",
+    "mateus 1:23": "Eis uma virgem conceberá e dará à luz um filho: E apelidá-lo-ão pelo nome de Emanuel, que quer dizer, Deus conosco."
+  },
+  "remover": [],
+  "conferir": {
+    "marcos 1:44": "'Guarde-te' no OCR; corrigido para 'Guarda-te' (imperativo usado no resto do texto). Conferir na página impressa.",
+    "marcos 1:45": "A palavra final 'ele.' foi reconstruída: as duas digitalizações terminam em 'vinham ter com'.",
+    "salmos 22:5": "OCR traz 'quam' (forma antiga); atualizado para 'quão'. Conferir.",
+    "lucas 15:12": "Começa em minúscula ('disse o mais moço'); talvez falte um 'E' inicial.",
+    "lucas 15:26": "Começa em minúscula ('chamou um dos servos'); talvez falte um 'E' inicial.",
+    "lucas 15:27": "Começa em minúscula ('este lhe disse'); talvez falte um 'E' inicial."
+  }
+}

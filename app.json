@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "Verbum",
+    "slug": "verbum-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "app.verbum.biblia"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#1E3A6E",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "app.verbum.biblia"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sqlite",
+      "expo-font",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 160,
+          "backgroundColor": "#FBF7EF",
+          "dark": {
+            "backgroundColor": "#10141F"
+          }
+        }
+      ]
+    ],
+    "scheme": "verbum",
+    "backgroundColor": "#FBF7EF",
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

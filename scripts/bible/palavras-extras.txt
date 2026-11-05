@@ -1,0 +1,22 @@
+# Palavras válidas que o dicionário moderno não conhece (uma por linha).
+# Use para formas antigas legítimas da tradução, que NÃO devem ser "corrigidas".
+Deus
+Jesus
+Cristo
+Senhor
+Espírito
+Israel
+Jerusalém
+Judeia
+Galileia
+Moisés
+Davi
+Abraão
+Isaac
+Jacó
+outrossim
+porquanto
+mancebo
+mancebos
+donzela
+donzelas
