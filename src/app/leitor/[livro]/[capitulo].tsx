@@ -158,6 +158,15 @@ export default function Leitor() {
                 {intro && <T color={palette.text}>{intro.esperar}</T>}
                 {note && <T color={palette.text}>{note.texto}</T>}
                 <ReviewTag status={(note ?? intro)!.status} />
+                <Pressable
+                  onPress={() => router.push({ pathname: '/oracao/[id]', params: { id: 'antes-da-leitura', depois: 'leitura' } })}
+                  accessibilityRole="link"
+                  style={{ minHeight: 36, justifyContent: 'center' }}
+                >
+                  <T variant="bodyStrong" color={palette.link}>
+                    🙏 Rezar antes de ler ›
+                  </T>
+                </Pressable>
               </>
             )}
           </View>
@@ -197,6 +206,14 @@ export default function Leitor() {
             icon={isRead ? undefined : 'checkmark-circle-outline'}
             onPress={toggleRead}
           />
+          {isRead && (
+            <Button
+              title="Rezar depois da leitura"
+              kind="ghost"
+              icon="flower-outline"
+              onPress={() => router.push({ pathname: '/oracao/[id]', params: { id: 'depois-da-leitura' } })}
+            />
+          )}
           {isRead && notesAllowed && (
             <Button
               title="O que este trecho falou comigo?"

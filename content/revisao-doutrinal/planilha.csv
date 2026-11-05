@@ -309,30 +309,121 @@ O QUE ESPERAR: Linguagem simbólica (números, cores, animais). Não é um mapa 
 "Glossário (palavra antiga)","complacencia","src/content/glossary.ts","complacência: Agrado, alegria. ""Em ti pus toda a minha complacência"" = ""em ti está todo o meu agrado"".","","rascunho","",""
 "Glossário (palavra antiga)","defraudar","src/content/glossary.ts","defraudar: Enganar alguém para tirar o que é dele.","","rascunho","",""
 "Glossário (palavra antiga)","jubilo","src/content/glossary.ts","júbilo: Alegria muito grande.","","rascunho","",""
+"Oração","antes-da-leitura","src/content/prayers.ts","Antes da leitura
+Senhor, abre os meus ouvidos e o meu coração.
+Que a tua Palavra seja luz para os meus passos hoje.
+Espírito Santo, ajuda-me a entender o que leio
+e a viver o que entendo.
+Amém.
+
+SOBRE: Uma oração curtinha para começar a leitura pedindo a ajuda do Espírito Santo, que inspirou as Escrituras.","Dei Verbum 12; Sl 119(118),105","rascunho","",""
+"Oração","vinde-espirito-santo","src/content/prayers.ts","Vinde, Espírito Santo
+Vinde, Espírito Santo, enchei os corações dos vossos fiéis e acendei neles o fogo do vosso amor.
+
+V. Enviai o vosso Espírito e tudo será criado.
+R. E renovareis a face da terra.
+
+Oremos: Ó Deus, que instruístes os corações dos vossos fiéis com a luz do Espírito Santo, concedei-nos que no mesmo Espírito saibamos o que é reto e gozemos sempre da sua consolação. Por Cristo, Senhor nosso.
+Amém.
+
+SOBRE: Oração tradicional ao Espírito Santo. Ótima para antes de ler, estudar ou tomar uma decisão.","CIC 2670–2672","rascunho","",""
+"Oração","depois-da-leitura","src/content/prayers.ts","Depois da leitura
+Obrigado, Senhor, pela tua Palavra.
+Guarda no meu coração o que li hoje
+e me ajuda a colocá-lo em prática.
+Maria, Mãe da Palavra, ensina-me a guardar tudo no coração, como tu.
+Amém.
+
+SOBRE: Para agradecer e pedir que a leitura dê frutos. Lembra Maria, que ""guardava todas estas coisas no coração"" (Lc 2,19).","Lc 2,19; Tg 1,22","rascunho","",""
+"Oração","angelus","src/content/prayers.ts","Angelus
+V. O Anjo do Senhor anunciou a Maria.
+R. E ela concebeu do Espírito Santo.
+Ave Maria…
+
+V. Eis aqui a serva do Senhor.
+R. Faça-se em mim segundo a vossa palavra.
+Ave Maria…
+
+V. E o Verbo se fez carne.
+R. E habitou entre nós.
+Ave Maria…
+
+V. Rogai por nós, santa Mãe de Deus.
+R. Para que sejamos dignos das promessas de Cristo.
+
+Oremos: Infundi, Senhor, como vos pedimos, a vossa graça em nossas almas, para que nós, que pela anunciação do Anjo conhecemos a encarnação de Cristo, vosso Filho, por sua paixão e morte sejamos conduzidos à glória da ressurreição. Pelo mesmo Cristo, Senhor nosso.
+Amém.
+
+SOBRE: Rezado às 6h, 12h e 18h, lembra o momento em que o anjo Gabriel anunciou a Maria que ela seria a mãe de Jesus. ""E o Verbo se fez carne"" — é daí que vem o nome do app. Onde está ""Ave Maria…"", reze a Ave-Maria inteira.","Lc 1,26-38; Jo 1,14; CIC 2678","rascunho","",""
+"Oração","regina-caeli","src/content/prayers.ts","Regina Caeli
+Rainha do céu, alegrai-vos, aleluia!
+Porque aquele que merecestes trazer em vosso seio, aleluia!
+Ressuscitou como disse, aleluia!
+Rogai a Deus por nós, aleluia!
+
+V. Exultai e alegrai-vos, ó Virgem Maria, aleluia!
+R. Porque o Senhor ressuscitou verdadeiramente, aleluia!
+
+Oremos: Ó Deus, que vos dignastes alegrar o mundo com a ressurreição do vosso Filho, Nosso Senhor Jesus Cristo, concedei-nos, vos suplicamos, que por sua Mãe, a Virgem Maria, alcancemos as alegrias da vida eterna. Pelo mesmo Cristo, Senhor nosso.
+Amém.
+
+SOBRE: No Tempo Pascal (do Domingo de Páscoa a Pentecostes), o Regina Caeli substitui o Angelus. É uma oração cheia de alegria pela ressurreição de Jesus.","CIC 2678","rascunho","",""
 "Oração","sinal-da-cruz","src/content/prayers.ts","Sinal da Cruz
-Em nome do Pai, e do Filho, e do Espírito Santo. Amém.
+Em nome do Pai, e do Filho, e do Espírito Santo.
+Amém.
 
 SOBRE: É o jeito de começar e terminar toda oração. Com a mão direita, toque a testa (Pai), o peito (Filho), o ombro esquerdo e o direito (Espírito Santo).","CIC 2157","rascunho","",""
 "Oração","pai-nosso","src/content/prayers.ts","Pai-Nosso
 Pai nosso, que estais nos céus, santificado seja o vosso nome; venha a nós o vosso reino; seja feita a vossa vontade, assim na terra como no céu.
 
-O pão nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas, assim como nós perdoamos a quem nos tem ofendido; e não nos deixeis cair em tentação, mas livrai-nos do mal. Amém.
+O pão nosso de cada dia nos dai hoje; perdoai-nos as nossas ofensas, assim como nós perdoamos a quem nos tem ofendido; e não nos deixeis cair em tentação, mas livrai-nos do mal.
+Amém.
 
 SOBRE: A oração que o próprio Jesus ensinou (Mt 6,9-13). Ela resume todo o Evangelho.","CIC 2759–2865","rascunho","",""
+"Oração","gloria","src/content/prayers.ts","Glória ao Pai
+Glória ao Pai, e ao Filho, e ao Espírito Santo.
+Como era no princípio, agora e sempre.
+Amém.
+
+SOBRE: Uma oração curtinha de louvor à Santíssima Trindade.","CIC 2639–2643","rascunho","",""
+"Oração","credo","src/content/prayers.ts","Creio (Símbolo dos Apóstolos)
+Creio em Deus Pai todo-poderoso, criador do céu e da terra.
+E em Jesus Cristo, seu único Filho, nosso Senhor, que foi concebido pelo poder do Espírito Santo; nasceu da Virgem Maria; padeceu sob Pôncio Pilatos, foi crucificado, morto e sepultado; desceu à mansão dos mortos; ressuscitou ao terceiro dia; subiu aos céus; está sentado à direita de Deus Pai todo-poderoso, donde há de vir a julgar os vivos e os mortos.
+Creio no Espírito Santo, na santa Igreja Católica, na comunhão dos santos, na remissão dos pecados, na ressurreição da carne, na vida eterna.
+Amém.
+
+SOBRE: O resumo da fé cristã, transmitido desde os primeiros séculos. É rezado no início do terço.","CIC 185–197","rascunho","",""
+"Oração","santo-anjo","src/content/prayers.ts","Santo Anjo
+Santo Anjo do Senhor, meu zeloso guardador, se a ti me confiou a piedade divina, sempre me rege, me guarda, me governa e me ilumina.
+Amém.
+
+SOBRE: Oração ao anjo da guarda, que Deus dá a cada pessoa para protegê-la e guiá-la.","CIC 336","rascunho","",""
 "Oração","ave-maria","src/content/prayers.ts","Ave-Maria
 Ave Maria, cheia de graça, o Senhor é convosco; bendita sois vós entre as mulheres, e bendito é o fruto do vosso ventre, Jesus.
 
-Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte. Amém.
+Santa Maria, Mãe de Deus, rogai por nós, pecadores, agora e na hora da nossa morte.
+Amém.
 
 SOBRE: A primeira parte vem do Evangelho: a saudação do anjo Gabriel e de Isabel a Maria (Lc 1,28.42). A segunda é um pedido: que Maria reze por nós.","CIC 2676–2679","rascunho","",""
-"Oração","gloria","src/content/prayers.ts","Glória ao Pai
-Glória ao Pai, e ao Filho, e ao Espírito Santo. Como era no princípio, agora e sempre. Amém.
+"Oração","salve-rainha","src/content/prayers.ts","Salve Rainha
+Salve, Rainha, Mãe de misericórdia, vida, doçura e esperança nossa, salve!
+A vós bradamos, os degredados filhos de Eva.
+A vós suspiramos, gemendo e chorando neste vale de lágrimas.
+Eia, pois, advogada nossa, esses vossos olhos misericordiosos a nós volvei;
+e depois deste desterro, mostrai-nos Jesus, bendito fruto do vosso ventre,
+ó clemente, ó piedosa, ó doce sempre Virgem Maria.
 
-SOBRE: Uma oração curtinha de louvor à Santíssima Trindade.","CIC 2639–2643","rascunho","",""
-"Oração","santo-anjo","src/content/prayers.ts","Santo Anjo
-Santo Anjo do Senhor, meu zeloso guardador, se a ti me confiou a piedade divina, sempre me rege, me guarda, me governa e me ilumina. Amém.
+V. Rogai por nós, santa Mãe de Deus.
+R. Para que sejamos dignos das promessas de Cristo.
+Amém.
 
-SOBRE: Oração ao anjo da guarda, que Deus dá a cada pessoa para protegê-la e guiá-la.","CIC 336","rascunho","",""
+SOBRE: Uma oração antiga e muito amada, que pede a Maria que nos mostre Jesus. Costuma encerrar o terço.","CIC 2677; CIC 969","rascunho","",""
+"Oração","ato-de-contricao","src/content/prayers.ts","Ato de contrição
+Meu Deus, eu me arrependo de todo o coração de vos ter ofendido, porque sois infinitamente bom e amável e porque o pecado vos desagrada.
+Proponho firmemente, com a ajuda da vossa graça, não mais pecar e fugir das ocasiões de pecado.
+Amém.
+
+SOBRE: Para pedir perdão a qualquer momento, e também ao final da Confissão. Rezar com sinceridade já é um passo de volta para casa.","CIC 1451–1454","rascunho","",""
 "Trilha Primeiros Passos","o-que-e-a-biblia","src/content/trails.ts","O que é a Bíblia?
 
 UMA BIBLIOTECA, NÃO UM LIVRO SÓ: A palavra ""Bíblia"" vem do grego e quer dizer ""livros"". Ela é uma coleção de 73 livros, escritos ao longo de mais de mil anos, em hebraico, aramaico e grego, por pessoas muito diferentes: reis, pastores, profetas, pescadores, um médico.
@@ -479,3 +570,60 @@ SEM PRESSA E SEM VERGONHA: Se você não lembra as respostas ou os gestos, tudo 
 [LEITURA salmos 102,1-13] Termine rezando este salmo de gratidão (103 na numeração moderna):
 
 VOCÊ CHEGOU EM CASA 🏠: Você concluiu a trilha Voltando para Casa. Que tal continuar com o Evangelho de Lucas, o Evangelho da misericórdia? Monte um plano no seu ritmo.","CIC 1345–1355; CIC 1385; CIC 2180–2182","rascunho","",""
+"Trilha Advento: preparar o caminho","o-que-e-o-advento","src/content/trails.ts","O que é o Advento?
+
+UMA CHEGADA: ""Advento"" quer dizer ""chegada"". São as quatro semanas antes do Natal, quando a Igreja começa o seu ano. Esperamos duas vindas: celebramos que Jesus veio a nós em Belém e nos preparamos para a sua volta no fim dos tempos.
+
+SINAIS DO ADVENTO: O roxo das vestes lembra conversão e espera. A coroa do Advento tem quatro velas: uma acesa a cada domingo, para a luz ir crescendo até o Natal. A terceira costuma ser rosa: é o domingo da alegria (Gaudete), porque o Natal já está perto.
+
+[LEITURA isaias 40,1-5] O profeta Isaías anunciava consolo a um povo cansado. A Igreja relê estas palavras no Advento:
+
+[REFLEXÃO] O que você gostaria de preparar no seu coração para este Natal?","CIC 524; Normas Universais do Ano Litúrgico 39","rascunho","",""
+"Trilha Advento: preparar o caminho","vigiai","src/content/trails.ts","1ª semana · Vigiai
+
+[LEITURA marcos 13,33-37] No Advento, a Igreja relê este convite de Jesus a ficar acordado:
+
+Vigiar não é viver com medo do fim. É viver acordado: perceber Deus nas pequenas coisas, cuidar das pessoas, não deixar a vida passar no piloto automático. Quem vigia está pronto para receber quem ama.
+
+[REFLEXÃO] Em que parte da sua vida você anda ""dormindo""? O que ajudaria você a ficar mais atento a Deus?","CIC 672; CIC 2612","rascunho","",""
+"Trilha Advento: preparar o caminho","preparai-o-caminho","src/content/trails.ts","2ª semana · Preparai o caminho
+
+[LEITURA marcos 1,1-8] Todo Advento, João Batista aparece nos Evangelhos de domingo. Aqui está ele no deserto:
+
+Antigamente, quando um rei ia visitar uma cidade, abriam e aplainavam a estrada. João pede o mesmo para o coração: tirar as pedras do caminho. Muita gente aproveita o Advento para se confessar antes do Natal — é um jeito bonito de preparar a estrada.
+
+[REFLEXÃO] Que ""pedra"" você gostaria de tirar do caminho até o Natal?","CIC 523; CIC 1427–1429","rascunho","",""
+"Trilha Advento: preparar o caminho","alegrai-vos","src/content/trails.ts","3ª semana · Alegrai-vos
+
+No 3º Domingo do Advento, chamado ""Gaudete"" (""alegrai-vos""), a vela e as vestes podem ser rosa: uma pausa de alegria no meio da espera, porque o Natal está chegando.
+
+[LEITURA filipenses 4,4-7] São Paulo escreveu isto da prisão — e mesmo assim fala de alegria:
+
+[REFLEXÃO] O que te tira a paz hoje? Experimente entregar isso a Deus, como Paulo sugere.","CIC 30; CIC 2637","rascunho","",""
+"Trilha Advento: preparar o caminho","o-sim-de-maria","src/content/trails.ts","4ª semana · O sim de Maria
+
+[LEITURA lucas 1,26-38] Perto do Natal, a Igreja lê a visita do anjo Gabriel a Maria:
+
+Maria não entendeu tudo de uma vez — ela até perguntou ""como se fará isso?"". Mas confiou e disse sim. Essa cena é exatamente a que rezamos no Angelus, três vezes por dia.
+
+[ORAÇÃO angelus]
+
+[REFLEXÃO] Que ""sim"" Deus pode estar esperando de você?","CIC 484–494; CIC 2617","rascunho","",""
+"Trilha Advento: preparar o caminho","deus-conosco","src/content/trails.ts","Deus conosco
+
+[LEITURA isaias 9,6-7] Séculos antes, Isaías anunciou um menino que traria a paz:
+
+[LEITURA mateus 1,18-24] E Mateus conta como José acolheu esse mistério:
+
+José é o homem do silêncio: não fala uma palavra nos Evangelhos, mas faz o que Deus pede. ""Emanuel"" quer dizer ""Deus conosco"" — Deus não ficou longe; veio morar no meio da nossa vida, do jeito que ela é.
+
+[REFLEXÃO] Onde você precisa sentir hoje que Deus está com você?","CIC 437; CIC 497; CIC 532","rascunho","",""
+"Trilha Advento: preparar o caminho","noite-feliz","src/content/trails.ts","Noite de Natal
+
+[LEITURA lucas 2,1-14] O Evangelho da noite de Natal. Leia devagar, imaginando a cena:
+
+Deus escolheu chegar pequeno, pobre e sem lugar na estalagem. Os primeiros a saber foram pastores trabalhando de madrugada. O Natal é para todos — principalmente para quem acha que não tem lugar.
+
+[ORAÇÃO gloria]
+
+FELIZ NATAL! 🎄: Você completou a série do Advento. Que a luz de Belém fique acesa no seu coração o ano inteiro.","CIC 525–526","rascunho","",""

@@ -7,7 +7,7 @@ import { PlusJakartaSans_600SemiBold } from '@expo-google-fonts/plus-jakarta-san
 import { PlusJakartaSans_700Bold } from '@expo-google-fonts/plus-jakarta-sans/700Bold';
 import { PlusJakartaSans_800ExtraBold } from '@expo-google-fonts/plus-jakarta-sans/800ExtraBold';
 import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
+import { Stack, useRouter, type Href } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { SQLiteProvider } from 'expo-sqlite';
 import Storage from 'expo-sqlite/kv-store';
@@ -20,6 +20,7 @@ import { Cover } from '@/components/Cover';
 import { APP_CONFIG } from '@/config';
 import { applyStreakProtection, userDb } from '@/db/user';
 import { refreshNotifications } from '@/hooks/useGamification';
+import { listenNotificationTaps } from '@/lib/notifications';
 import { useSession } from '@/store/session';
 import { useSettings } from '@/store/settings';
 import { AppThemeProvider, FONTS, useTheme } from '@/theme';
@@ -100,6 +101,14 @@ function Loading() {
 
 function RootStack() {
   const { c, dark } = useTheme();
+  const router = useRouter();
+  useEffect(
+    () =>
+      listenNotificationTaps((url) => {
+        if (useSettings.getState().onboarding.done) router.push(url as Href);
+      }),
+    [router],
+  );
   return (
     <>
       <StatusBar style={dark ? 'light' : 'dark'} />
@@ -135,6 +144,7 @@ function RootStack() {
         <Stack.Screen name="checkin" options={{ headerShown: false, presentation: 'fullScreenModal', animation: 'fade' }} />
         <Stack.Screen name="ofensiva" options={{ title: 'Ofensiva' }} />
         <Stack.Screen name="notificacoes" options={{ title: 'Notificações' }} />
+        <Stack.Screen name="oracao/[id]" options={{ title: 'Oração' }} />
       </Stack>
     </>
   );

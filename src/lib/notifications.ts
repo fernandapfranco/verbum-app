@@ -11,6 +11,9 @@ import { Platform } from 'react-native';
 
 import type { NotificationPrefs } from '@/store/settings';
 
+import { toISODate } from './dates';
+import { isReginaCaeliTime } from './liturgy';
+
 const DAYS_AHEAD = 7;
 const RISK_TIME = { h: 20, m: 30 };
 const ANGELUS = [6, 12, 18];
@@ -95,27 +98,35 @@ export async function rescheduleAll(ctx: ScheduleContext): Promise<number> {
   const now = new Date();
   const [hh, mm] = prefs.time.split(':').map(Number);
   const msgs = dailyMessages(ctx.angelName, ctx.userName);
-  const jobs: { date: Date; title: string; body: string }[] = [];
+  const jobs: { date: Date; title: string; body: string; url?: string }[] = [];
 
   for (let i = 0; i < DAYS_AHEAD; i++) {
     const skipToday = i === 0 && ctx.checkedInToday;
     if (prefs.daily && !skipToday) {
       const m = msgs[(now.getDate() + i) % msgs.length];
-      jobs.push({ date: at(now, i, hh, mm), ...m });
+      jobs.push({ date: at(now, i, hh, mm), ...m, url: '/hoje' });
     }
     if (prefs.streakRisk && !skipToday && (i > 0 || ctx.streak > 0)) {
       jobs.push({
         date: at(now, i, RISK_TIME.h, RISK_TIME.m),
         title: ctx.angelName,
         body: RISK_MESSAGES[(now.getDate() + i) % RISK_MESSAGES.length],
+        url: '/hoje',
       });
     }
     if (prefs.angelus) {
+      // Do Domingo de Páscoa a Pentecostes, reza-se o Regina Caeli no lugar do Angelus.
+      const regina = isReginaCaeliTime(toISODate(at(now, i, 12, 0)));
       for (const h of ANGELUS) {
         jobs.push({
           date: at(now, i, h, 0),
-          title: 'Angelus 🔔',
-          body: h === 12 ? 'Meio-dia: um minutinho para rezar o Angelus?' : 'Hora do Angelus. O anjo do Senhor anunciou a Maria…',
+          title: regina ? 'Regina Caeli 🌸' : 'Angelus 🔔',
+          body: regina
+            ? 'Rainha do céu, alegrai-vos, aleluia! Toque para rezar.'
+            : h === 12
+              ? 'Meio-dia: um minutinho para rezar o Angelus? Toque para rezar.'
+              : 'O anjo do Senhor anunciou a Maria… Toque para rezar.',
+          url: regina ? '/oracao/regina-caeli' : '/oracao/angelus',
         });
       }
     }
@@ -124,9 +135,22 @@ export async function rescheduleAll(ctx: ScheduleContext): Promise<number> {
   const future = jobs.filter((j) => j.date.getTime() > now.getTime() + 60_000);
   for (const j of future) {
     await Notifications.scheduleNotificationAsync({
-      content: { title: j.title, body: j.body },
+      content: { title: j.title, body: j.body, data: j.url ? { url: j.url } : {} },
       trigger: { type: Notifications.SchedulableTriggerInputTypes.DATE, date: j.date, channelId: 'lembretes' },
     });
   }
   return future.length;
+}
+
+/** Ao tocar numa notificação, abre a tela indicada em `data.url` (ex.: a oração do Angelus). */
+export function listenNotificationTaps(open: (url: string) => void): () => void {
+  if (!supported) return () => {};
+  const handle = (r: Notifications.NotificationResponse | null) => {
+    const url = r?.notification.request.content.data?.url;
+    if (typeof url === 'string') open(url);
+  };
+  // App aberto a partir de uma notificação (estava fechado).
+  Notifications.getLastNotificationResponseAsync().then(handle).catch(() => {});
+  const sub = Notifications.addNotificationResponseReceivedListener(handle);
+  return () => sub.remove();
 }

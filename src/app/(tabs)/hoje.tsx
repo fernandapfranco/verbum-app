@@ -5,7 +5,9 @@ import { Pressable, View } from 'react-native';
 
 import { AngelSays, Button, Card, ProgressBar, Screen, T } from '@/components/ui';
 import { DEFAULT_ANGEL_NAME, greeting, pick, PLAN_ADJUSTED, WELCOME_BACK } from '@/content/angel';
-import { getTrail, TRAILS } from '@/content/trails';
+import { getSeriesFor, getTrail, TRAILS } from '@/content/trails';
+import { LiturgyChip } from '@/components/LiturgyChip';
+import { liturgicalDay, nextSeasonStart } from '@/lib/liturgy';
 import { TalentIcon } from '@/components/TalentIcon';
 import { WeekStrip } from '@/components/WeekStrip';
 import { getCompletedLessons, useDataVersion } from '@/db/user';
@@ -71,6 +73,19 @@ export default function Hoje() {
   }, [track, v]);
 
   const today = plan.today;
+
+  // Série do tempo litúrgico: em destaque durante o tempo e nos 30 dias antes.
+  const lit = liturgicalDay(todayISO());
+  const upcoming = nextSeasonStart(todayISO());
+  const seriesInfo = (() => {
+    if (lit.season === 'advento') return { s: getSeriesFor('advento'), line: 'Estamos no Advento. Prepare o coração para o Natal.' };
+    if (upcoming.season === 'advento' && upcoming.inDays <= 30)
+      return {
+        s: getSeriesFor('advento'),
+        line: `O Advento começa em ${formatDate(upcoming.start)} (faltam ${upcoming.inDays} dias). A série já está disponível.`,
+      };
+    return null;
+  })();
   const nextToRead = today?.chapters.find((u) => !plan.read.has(chapterKey(u)));
 
   return (
@@ -89,6 +104,7 @@ export default function Hoje() {
           <Pill icon="talento" value={g.talentos} />
         </Pressable>
       </View>
+      <LiturgyChip />
       <AngelSays text={message} mood={welcomeBack ? 'festa' : 'feliz'} />
       <T variant="caption" muted style={{ marginTop: -SPACE.sm, marginLeft: 84 }}>
         — {angelName}
@@ -167,6 +183,23 @@ export default function Hoje() {
         </View>
         <WeekStrip week={g.week} />
       </Card>
+
+      {seriesInfo?.s && (
+        <Card
+          onPress={() => router.push({ pathname: '/trilha/[id]', params: { id: seriesInfo.s!.id } })}
+          accessibilityLabel={`Série ${seriesInfo.s.titulo}`}
+          style={{ borderLeftWidth: 0 }}
+        >
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: SPACE.sm }}>
+            <View style={{ width: 10, height: 10, borderRadius: 5, backgroundColor: '#6B3FA0' }} />
+            <T variant="label" color="#6B3FA0">
+              Série do tempo litúrgico
+            </T>
+          </View>
+          <T variant="heading">{seriesInfo.s.titulo}</T>
+          <T muted>{seriesInfo.line}</T>
+        </Card>
+      )}
 
       {trailCard && (
         <Card

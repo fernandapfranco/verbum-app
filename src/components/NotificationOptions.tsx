@@ -38,7 +38,12 @@ export function NotificationOptions() {
       <Divider />
       <Toggle title="Ofensiva em risco" subtitle="Um aviso gentil às 20h30 se você ainda não fez o check-in" value={prefs.streakRisk} onChange={(v) => set({ streakRisk: v })} />
       <Divider />
-      <Toggle title="Angelus" subtitle="Às 6h, 12h e 18h, um convite para rezar" value={prefs.angelus} onChange={(v) => set({ angelus: v })} />
+      <Toggle
+        title="Angelus e Regina Caeli"
+        subtitle="Às 6h, 12h e 18h, um convite para rezar (Regina Caeli no tempo pascal). Toque para abrir a oração."
+        value={prefs.angelus}
+        onChange={(v) => set({ angelus: v })}
+      />
     </View>
   );
 }

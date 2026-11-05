@@ -33,13 +33,16 @@ Ao fim de cada fase: mostrar o que foi feito e como testar no Expo Go.
 - **Check-in diário** (antecipado da Fase 2): a primeira atividade do dia (capítulo lido ou lição concluída) é o check-in → +10 talentos, +30 a cada 7 dias seguidos. **Ofensiva** = dias seguidos com check-in ou protegidos. **Velas** (50 talentos, máx. 2, 1 de presente) protegem dias perdidos automaticamente ao abrir o app. Sem velas, a ofensiva recomeça sem bronca. Lógica pura em `src/lib/streak.ts`.
 - **Moeda**: "talentos" (parábola dos talentos) — confirmado. Ícone: moeda dourada antiga com uma cruz (`src/components/TalentIcon.tsx`), não diamante.
 - **Notificações locais** (`src/lib/notifications.ts`): lembrete diário no horário escolhido, aviso de ofensiva em risco (20h30) e Angelus (6h/12h/18h), reagendadas para 7 dias a cada abertura/check-in/mudança. Funcionam no Expo Go.
+- **Calendário litúrgico** (`src/lib/liturgy.ts`, testado): Páscoa por algoritmo, Advento, Cinzas, Pentecostes, Epifania/Batismo pela regra do Brasil, tempos e cores (Gaudete/Laetare rosa). Regina Caeli da Páscoa a Pentecostes. Chip do tempo litúrgico em Hoje e Orar.
+- **Aba Orar** (`src/app/(tabs)/orar.tsx`, `src/content/prayers.ts`): grupos (para ler a Bíblia, ao longo do dia, básicas, com Maria, perdão). "Antes/Depois da leitura" são orações próprias do Verbum (`propria: true`). Angelus troca por Regina Caeli no tempo pascal — também nas notificações, que ao serem tocadas abrem a oração (`data.url` + `listenNotificationTaps`). Atalhos no leitor.
+- **Séries litúrgicas** (`SERIES` em `src/content/trails.ts`): trilhas ligadas a um tempo, em destaque no tempo e nos 30 dias antes. Feita: Advento (7 encontros). Próximas: Natal, Quaresma, Páscoa. Texto das séries não deve depender do ciclo A/B/C de leituras.
 - **Ofensiva com amigos**: depende de conta e servidor → Fase 4 (Supabase).
 - **Identidade visual: "Luz"** (escolhida entre Luz, Vitral e Aurora). Fundo névoa `#F6F7FB`, azul mariano `#2F45D6`, dourado-luz `#F2B544`, tinta `#12142B`; Plus Jakarta Sans (interface, títulos em ExtraBold) + Newsreader (texto bíblico); cantos grandes (cartões 28 px), cartões sem contorno no tema claro; cartão principal azul. Anjo: **"Clássico de Natal"** (escolhido entre Clássico, Silhueta e Símbolo): asas de penas em camadas com borda ondulada, túnica azul em sino com gola e barra douradas, mãos segurando uma estrela dourada, cabelo e auréola (`onPrimary` = túnica branca sobre azul). Rejeitados antes: corpo redondo ("inseto") e asas em duas partes ("borboleta"). Ícone e splash em `assets/` gerados a partir do anjo. Capa de abertura (`src/components/Cover.tsx`) a cada abertura, no azul do splash; toque para pular.
 - **Compartilhar para teste**: web (Netlify, `npm run web:build`, cabeçalhos COOP/COEP em `public/_headers`), APK Android (`npm run android:apk`, perfil `preview` do `eas.json`), TestFlight (exige Apple Developer). Ver `docs/compartilhar.md`.
 
 ## Estrutura
 ```
-src/app/            telas (Expo Router). (tabs)/ = Hoje, Bíblia, Diário, Perfil
+src/app/            telas (Expo Router). (tabs)/ = Hoje, Bíblia, Orar, Diário, Perfil
 src/components/     UI básica (ui.tsx), Angel (SVG original), Passage (render do texto), Sheet
 src/content/        conteúdo editorial: trilhas, glossário, introduções, notas, orações, termos, falas do anjo
 src/db/bible.ts     consultas ao banco bíblico (somente leitura, assets/db/bible.db)

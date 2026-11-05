@@ -15,7 +15,7 @@ import { BOOK_INTROS } from '../../src/content/bookIntros.ts';
 import { CHAPTER_NOTES } from '../../src/content/chapterNotes.ts';
 import { GLOSSARY } from '../../src/content/glossary.ts';
 import { PRAYERS } from '../../src/content/prayers.ts';
-import { TRAILS } from '../../src/content/trails.ts';
+import { SERIES, TRAILS } from '../../src/content/trails.ts';
 
 const ROOT = path.resolve(import.meta.dirname, '../..');
 const cell = (s: unknown) => `"${String(s ?? '').replace(/"/g, '""')}"`;
@@ -32,7 +32,7 @@ for (const g of GLOSSARY)
   add(g.antiga ? 'Glossário (palavra antiga)' : 'Glossário', g.id, 'src/content/glossary.ts', `${g.termo}: ${g.definicao}`, g.fontes, g.status);
 for (const p of PRAYERS)
   add('Oração', p.id, 'src/content/prayers.ts', `${p.titulo}\n${p.texto}\n\nSOBRE: ${p.sobre}`, p.fontes, p.status);
-for (const t of TRAILS)
+for (const t of [...TRAILS, ...SERIES])
   for (const l of t.licoes) {
     const corpo = l.passos
       .map((s) =>

@@ -38,7 +38,23 @@
     "salmos 102:7": "Fez conhecer a Moisés os seus caminhos, aos filhos de Israel as suas vontades.",
     "2-timoteo 3:14": "Mas tu, persevera nas coisas que aprendeste e que te foram confiadas: Sabendo de quem as aprendeste:",
     "2-timoteo 3:17": "A fim de que o homem de Deus seja perfeito, estando preparado para toda a boa obra.",
-    "mateus 1:23": "Eis uma virgem conceberá e dará à luz um filho: E apelidá-lo-ão pelo nome de Emanuel, que quer dizer, Deus conosco."
+    "mateus 1:23": "Eis uma virgem conceberá e dará à luz um filho: E apelidá-lo-ão pelo nome de Emanuel, que quer dizer, Deus conosco.",
+    "marcos 13:37": "O que eu porém vos digo a vós, isto digo a todos: Vigiai.",
+    "filipenses 4:4": "Alegrai-vos incessantemente no Senhor: Outra vez digo, alegrai-vos.",
+    "lucas 1:26": "E estando Isabel no sexto mês, foi enviado por Deus o anjo Gabriel a uma cidade de Galileia, chamada Nazaré,",
+    "lucas 1:31": "Eis conceberás no teu ventre, e darás à luz um filho, e por-lhe-ás o nome de Jesus:",
+    "lucas 1:35": "E respondendo, o anjo lhe disse: O Espírito Santo descerá sobre ti, e a virtude do Altíssimo te cobrirá da sua sombra. E por isso mesmo o Santo, que há de nascer de ti, será chamado Filho de Deus.",
+    "mateus 1:19": "E José, seu esposo, como era justo, e não queria infamá-la, resolveu deixá-la secretamente.",
+    "mateus 1:21": "E ela dará à luz um filho: e lhe chamarás por nome Jesus: Porque ele salvará o seu povo dos pecados deles.",
+    "lucas 2:1": "E aconteceu naqueles dias que saiu um edito emanado de César Augusto para que fosse alistado todo o mundo.",
+    "lucas 2:2": "Este primeiro recenseamento foi feito por Cirino, governador da Síria:",
+    "lucas 2:6": "E estando ali aconteceu completarem-se os dias em que havia de dar à luz.",
+    "lucas 2:7": "E deu à luz a seu filho primogênito, e o enfaixou e o reclinou em uma manjedoura: Porque não havia lugar para eles na estalagem.",
+    "lucas 2:8": "Ora, naquela mesma comarca havia uns pastores que vigiavam e revezavam entre si as vigílias da noite para guardarem o seu rebanho.",
+    "lucas 2:9": "E eis que se apresentou junto deles um anjo do Senhor, e com uma luz divina os cercou de refulgente luz, e tiveram grande temor.",
+    "lucas 2:12": "E este é o sinal que vo-lo fará conhecer: Achareis um menino envolto em panos, e posto em uma manjedoura.",
+    "isaias 9:6": "Porquanto já um pequeno se acha nascido para nós, e um filho nos foi dado a nós, e foi posto o principado sobre o seu ombro: E o nome com que se apelide será admirável, conselheiro, Deus forte, pai do futuro século, príncipe da paz.",
+    "isaias 9:7": "O seu império se estenderá cada vez mais, e a paz não terá fim: Assentar-se-á sobre o trono de Davi, e sobre o seu reino: Para o firmar e fortalecer em juízo e justiça, desde então e para sempre: Fará isto o zelo do Senhor dos exércitos."
   },
   "remover": [],
   "conferir": {
@@ -47,6 +63,9 @@
     "salmos 22:5": "OCR traz 'quam' (forma antiga); atualizado para 'quão'. Conferir.",
     "lucas 15:12": "Começa em minúscula ('disse o mais moço'); talvez falte um 'E' inicial.",
     "lucas 15:26": "Começa em minúscula ('chamou um dos servos'); talvez falte um 'E' inicial.",
-    "lucas 15:27": "Começa em minúscula ('este lhe disse'); talvez falte um 'E' inicial."
+    "lucas 15:27": "Começa em minúscula ('este lhe disse'); talvez falte um 'E' inicial.",
+    "isaias 9:7": "'e sobre o seu reino' reconstruído: as digitalizações trazem só '…bre o seu reino' depois de um trecho de nota.",
+    "lucas 2:7": "'mangedoura' (grafia antiga) atualizado para 'manjedoura'; idem 2:12.",
+    "lucas 2:8": "OCR 'revesavain'; corrigido para 'revezavam'."
   }
 }

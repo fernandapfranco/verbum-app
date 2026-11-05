@@ -25,6 +25,10 @@ export default function TabsLayout() {
         options={{ title: 'Bíblia', tabBarIcon: ({ color, size }) => <Ionicons name="book-outline" color={color as string} size={size} /> }}
       />
       <Tabs.Screen
+        name="orar"
+        options={{ title: 'Orar', tabBarIcon: ({ color, size }) => <Ionicons name="flower-outline" color={color as string} size={size} /> }}
+      />
+      <Tabs.Screen
         name="diario"
         options={{ title: 'Diário', tabBarIcon: ({ color, size }) => <Ionicons name="create-outline" color={color as string} size={size} /> }}
       />

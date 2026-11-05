@@ -6,7 +6,7 @@ import { Angel } from '@/components/Angel';
 import { Sheet } from '@/components/Sheet';
 import { Button, Card, Divider, Row, Screen, T } from '@/components/ui';
 import { DEFAULT_ANGEL_NAME } from '@/content/angel';
-import { TRAILS } from '@/content/trails';
+import { SERIES, TRAILS } from '@/content/trails';
 import { usePlan } from '@/hooks/usePlan';
 import { scopeLabel } from '@/lib/plan/engine';
 import { useSettings } from '@/store/settings';
@@ -50,11 +50,11 @@ export default function Perfil() {
           onPress={() => router.push(config ? '/plano' : '/plano/novo')}
         />
         <Divider />
-        {TRAILS.map((t) => (
+        {[...TRAILS, ...SERIES].map((t) => (
           <View key={t.id}>
             <Row
-              icon={t.id === 'primeiros-passos' ? 'footsteps-outline' : 'home-outline'}
-              title={`Trilha ${t.titulo}`}
+              icon={t.id === 'primeiros-passos' ? 'footsteps-outline' : t.id === 'voltando-para-casa' ? 'home-outline' : 'sparkles-outline'}
+              title={t.id === 'advento' ? t.titulo : `Trilha ${t.titulo}`}
               subtitle={t.subtitulo}
               onPress={() => router.push({ pathname: '/trilha/[id]', params: { id: t.id } })}
             />

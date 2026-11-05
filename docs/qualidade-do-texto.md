@@ -3,7 +3,7 @@
 > Arquivo gerado por `npm run bible:build`. Não edite à mão.
 
 - Versículos no banco: **35809**
-- Marcados para revisão humana: **5734** (16.0%)
+- Marcados para revisão humana: **5725** (16.0%)
 - Versículos que nenhuma das duas digitalizações recuperou: **162**
 - Capítulos revisados manualmente: **6**
 
@@ -46,7 +46,7 @@ A lista completa está em `content/bible/revisao/suspeitos.csv`.
 | Cântico | 116 | 40 (34.5%) | 0 |
 | Sabedoria | 439 | 41 (9.3%) | 1 |
 | Eclesiástico | 1592 | 140 (8.8%) | 1 |
-| Isaías | 1292 | 260 (20.1%) | 3 |
+| Isaías | 1292 | 259 (20.0%) | 3 |
 | Jeremias | 1363 | 201 (14.7%) | 0 |
 | Lamentações | 154 | 17 (11.0%) | 0 |
 | Baruc | 213 | 19 (8.9%) | 0 |
@@ -64,9 +64,9 @@ A lista completa está em `content/bible/revisao/suspeitos.csv`.
 | Ageu | 38 | 5 (13.2%) | 0 |
 | Zacarias | 211 | 39 (18.5%) | 0 |
 | Malaquias | 55 | 11 (20.0%) | 0 |
-| Mateus | 1070 | 207 (19.3%) | 8 |
+| Mateus | 1070 | 206 (19.3%) | 8 |
 | Marcos | 677 | 89 (13.1%) | 3 |
-| Lucas | 1151 | 210 (18.2%) | 12 |
+| Lucas | 1151 | 204 (17.7%) | 12 |
 | João | 879 | 126 (14.3%) | 1 |
 | Atos | 1004 | 180 (17.9%) | 5 |
 | Romanos | 433 | 61 (14.1%) | 2 |
@@ -74,7 +74,7 @@ A lista completa está em `content/bible/revisao/suspeitos.csv`.
 | 2 Coríntios | 255 | 37 (14.5%) | 2 |
 | Gálatas | 149 | 17 (11.4%) | 0 |
 | Efésios | 155 | 12 (7.7%) | 0 |
-| Filipenses | 104 | 12 (11.5%) | 0 |
+| Filipenses | 104 | 11 (10.6%) | 0 |
 | Colossenses | 95 | 12 (12.6%) | 0 |
 | 1 Tessalonicenses | 89 | 12 (13.5%) | 2 |
 | 2 Tessalonicenses | 47 | 11 (23.4%) | 1 |

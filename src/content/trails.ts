@@ -1,6 +1,7 @@
 import type { PassageRef, Reviewable } from './types';
 
 export type TrailId = 'primeiros-passos' | 'voltando-para-casa';
+export type SeriesId = 'advento';
 
 export type LessonStep =
   | { kind: 'texto'; titulo?: string; corpo: string }
@@ -17,7 +18,7 @@ export interface Lesson extends Reviewable {
 }
 
 export interface Trail {
-  id: TrailId;
+  id: TrailId | SeriesId;
   titulo: string;
   subtitulo: string;
   paraQuem: string;
@@ -395,8 +396,160 @@ export const TRAILS: readonly Trail[] = [
   },
 ];
 
+/**
+ * Séries do tempo litúrgico: trilhas que ficam em destaque quando o tempo se
+ * aproxima (ver src/lib/liturgy.ts). Podem ser feitas a qualquer momento.
+ */
+export interface Series extends Trail {
+  id: SeriesId;
+  season: 'advento' | 'natal' | 'quaresma' | 'pascoa';
+}
+
+export const SERIES: readonly Series[] = [
+  {
+    id: 'advento',
+    season: 'advento',
+    titulo: 'Advento: preparar o caminho',
+    subtitulo: 'Série do tempo litúrgico · 7 encontros',
+    paraQuem:
+      'Quatro semanas para preparar o coração para o Natal: um encontro curto por semana, com leituras que a Igreja faz no Advento, e um encontro para a noite de Natal.',
+    licoes: [
+      {
+        id: 'o-que-e-o-advento',
+        titulo: 'O que é o Advento?',
+        resumo: 'Um tempo de espera alegre, com velas, roxo e esperança.',
+        minutos: 4,
+        ...R(['CIC 524', 'Normas Universais do Ano Litúrgico 39']),
+        passos: [
+          {
+            kind: 'texto',
+            titulo: 'Uma chegada',
+            corpo:
+              '"Advento" quer dizer "chegada". São as quatro semanas antes do Natal, quando a Igreja começa o seu ano. Esperamos duas vindas: celebramos que Jesus veio a nós em Belém e nos preparamos para a sua volta no fim dos tempos.',
+          },
+          {
+            kind: 'texto',
+            titulo: 'Sinais do Advento',
+            corpo:
+              'O roxo das vestes lembra conversão e espera. A coroa do Advento tem quatro velas: uma acesa a cada domingo, para a luz ir crescendo até o Natal. A terceira costuma ser rosa: é o domingo da alegria (Gaudete), porque o Natal já está perto.',
+          },
+          {
+            kind: 'leitura',
+            ref: { bookId: 'isaias', chapter: 40, from: 1, to: 5 },
+            antes: 'O profeta Isaías anunciava consolo a um povo cansado. A Igreja relê estas palavras no Advento:',
+          },
+          { kind: 'reflexao', pergunta: 'O que você gostaria de preparar no seu coração para este Natal?' },
+        ],
+      },
+      {
+        id: 'vigiai',
+        titulo: '1ª semana · Vigiai',
+        resumo: 'Estar atento é diferente de ter medo.',
+        minutos: 4,
+        ...R(['CIC 672', 'CIC 2612']),
+        passos: [
+          { kind: 'leitura', ref: { bookId: 'marcos', chapter: 13, from: 33, to: 37 }, antes: 'No Advento, a Igreja relê este convite de Jesus a ficar acordado:' },
+          {
+            kind: 'texto',
+            corpo:
+              'Vigiar não é viver com medo do fim. É viver acordado: perceber Deus nas pequenas coisas, cuidar das pessoas, não deixar a vida passar no piloto automático. Quem vigia está pronto para receber quem ama.',
+          },
+          { kind: 'reflexao', pergunta: 'Em que parte da sua vida você anda "dormindo"? O que ajudaria você a ficar mais atento a Deus?' },
+        ],
+      },
+      {
+        id: 'preparai-o-caminho',
+        titulo: '2ª semana · Preparai o caminho',
+        resumo: 'João Batista e o convite a endireitar as veredas.',
+        minutos: 5,
+        ...R(['CIC 523', 'CIC 1427–1429']),
+        passos: [
+          { kind: 'leitura', ref: { bookId: 'marcos', chapter: 1, from: 1, to: 8 }, antes: 'Todo Advento, João Batista aparece nos Evangelhos de domingo. Aqui está ele no deserto:' },
+          {
+            kind: 'texto',
+            corpo:
+              'Antigamente, quando um rei ia visitar uma cidade, abriam e aplainavam a estrada. João pede o mesmo para o coração: tirar as pedras do caminho. Muita gente aproveita o Advento para se confessar antes do Natal — é um jeito bonito de preparar a estrada.',
+          },
+          { kind: 'reflexao', pergunta: 'Que "pedra" você gostaria de tirar do caminho até o Natal?' },
+        ],
+      },
+      {
+        id: 'alegrai-vos',
+        titulo: '3ª semana · Alegrai-vos',
+        resumo: 'O domingo rosa: o Senhor está perto.',
+        minutos: 4,
+        ...R(['CIC 30', 'CIC 2637']),
+        passos: [
+          {
+            kind: 'texto',
+            corpo:
+              'No 3º Domingo do Advento, chamado "Gaudete" ("alegrai-vos"), a vela e as vestes podem ser rosa: uma pausa de alegria no meio da espera, porque o Natal está chegando.',
+          },
+          { kind: 'leitura', ref: { bookId: 'filipenses', chapter: 4, from: 4, to: 7 }, antes: 'São Paulo escreveu isto da prisão — e mesmo assim fala de alegria:' },
+          { kind: 'reflexao', pergunta: 'O que te tira a paz hoje? Experimente entregar isso a Deus, como Paulo sugere.' },
+        ],
+      },
+      {
+        id: 'o-sim-de-maria',
+        titulo: '4ª semana · O sim de Maria',
+        resumo: 'A Anunciação e o "faça-se" que mudou a história.',
+        minutos: 6,
+        ...R(['CIC 484–494', 'CIC 2617']),
+        passos: [
+          { kind: 'leitura', ref: { bookId: 'lucas', chapter: 1, from: 26, to: 38 }, antes: 'Perto do Natal, a Igreja lê a visita do anjo Gabriel a Maria:' },
+          {
+            kind: 'texto',
+            corpo:
+              'Maria não entendeu tudo de uma vez — ela até perguntou "como se fará isso?". Mas confiou e disse sim. Essa cena é exatamente a que rezamos no Angelus, três vezes por dia.',
+          },
+          { kind: 'oracao', prayerId: 'angelus' },
+          { kind: 'reflexao', pergunta: 'Que "sim" Deus pode estar esperando de você?' },
+        ],
+      },
+      {
+        id: 'deus-conosco',
+        titulo: 'Deus conosco',
+        resumo: 'O Emanuel prometido por Isaías e o sonho de José.',
+        minutos: 6,
+        ...R(['CIC 437', 'CIC 497', 'CIC 532']),
+        passos: [
+          { kind: 'leitura', ref: { bookId: 'isaias', chapter: 9, from: 6, to: 7 }, antes: 'Séculos antes, Isaías anunciou um menino que traria a paz:' },
+          { kind: 'leitura', ref: { bookId: 'mateus', chapter: 1, from: 18, to: 24 }, antes: 'E Mateus conta como José acolheu esse mistério:' },
+          {
+            kind: 'texto',
+            corpo:
+              'José é o homem do silêncio: não fala uma palavra nos Evangelhos, mas faz o que Deus pede. "Emanuel" quer dizer "Deus conosco" — Deus não ficou longe; veio morar no meio da nossa vida, do jeito que ela é.',
+          },
+          { kind: 'reflexao', pergunta: 'Onde você precisa sentir hoje que Deus está com você?' },
+        ],
+      },
+      {
+        id: 'noite-feliz',
+        titulo: 'Noite de Natal',
+        resumo: 'Hoje vos nasceu o Salvador.',
+        minutos: 6,
+        ...R(['CIC 525–526']),
+        passos: [
+          { kind: 'leitura', ref: { bookId: 'lucas', chapter: 2, from: 1, to: 14 }, antes: 'O Evangelho da noite de Natal. Leia devagar, imaginando a cena:' },
+          {
+            kind: 'texto',
+            corpo:
+              'Deus escolheu chegar pequeno, pobre e sem lugar na estalagem. Os primeiros a saber foram pastores trabalhando de madrugada. O Natal é para todos — principalmente para quem acha que não tem lugar.',
+          },
+          { kind: 'oracao', prayerId: 'gloria' },
+          { kind: 'texto', titulo: 'Feliz Natal! 🎄', corpo: 'Você completou a série do Advento. Que a luz de Belém fique acesa no seu coração o ano inteiro.' },
+        ],
+      },
+    ],
+  },
+];
+
 export function getTrail(id: string): Trail | undefined {
-  return TRAILS.find((t) => t.id === id);
+  return TRAILS.find((t) => t.id === id) ?? SERIES.find((t) => t.id === id);
+}
+
+export function getSeriesFor(season: Series['season']): Series | undefined {
+  return SERIES.find((s) => s.season === season);
 }
 
 export function getLesson(trailId: string, lessonId: string): Lesson | undefined {
