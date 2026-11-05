@@ -50,8 +50,8 @@ onboarding de novo): Perfil → Privacidade e dados → Apagar todos os meus dad
    versículo para destacar/favoritar/anotar; em **Aa** mude fonte e fundo
    (claro, sépia, noturno); no fim, "Marcar como lido" — a primeira leitura do
    dia é o **check-in** (+10 talentos).
-7. Toque no foguinho na aba Hoje para ver a **ofensiva** e comprar velas.
-6. Veja **Bíblia** (73 livros, Salmos com dupla numeração), a **busca**, o
+6. Toque no foguinho na aba Hoje para ver a **ofensiva** e comprar velas.
+7. Veja **Bíblia** (73 livros, Salmos com dupla numeração), a **busca**, o
    **Diário** e **Perfil → Privacidade e dados** (exportar / apagar).
 
 ## Desenvolvimento
