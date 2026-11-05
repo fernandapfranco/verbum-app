@@ -33,15 +33,20 @@ teste.
    ```
    npm install
    ```
-3. Depois:
+3. Deixe o **celular no mesmo Wi-Fi do computador** e rode:
    ```
-   npx expo start --tunnel
+   npx expo start
    ```
-   Se perguntar se pode instalar algo (por exemplo `@expo/ngrok`), digite `y` e Enter.
+   Se o Windows perguntar sobre o **Firewall**, clique em **Permitir acesso**
+   (marque também "Redes privadas").
+   - Celular em outra rede (ou o app não carrega)? Use o túnel:
+     `npx expo start --tunnel ngrok` — se perguntar se pode instalar
+     `@expo/ngrok`, digite `y` e Enter. (Só `--tunnel`, sem `ngrok`, agora
+     exige login numa conta Expo.)
 4. Vai aparecer um **QR code**.
    - **iPhone**: abra a câmera, aponte para o QR code e toque no aviso do Expo Go.
    - **Android**: abra o Expo Go → "Scan QR code".
-5. Para parar: `Ctrl + C`. Para pegar uma versão nova, baixe o ZIP de novo,
+5. Para parar: `Ctrl + C`. (No PowerShell, se pedir confirmação, digite `S` ou `Y`.) Para pegar uma versão nova, baixe o ZIP de novo,
    extraia e repita os passos.
 
 **Erro "'npm' não é reconhecido…"?** O Node.js não foi instalado (ou o Prompt

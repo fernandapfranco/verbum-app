@@ -52,7 +52,7 @@ docs/               plano, texto bíblico, revisão doutrinal, qualidade do text
 ```
 
 ## Comandos
-- `npm start` — servidor do Expo (`npx expo start --tunnel` se o celular não estiver na mesma rede)
+- `npm start` — servidor do Expo (mesmo Wi-Fi; senão `npx expo start --tunnel ngrok` — `--tunnel` sozinho exige login Expo)
 - `npm test` — testes · `npm run typecheck` — TypeScript
 - `npm run bible:build -- <abibliasagrada/web/data/livros> <biblia-chat-server/corpus>` — regera o banco bíblico. **Depois, aumente `bibleDbName` em `src/config.ts`** para o app substituir a cópia antiga no aparelho.
 - `npm run content:review-sheet` — gera `content/revisao-doutrinal/planilha.csv`
