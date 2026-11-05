@@ -1,4 +1,4 @@
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router/js-tabs';
 
 import { FONTS, useTheme } from '@/theme';
@@ -26,7 +26,7 @@ export default function TabsLayout() {
       />
       <Tabs.Screen
         name="orar"
-        options={{ title: 'Orar', tabBarIcon: ({ color, size }) => <Ionicons name="flower-outline" color={color as string} size={size} /> }}
+        options={{ title: 'Orar', tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="church-outline" color={color as string} size={size} /> }}
       />
       <Tabs.Screen
         name="diario"

@@ -38,7 +38,13 @@
           }
         }
       ],
-      "expo-notifications"
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#2F45D6"
+        }
+      ]
     ],
     "scheme": "verbum",
     "backgroundColor": "#F6F7FB",
