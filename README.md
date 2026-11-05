@@ -83,6 +83,9 @@ onboarding de novo): Perfil → Privacidade e dados → Apagar todos os meus dad
 Link no navegador (iPhone e Android), instalador Android e TestFlight: veja
 [`docs/compartilhar.md`](docs/compartilhar.md).
 
+## Especificação técnica
+Veja [`docs/especificacao-tecnica.md`](docs/especificacao-tecnica.md).
+
 ## Desenvolvimento
 ```bash
 npm test            # testes da lógica (plano, Salmos, limpeza do texto)
