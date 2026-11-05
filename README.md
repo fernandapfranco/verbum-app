@@ -9,34 +9,48 @@ cobrar, e (nas próximas fases) gamificação, vida de oração e amigos.
 
 ## Testar no celular com o Expo Go
 
-1. Instale o **Expo Go** no celular (App Store ou Google Play). Ele precisa
-   suportar o **SDK 58** — se a loja oferecer atualização, atualize.
-2. No computador, com o [Node.js](https://nodejs.org) 20 ou mais recente:
+O app roda a partir do **seu computador** (Windows, Mac ou Linux) e aparece no
+celular pelo Expo Go. O computador e o celular precisam estar ligados durante o
+teste.
+
+**Uma vez só (preparação):**
+1. No computador, instale o **Node.js** (versão "LTS") em https://nodejs.org.
+2. Instale o **Git** em https://git-scm.com (no Mac ele já costuma vir instalado).
+3. No celular, instale o **Expo Go** (App Store ou Google Play) e mantenha atualizado.
+
+**Para rodar:**
+1. Abra o **Terminal** (Mac) ou o **Prompt de Comando** (Windows).
+2. Copie e cole, uma linha por vez, apertando Enter:
    ```bash
    git clone https://github.com/fernandapfranco/verbum-app.git
    cd verbum-app
    git checkout claude/biblia-catolica-app-kyivax
    npm install
-   npx expo start
+   npx expo start --tunnel
    ```
-3. Aparece um **QR code** no terminal.
-   - **Android**: abra o Expo Go e toque em "Scan QR code".
-   - **iPhone**: abra a câmera e aponte para o QR code.
-4. Se o celular e o computador não estiverem na mesma rede Wi-Fi (ou se não
-   conectar), use `npx expo start --tunnel`.
+   (`npm install` demora alguns minutos na primeira vez. Se perguntar se pode
+   instalar algo, responda `y` e Enter.)
+3. Vai aparecer um **QR code** no terminal.
+   - **iPhone**: abra a câmera, aponte para o QR code e toque no aviso do Expo Go.
+   - **Android**: abra o Expo Go → "Scan QR code".
+4. Para atualizar depois de novas mudanças: pare com `Ctrl + C`, rode
+   `git pull` e de novo `npx expo start --tunnel`.
 
 Na primeira abertura o app copia a Bíblia (≈10 MB) para o aparelho; leva alguns
-segundos. Depois funciona **sem internet**.
+segundos. Depois funciona **sem internet**. Para recomeçar do zero (ver o
+onboarding de novo): Perfil → Privacidade e dados → Apagar todos os meus dados.
 
 ### Roteiro de teste sugerido
 1. Aceite os termos, confirme a idade e escolha sobre o diário.
-2. Responda as 3 perguntas e dê um nome ao anjo. Se disser que está
-   "voltando", a trilha sugerida é **Voltando para Casa**.
+2. Responda o questionário (ou toque em "Pular"), escolha as notificações,
+   dê um nome ao anjo e veja a sugestão de começo.
 3. Faça uma lição: toque nas palavras sublinhadas para ver o glossário.
 4. Em **Perfil → Plano de leitura**, monte um plano (ex.: Evangelhos em 3 meses).
 5. Na aba **Hoje**, toque em "Começar a leitura". No leitor: toque num
    versículo para destacar/favoritar/anotar; em **Aa** mude fonte e fundo
-   (claro, sépia, noturno); no fim, "Marcar como lido".
+   (claro, sépia, noturno); no fim, "Marcar como lido" — a primeira leitura do
+   dia é o **check-in** (+10 talentos).
+7. Toque no foguinho na aba Hoje para ver a **ofensiva** e comprar velas.
 6. Veja **Bíblia** (73 livros, Salmos com dupla numeração), a **busca**, o
    **Diário** e **Perfil → Privacidade e dados** (exportar / apagar).
 

@@ -15,6 +15,7 @@ import { getPrayer } from '@/content/prayers';
 import { getLesson, getTrail, type LessonStep } from '@/content/trails';
 import { getVerses } from '@/db/bible';
 import { completeLesson, saveJournalEntry } from '@/db/user';
+import { useCheckin } from '@/hooks/useGamification';
 import { refLabel } from '@/lib/bible/format';
 import { useSettings } from '@/store/settings';
 import { FONTS, RADIUS, READER_THEMES, SPACE, useTheme } from '@/theme';
@@ -27,6 +28,7 @@ export default function Licao() {
   const [i, setI] = useState(0);
   const [done, setDone] = useState(false);
   const [term, setTerm] = useState<GlossaryTerm | null>(null);
+  const checkin = useCheckin();
 
   if (!trail || !lesson) return null;
   const step = lesson.passos[i];
@@ -38,6 +40,9 @@ export default function Licao() {
     completeLesson(trail.id, lesson.id);
     Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success).catch(() => {});
     setDone(true);
+    const r = checkin('licao');
+    if (r.isNew)
+      router.push({ pathname: '/checkin', params: { streak: String(r.streak), reward: String(r.reward), bonus: String(r.bonus) } });
   };
 
   return (

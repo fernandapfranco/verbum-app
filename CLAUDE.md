@@ -29,6 +29,12 @@ Ao fim de cada fase: mostrar o que foi feito e como testar no Expo Go.
 - **Plano de leitura**: nunca guarda "dívida". A leitura de hoje é recalculada a partir do que falta e do tempo que resta (`src/lib/plan/engine.ts`). Peso = minutos (palavras ÷ 170/min), não capítulos.
 - **Visual**: creme `#FBF7EF`, azul mariano `#1E3A6E`, dourado `#C9A04A`; Literata (texto bíblico) + Inter (interface). Contraste AA. Tokens em `src/theme/tokens.ts`. Na Fase 3, `accent` segue o tempo litúrgico.
 - **Testes**: `node:test` via `tsx` (sem Jest), para lógica pura. `npm test`.
+- **Onboarding = questionário** (nome, objetivos, experiência, momento na fé, tempo, horário), cada pergunta com "Pular" e opção de pular tudo; depois notificações, nome do anjo e uma **sugestão** de começo (trilha, plano ou explorar) — `src/lib/recommend.ts`. Trilhas não são mais impostas.
+- **Check-in diário** (antecipado da Fase 2): a primeira atividade do dia (capítulo lido ou lição concluída) é o check-in → +10 talentos, +30 a cada 7 dias seguidos. **Ofensiva** = dias seguidos com check-in ou protegidos. **Velas** (50 talentos, máx. 2, 1 de presente) protegem dias perdidos automaticamente ao abrir o app. Sem velas, a ofensiva recomeça sem bronca. Lógica pura em `src/lib/streak.ts`.
+- **Moeda**: "talentos" (parábola dos talentos), com ícone de diamante — nome ainda aberto para a dona do projeto confirmar.
+- **Notificações locais** (`src/lib/notifications.ts`): lembrete diário no horário escolhido, aviso de ofensiva em risco (20h30) e Angelus (6h/12h/18h), reagendadas para 7 dias a cada abertura/check-in/mudança. Funcionam no Expo Go.
+- **Ofensiva com amigos**: depende de conta e servidor → Fase 4 (Supabase).
+- **Identidade visual**: em escolha. Três propostas (Luz, Vitral, Aurora) no painel de design; aplicar a escolhida trocando `src/theme/tokens.ts`, fontes e `Angel.tsx`.
 
 ## Estrutura
 ```
@@ -59,5 +65,7 @@ docs/               plano, texto bíblico, revisão doutrinal, qualidade do text
 
 ## Estado atual (Fase 1)
 Feito: primeiro acesso com termos/idade/LGPD, onboarding (3 perguntas, nome do anjo, escolha de trilha), trilhas Primeiros Passos (7 lições) e Voltando para Casa (6 lições), leitor (fonte, claro/sépia/noturno, destaques em 4 cores, favoritos, notas, copiar/compartilhar texto, glossário tocável, "antes de ler"), plano de leitura (6 escopos, por prazo ou minutos/dia, dias da semana, recálculo sem penalizar, estender prazo), busca, versículos salvos, diário espiritual, privacidade (consentimentos, exportar, apagar tudo), introdução dos 73 livros, notas de Marcos e dos textos das trilhas, glossário (~70 termos).
+
+Depois da Fase 1: questionário de onboarding com "pular", notificações locais, check-in diário com talentos, ofensiva e velas de proteção (telas `checkin`, `ofensiva`, `notificacoes`).
 
 Pendente para fases seguintes: compartilhar versículo como **imagem** (Fase 2, com os fundos desbloqueáveis), lembretes (Fase 2), revisão do texto bíblico (contínua), revisão doutrinal (aguarda revisor).

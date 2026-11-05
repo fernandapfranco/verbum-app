@@ -16,7 +16,9 @@ import { ActivityIndicator, Platform, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { APP_CONFIG } from '@/config';
-import { userDb } from '@/db/user';
+import { applyStreakProtection, userDb } from '@/db/user';
+import { refreshNotifications } from '@/hooks/useGamification';
+import { useSession } from '@/store/session';
 import { useSettings } from '@/store/settings';
 import { AppThemeProvider, FONTS, useTheme } from '@/theme';
 
@@ -37,14 +39,23 @@ export default function RootLayout() {
   // (só para testes) é preciso "acordar" o worker com uma operação assíncrona.
   const [storageReady, setStorageReady] = useState(Platform.OS !== 'web');
   useEffect(() => {
-    if (Platform.OS !== 'web') {
+    const startup = () => {
       userDb(); // abre o banco do usuário e roda as migrações
+      // Acende velas para dias perdidos (se houver) e reagenda lembretes.
+      if (useSettings.getState().onboarding.done) {
+        const r = applyStreakProtection();
+        useSession.getState().set({ protectedNow: r.protect.length, streakBroken: r.broken });
+        refreshNotifications();
+      }
+    };
+    if (Platform.OS !== 'web') {
+      startup();
       return;
     }
     (async () => {
       await Storage.getItemAsync('verbum.warmup');
       await useSettings.persist.rehydrate();
-      userDb();
+      startup();
       setStorageReady(true);
     })();
   }, []);
@@ -115,6 +126,9 @@ function RootStack() {
         <Stack.Screen name="glossario" options={{ title: 'Glossário' }} />
         <Stack.Screen name="privacidade" options={{ title: 'Privacidade e dados' }} />
         <Stack.Screen name="sobre-o-texto" options={{ title: 'Sobre o texto bíblico' }} />
+        <Stack.Screen name="checkin" options={{ headerShown: false, presentation: 'fullScreenModal', animation: 'fade' }} />
+        <Stack.Screen name="ofensiva" options={{ title: 'Ofensiva' }} />
+        <Stack.Screen name="notificacoes" options={{ title: 'Notificações' }} />
       </Stack>
     </>
   );

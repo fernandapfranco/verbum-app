@@ -1,13 +1,17 @@
 import { Ionicons } from '@expo/vector-icons';
 import { router, useFocusEffect } from 'expo-router';
 import { useCallback, useMemo, useRef, useState } from 'react';
-import { View } from 'react-native';
+import { Pressable, View } from 'react-native';
 
 import { AngelSays, Button, Card, ProgressBar, Screen, T } from '@/components/ui';
 import { DEFAULT_ANGEL_NAME, greeting, pick, PLAN_ADJUSTED, WELCOME_BACK } from '@/content/angel';
 import { getTrail, TRAILS } from '@/content/trails';
+import { WeekStrip } from '@/components/WeekStrip';
 import { getCompletedLessons, useDataVersion } from '@/db/user';
+import { useGamification } from '@/hooks/useGamification';
 import { usePlan } from '@/hooks/usePlan';
+import { REWARDS } from '@/lib/streak';
+import { useSession } from '@/store/session';
 import { chapterLabel, minutesLabel } from '@/lib/bible/format';
 import { formatDate, today as todayISO } from '@/lib/dates';
 import { chapterKey, scopeLabel } from '@/lib/plan/engine';
@@ -25,6 +29,9 @@ export default function Hoje() {
   const bump = useDataVersion((s) => s.bump);
   const plan = usePlan();
   const v = useDataVersion((s) => s.v);
+  const g = useGamification();
+  const userName = useSettings((s) => s.userName);
+  const session = useSession();
 
   // "Que bom te ver de novo!" quando a pessoa some por 3 dias ou mais — sem cobrança.
   const [welcomeBack, setWelcomeBack] = useState(false);
@@ -41,11 +48,14 @@ export default function Hoje() {
   );
 
   const hour = new Date().getHours();
-  const message = welcomeBack
-    ? pick(WELCOME_BACK)
-    : plan.today?.status === 'ajustado'
-      ? pick(PLAN_ADJUSTED, hour)
-      : greeting(hour, '');
+  const message =
+    session.protectedNow > 0
+      ? `Acendi ${session.protectedNow === 1 ? 'uma vela' : `${session.protectedNow} velas`} para guardar sua ofensiva enquanto você esteve fora. 🕯️ Que bom te ver!`
+      : welcomeBack || session.streakBroken
+        ? pick(WELCOME_BACK)
+        : plan.today?.status === 'ajustado'
+          ? pick(PLAN_ADJUSTED, hour)
+          : greeting(hour, userName);
 
   // Trilha em andamento: a escolhida no onboarding, ou a que tiver progresso.
   const trailCard = useMemo(() => {
@@ -64,13 +74,41 @@ export default function Hoje() {
 
   return (
     <Screen>
-      <T variant="label" muted style={{ marginTop: SPACE.sm }}>
-        {formatDate(todayISO())}
-      </T>
+      <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: SPACE.sm }}>
+        <T variant="label" muted>
+          {formatDate(todayISO())}
+        </T>
+        <Pressable
+          onPress={() => router.push('/ofensiva')}
+          accessibilityRole="button"
+          accessibilityLabel={`Ofensiva de ${g.streak} dias, ${g.talentos} talentos, ${g.velas} velas`}
+          style={{ flexDirection: 'row', gap: SPACE.sm }}
+        >
+          <Pill icon="flame" color="#E8902A" value={g.streak} />
+          <Pill icon="diamond" color={c.primary} value={g.talentos} />
+        </Pressable>
+      </View>
       <AngelSays text={message} mood={welcomeBack ? 'festa' : 'feliz'} />
       <T variant="caption" muted style={{ marginTop: -SPACE.sm, marginLeft: 84 }}>
         — {angelName}
       </T>
+
+      <Card onPress={() => router.push('/ofensiva')} accessibilityLabel="Ver ofensiva">
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+          <T variant="label" color={c.goldText}>
+            Check-in de hoje
+          </T>
+          <T variant="caption" muted>
+            {g.velas} {g.velas === 1 ? 'vela' : 'velas'} de proteção
+          </T>
+        </View>
+        <T variant="bodyStrong">
+          {g.checkedInToday
+            ? `Feito! ${g.streak} ${g.streak === 1 ? 'dia' : 'dias'} de ofensiva ✓`
+            : `Leia um capítulo ou faça uma lição e ganhe +${REWARDS.checkin} talentos`}
+        </T>
+        <WeekStrip week={g.week} />
+      </Card>
 
       {plan.config && today ? (
         <Card>
@@ -200,5 +238,27 @@ export default function Hoje() {
         </T>
       )}
     </Screen>
+  );
+}
+
+function Pill({ icon, color, value }: { icon: 'flame' | 'diamond'; color: string; value: number }) {
+  const { c } = useTheme();
+  return (
+    <View
+      style={{
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 4,
+        backgroundColor: c.surface,
+        borderRadius: 999,
+        paddingHorizontal: 12,
+        minHeight: 36,
+        borderWidth: 1,
+        borderColor: c.border,
+      }}
+    >
+      <Ionicons name={icon} size={16} color={color} />
+      <T variant="bodyStrong">{value}</T>
+    </View>
   );
 }

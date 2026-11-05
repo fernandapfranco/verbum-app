@@ -10,7 +10,17 @@ import { create } from 'zustand';
 
 import type { HighlightColor } from '@/theme/tokens';
 import type { PlanConfig } from '@/lib/plan/engine';
-import { toISODate } from '@/lib/dates';
+import { today as todayISO, toISODate } from '@/lib/dates';
+import {
+  CANDLE_PRICE,
+  checkinReward,
+  currentStreak,
+  MAX_CANDLES,
+  reconcile,
+  REWARDS,
+  type Reconciliation,
+  type StreakInput,
+} from '@/lib/streak';
 
 const MIGRATIONS: string[] = [
   `
@@ -68,6 +78,26 @@ const MIGRATIONS: string[] = [
     kind TEXT NOT NULL,             -- 'termos' | 'idade' | 'notas-pessoais'
     version TEXT NOT NULL,
     granted INTEGER NOT NULL,
+    at TEXT NOT NULL
+  );
+  `,
+  `
+  -- Fase 2 (antecipada): check-in diário, ofensiva e talentos
+  CREATE TABLE checkins (
+    day TEXT PRIMARY KEY,           -- AAAA-MM-DD local
+    at TEXT NOT NULL,
+    source TEXT NOT NULL            -- 'leitura' | 'licao'
+  );
+  CREATE TABLE protected_days (
+    day TEXT PRIMARY KEY,
+    at TEXT NOT NULL
+  );
+  -- Extrato de talentos e velas (soma de delta = saldo)
+  CREATE TABLE wallet (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    currency TEXT NOT NULL,         -- 'talentos' | 'velas'
+    delta INTEGER NOT NULL,
+    reason TEXT NOT NULL,
     at TEXT NOT NULL
   );
   `,
@@ -406,6 +436,9 @@ export function exportAllData(extra: Record<string, unknown>) {
     notas: all('SELECT * FROM notes'),
     diario: all('SELECT * FROM journal ORDER BY created_at'),
     trilhas: all('SELECT * FROM trail_progress'),
+    checkins: all('SELECT * FROM checkins ORDER BY day'),
+    diasProtegidos: all('SELECT * FROM protected_days ORDER BY day'),
+    carteira: all('SELECT * FROM wallet ORDER BY id'),
     consentimentos: all('SELECT * FROM consent_log ORDER BY id'),
   };
 }
@@ -414,8 +447,102 @@ export function exportAllData(extra: Record<string, unknown>) {
 export function wipeAllData() {
   const d = userDb();
   d.withTransactionSync(() => {
-    for (const t of ['reading_log', 'plans', 'highlights', 'favorites', 'notes', 'journal', 'trail_progress', 'consent_log'])
+    for (const t of [
+      'reading_log', 'plans', 'highlights', 'favorites', 'notes', 'journal', 'trail_progress', 'consent_log',
+      'checkins', 'protected_days', 'wallet',
+    ])
       d.runSync(`DELETE FROM ${t}`);
   });
   bump();
+}
+
+// ---------------------------------------------------------------- ofensiva e talentos
+
+export function getStreakInput(): StreakInput {
+  const d = userDb();
+  return {
+    checkins: new Set(d.getAllSync<{ day: string }>('SELECT day FROM checkins').map((r) => r.day)),
+    protectedDays: new Set(d.getAllSync<{ day: string }>('SELECT day FROM protected_days').map((r) => r.day)),
+  };
+}
+
+export function getBalance(): { talentos: number; velas: number } {
+  const rows = userDb().getAllSync<{ currency: string; total: number }>(
+    'SELECT currency, SUM(delta) AS total FROM wallet GROUP BY currency',
+  );
+  const get = (c: string) => rows.find((r) => r.currency === c)?.total ?? 0;
+  return { talentos: get('talentos'), velas: get('velas') };
+}
+
+function addToWallet(currency: 'talentos' | 'velas', delta: number, reason: string) {
+  userDb().runSync('INSERT INTO wallet (currency, delta, reason, at) VALUES (?, ?, ?, ?)', currency, delta, reason, now());
+}
+
+/** Presente de boas-vindas (uma vez só). */
+export function grantWelcomeGift() {
+  const d = userDb();
+  if (d.getFirstSync("SELECT 1 FROM wallet WHERE reason = 'boas-vindas'")) return;
+  addToWallet('velas', REWARDS.welcomeCandles, 'boas-vindas');
+  bump();
+}
+
+export interface CheckinResult {
+  isNew: boolean;
+  streak: number;
+  reward: number;
+  bonus: number;
+}
+
+/**
+ * Registra uma atividade concluída. A primeira do dia vira o check-in e rende
+ * talentos (mais um bônus a cada 7 dias seguidos).
+ */
+export function recordActivity(source: 'leitura' | 'licao'): CheckinResult {
+  const d = userDb();
+  const day = todayISO();
+  if (d.getFirstSync('SELECT 1 FROM checkins WHERE day = ?', day)) {
+    return { isNew: false, streak: currentStreak(getStreakInput(), day), reward: 0, bonus: 0 };
+  }
+  let result: CheckinResult = { isNew: true, streak: 0, reward: 0, bonus: 0 };
+  d.withTransactionSync(() => {
+    d.runSync('INSERT INTO checkins (day, at, source) VALUES (?, ?, ?)', day, now(), source);
+    const streak = currentStreak(getStreakInput(), day);
+    const { base, bonus } = checkinReward(streak);
+    addToWallet('talentos', base, `check-in ${day}`);
+    if (bonus) addToWallet('talentos', bonus, `bônus ${streak} dias`);
+    result = { isNew: true, streak, reward: base, bonus };
+  });
+  bump();
+  return result;
+}
+
+/** Usa velas para cobrir dias perdidos. Chamar ao abrir o app. */
+export function applyStreakProtection(): Reconciliation {
+  const d = userDb();
+  const r = reconcile(getStreakInput(), getBalance().velas, todayISO());
+  if (r.protect.length) {
+    d.withTransactionSync(() => {
+      for (const day of r.protect) {
+        d.runSync('INSERT OR IGNORE INTO protected_days (day, at) VALUES (?, ?)', day, now());
+        addToWallet('velas', -1, `protegeu ${day}`);
+      }
+    });
+    bump();
+  }
+  return r;
+}
+
+export type BuyResult = 'ok' | 'sem-talentos' | 'limite';
+
+export function buyCandle(): BuyResult {
+  const b = getBalance();
+  if (b.velas >= MAX_CANDLES) return 'limite';
+  if (b.talentos < CANDLE_PRICE) return 'sem-talentos';
+  const d = userDb();
+  d.withTransactionSync(() => {
+    addToWallet('talentos', -CANDLE_PRICE, 'compra de vela');
+    addToWallet('velas', 1, 'compra');
+  });
+  bump();
+  return 'ok';
 }

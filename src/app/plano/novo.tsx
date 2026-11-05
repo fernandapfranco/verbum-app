@@ -30,13 +30,19 @@ const DEADLINES = [
 
 const ALL_DAYS = [0, 1, 2, 3, 4, 5, 6];
 
+function parseScope(s?: string): PlanScope {
+  if (s?.startsWith('livro:')) return { kind: 'livro', bookId: s.slice(6) };
+  if (s === 'biblia' || s === 'at' || s === 'nt' || s === 'evangelhos' || s === 'salmos-proverbios') return { kind: s };
+  return { kind: 'evangelhos' };
+}
+
 export default function NovoPlano() {
-  const { primeiro } = useLocalSearchParams<{ primeiro?: string }>();
+  const { primeiro, escopo } = useLocalSearchParams<{ primeiro?: string; escopo?: string }>();
   const { c } = useTheme();
   const all = useChapterUnits();
   const minutesPref = useSettings((s) => s.onboarding.minutesPerDay) ?? 10;
 
-  const [scope, setScope] = useState<PlanScope>({ kind: 'evangelhos' });
+  const [scope, setScope] = useState<PlanScope>(() => parseScope(escopo));
   const [mode, setMode] = useState<PlanMode>('ritmo');
   const [months, setMonths] = useState(3);
   const [minutes, setMinutes] = useState(minutesPref);

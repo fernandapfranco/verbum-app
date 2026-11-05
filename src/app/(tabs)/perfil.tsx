@@ -38,7 +38,7 @@ export default function Perfil() {
           {read.size} {read.size === 1 ? 'capítulo lido' : 'capítulos lidos'}
         </T>
         <T variant="caption" muted>
-          Na próxima fase: sequência de dias, XP, níveis e conquistas.
+          Na próxima fase: XP, níveis e conquistas.
         </T>
       </Card>
 
@@ -61,6 +61,10 @@ export default function Perfil() {
             <Divider />
           </View>
         ))}
+        <Row icon="flame-outline" title="Ofensiva e talentos" subtitle="Velas de proteção" onPress={() => router.push('/ofensiva')} />
+        <Divider />
+        <Row icon="notifications-outline" title="Notificações" subtitle="Lembretes do anjo, ofensiva, Angelus" onPress={() => router.push('/notificacoes')} />
+        <Divider />
         <Row icon="bookmark-outline" title="Versículos salvos" onPress={() => router.push('/salvos')} />
         <Divider />
         <Row icon="library-outline" title="Glossário" subtitle="Termos da fé e palavras antigas" onPress={() => router.push('/glossario')} />

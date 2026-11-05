@@ -26,6 +26,7 @@ import {
   unmarkChapterRead,
   useDataVersion,
 } from '@/db/user';
+import { useCheckin } from '@/hooks/useGamification';
 import { usePlan } from '@/hooks/usePlan';
 import { findBook } from '@/lib/bible/books';
 import { chapterLabel, minutesLabel, refLabel } from '@/lib/bible/format';
@@ -48,6 +49,7 @@ export default function Leitor() {
   const notesAllowed = useSettings((s) => s.consent?.personalNotes ?? false);
   const v = useDataVersion((s) => s.v);
   const plan = usePlan();
+  const checkin = useCheckin();
   const scrollRef = useRef<ScrollViewInstance>(null);
 
   const [selected, setSelected] = useState<number | null>(null);
@@ -101,6 +103,9 @@ export default function Leitor() {
       markChapterRead(book.id, chapter);
       Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success).catch(() => {});
       setCelebrate(pick(CHAPTER_DONE));
+      const r = checkin('leitura');
+      if (r.isNew)
+        router.push({ pathname: '/checkin', params: { streak: String(r.streak), reward: String(r.reward), bonus: String(r.bonus) } });
     }
   };
 

@@ -37,7 +37,8 @@
             "backgroundColor": "#10141F"
           }
         }
-      ]
+      ],
+      "expo-notifications"
     ],
     "scheme": "verbum",
     "backgroundColor": "#FBF7EF",
