@@ -16,6 +16,7 @@ import { Suspense, useEffect, useState } from 'react';
 import { ActivityIndicator, Platform, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
+import { Cover } from '@/components/Cover';
 import { APP_CONFIG } from '@/config';
 import { applyStreakProtection, userDb } from '@/db/user';
 import { refreshNotifications } from '@/hooks/useGamification';
@@ -40,6 +41,8 @@ export default function RootLayout() {
   // No celular as operações síncronas do SQLite funcionam de imediato. Na web
   // (só para testes) é preciso "acordar" o worker com uma operação assíncrona.
   const [storageReady, setStorageReady] = useState(Platform.OS !== 'web');
+  // Capa de abertura, a cada vez que o app é aberto.
+  const [showCover, setShowCover] = useState(true);
   useEffect(() => {
     const startup = () => {
       userDb(); // abre o banco do usuário e roda as migrações
@@ -80,6 +83,7 @@ export default function RootLayout() {
             <RootStack />
           </SQLiteProvider>
         </Suspense>
+        {showCover && <Cover onDone={() => setShowCover(false)} />}
       </AppThemeProvider>
     </SafeAreaProvider>
   );

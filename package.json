@@ -47,7 +47,9 @@
     "typecheck": "tsc --noEmit",
     "test": "node --import tsx --test \"src/**/*.test.ts\" \"scripts/**/*.test.ts\"",
     "bible:build": "tsx scripts/bible/build.mts",
-    "content:review-sheet": "tsx scripts/content/review-sheet.mts"
+    "content:review-sheet": "tsx scripts/content/review-sheet.mts",
+    "web:build": "expo export --platform web --output-dir dist",
+    "android:apk": "npx eas-cli@latest build --platform android --profile preview"
   },
   "private": true
 }

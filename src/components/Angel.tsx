@@ -1,7 +1,7 @@
 /**
  * O anjo da guarda do Verbum — identidade "Luz".
- * Proporções de anjo clássico: asas de penas atrás do corpo, túnica longa com
- * gola e barra douradas, mãos em oração, cabelo e auréola. Formas chapadas.
+ * Como os anjinhos de enfeite de Natal: asas em gota atrás dos ombros, túnica
+ * longa com gola e barra douradas, mãos em oração, cabelo cacheado e auréola.
  * Expressões: feliz (padrão), sereno (olhos fechados) e festa (asas erguidas).
  */
 import Svg, { Circle, Ellipse, G, Path } from 'react-native-svg';
@@ -14,24 +14,35 @@ const INK = '#12142B';
 const GOLD = '#F2B544';
 const SKIN = '#FFE2CC';
 const HAIR = '#D9A35B';
+const HAIR_SHADE = '#B9823A';
 
+/** Asa de enfeite de Natal: uma peça só, em gota, com a ponta para cima e para fora. */
 function Wing({ fill, shade, line, edge, lift }: { fill: string; shade: string; line: string; edge?: string; lift: number }) {
   return (
     <G transform={`translate(0 ${lift})`}>
       <Path
-        d="M52 52 C44 36 30 22 12 18 C10 26 12 32 16 36 C10 38 8 44 10 50 C14 50 16 52 18 54 C14 58 14 64 18 68 C22 66 25 67 27 69 C26 74 28 78 32 80 C40 74 48 66 52 58 Z"
+        d="M52 60 C50 44 42 28 28 18 C22 14 16 16 15 22 C13 38 18 56 30 68 C37 74 46 74 52 68 Z"
         fill={fill}
         stroke={edge ?? 'none'}
         strokeWidth={1.4}
         strokeLinejoin="round"
       />
-      <Path d="M52 56 C46 48 36 42 22 40 C24 46 26 50 30 52 C28 56 30 60 34 62 C36 66 40 68 44 68 C47 64 50 60 52 56 Z" fill={shade} />
-      <Path d="M16 36 C26 38 36 42 46 50" stroke={line} strokeWidth={1.6} fill="none" strokeLinecap="round" />
-      <Path d="M18 54 C28 54 38 56 48 58" stroke={line} strokeWidth={1.6} fill="none" strokeLinecap="round" />
-      <Path d="M27 69 C34 66 42 64 50 60" stroke={line} strokeWidth={1.6} fill="none" strokeLinecap="round" />
+      <Path d="M50 64 C46 52 38 40 28 32 C26 42 28 54 36 63 C40 67 46 68 50 64 Z" fill={shade} />
+      <Path d="M21 26 C22 40 28 54 40 64" stroke={line} strokeWidth={1.5} fill="none" strokeLinecap="round" />
+      <Path d="M17 40 C21 50 27 58 34 64" stroke={line} strokeWidth={1.5} fill="none" strokeLinecap="round" />
     </G>
   );
 }
+
+/** Cachinhos: círculos em arco em volta da cabeça (centro 60,37). */
+const CURLS = [-200, -180, -158, -136, -114, -90, -66, -44, -22, 0, 20].map((deg) => {
+  const a = (deg * Math.PI) / 180;
+  return { x: 60 + 12.5 * Math.cos(a), y: 37 + 12.5 * Math.sin(a) };
+});
+const CURL_MARKS = [-160, -125, -90, -55, -20].map((deg) => {
+  const a = (deg * Math.PI) / 180;
+  return { x: 60 + 12.5 * Math.cos(a), y: 37 + 12.5 * Math.sin(a) };
+});
 
 export function Angel({
   size = 96,
@@ -78,11 +89,12 @@ export function Angel({
 
       {/* cabeça e cabelo */}
       <Circle cx={60} cy={38} r={13} fill={SKIN} />
-      <Path
-        d="M46.8 38 C46 28 52 23 60 23 C68 23 74 28 73.2 38 C71 33 68 31 64 31 C62 33 58 33 56 31 C52 31 49 33 46.8 38 Z"
-        fill={HAIR}
-      />
-      <Circle cx={51} cy={42} r={2.4} fill="#FFB3A7" opacity={0.6} />
+      {CURLS.map((c, i) => (
+        <Circle key={i} cx={c.x} cy={c.y} r={4.6} fill={HAIR} />
+      ))}
+      {CURL_MARKS.map((c, i) => (
+        <Path key={i} d={`M${c.x - 2} ${c.y + 0.5} q2 -2.6 4 0`} stroke={HAIR_SHADE} strokeWidth={1.1} fill="none" strokeLinecap="round" />
+      ))}      <Circle cx={51} cy={42} r={2.4} fill="#FFB3A7" opacity={0.6} />
       <Circle cx={69} cy={42} r={2.4} fill="#FFB3A7" opacity={0.6} />
 
       {/* rosto */}

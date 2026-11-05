@@ -79,6 +79,10 @@ onboarding de novo): Perfil → Privacidade e dados → Apagar todos os meus dad
 7. Veja **Bíblia** (73 livros, Salmos com dupla numeração), a **busca**, o
    **Diário** e **Perfil → Privacidade e dados** (exportar / apagar).
 
+## Compartilhar com outras pessoas
+Link no navegador (iPhone e Android), instalador Android e TestFlight: veja
+[`docs/compartilhar.md`](docs/compartilhar.md).
+
 ## Desenvolvimento
 ```bash
 npm test            # testes da lógica (plano, Salmos, limpeza do texto)
