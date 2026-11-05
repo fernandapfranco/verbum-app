@@ -164,7 +164,7 @@ export default function Leitor() {
                   style={{ minHeight: 36, justifyContent: 'center' }}
                 >
                   <T variant="bodyStrong" color={palette.link}>
-                    🙏 Rezar antes de ler ›
+                    🙏 Oração inicial antes de ler ›
                   </T>
                 </Pressable>
               </>
@@ -208,7 +208,7 @@ export default function Leitor() {
           />
           {isRead && (
             <Button
-              title="Rezar depois da leitura"
+              title="Oração final"
               kind="ghost"
               icon="flower-outline"
               onPress={() => router.push({ pathname: '/oracao/[id]', params: { id: 'depois-da-leitura' } })}

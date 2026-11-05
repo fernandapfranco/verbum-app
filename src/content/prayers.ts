@@ -2,7 +2,8 @@ import type { Reviewable } from './types';
 
 /**
  * Orações. Textos tradicionais (domínio público), nas versões populares no
- * Brasil, e duas orações próprias do Verbum para antes e depois da leitura.
+ * Brasil. Antes e depois da leitura: oração inicial (presença de Deus) e oração
+ * final, tradicionais — conferidas pela dona do projeto com o site do Pe. Paulo Ricardo.
  * Linhas que começam com "V." e "R." são versículo e resposta (o app destaca o "R.").
  */
 export type PrayerGroup = 'leitura' | 'do-dia' | 'basicas' | 'marianas' | 'perdao';
@@ -41,11 +42,10 @@ export const PRAYERS: readonly Prayer[] = [
   p(
     'antes-da-leitura',
     'leitura',
-    'Antes da leitura',
-    'Senhor, abre os meus ouvidos e o meu coração.\nQue a tua Palavra seja luz para os meus passos hoje.\nEspírito Santo, ajuda-me a entender o que leio\ne a viver o que entendo.\nAmém.',
-    'Uma oração curtinha para começar a leitura pedindo a ajuda do Espírito Santo, que inspirou as Escrituras.',
-    ['Dei Verbum 12', 'Sl 119(118),105'],
-    true,
+    'Oração inicial (presença de Deus)',
+    'Meu Senhor e meu Deus, creio firmemente que estás aqui, que me vês, que me ouves.\nAdoro-te com profunda reverência.\nPeço-te perdão dos meus pecados e graça para fazer com fruto este tempo de oração.\nMinha Mãe Imaculada, São José, meu pai e senhor, meu Anjo da Guarda, intercedei por mim.',
+    'Oração tradicional para começar um tempo de oração ou de leitura: colocar-se na presença de Deus, adorá-lo, pedir perdão e pedir a ajuda de Maria, de São José e do Anjo da Guarda.',
+    ['CIC 2700–2724 (a meditação e a oração mental)'],
   ),
   p(
     'vinde-espirito-santo',
@@ -58,11 +58,10 @@ export const PRAYERS: readonly Prayer[] = [
   p(
     'depois-da-leitura',
     'leitura',
-    'Depois da leitura',
-    'Obrigado, Senhor, pela tua Palavra.\nGuarda no meu coração o que li hoje\ne me ajuda a colocá-lo em prática.\nMaria, Mãe da Palavra, ensina-me a guardar tudo no coração, como tu.\nAmém.',
-    'Para agradecer e pedir que a leitura dê frutos. Lembra Maria, que "guardava todas estas coisas no coração" (Lc 2,19).',
-    ['Lc 2,19', 'Tg 1,22'],
-    true,
+    'Oração final',
+    'Dou-te graças, meu Deus, pelos bons propósitos, afetos e inspirações que me comunicaste neste tempo de oração.\nPeço-te ajuda para pô-los em prática.\nMinha Mãe Imaculada, São José, meu pai e senhor, meu Anjo da Guarda, intercedei por mim.',
+    'A oração que costuma encerrar o tempo de oração: agradecer o que Deus falou ao coração e pedir ajuda para viver isso no dia a dia.',
+    ['CIC 2700–2724', 'Tg 1,22'],
   ),
 
   // Ao longo do dia
