@@ -49,6 +49,11 @@ teste.
 5. Para parar: `Ctrl + C`. (No PowerShell, se pedir confirmação, digite `S` ou `Y`.) Para pegar uma versão nova, baixe o ZIP de novo,
    extraia e repita os passos.
 
+**Erro "You're signed in to Expo Go as …, but not signed in to Expo CLI"?**
+O Expo Go do celular está com uma conta Expo e o computador não. Rode
+`npx expo login` e entre com a **mesma conta** (ou saia da conta no Expo Go:
+aba Settings → Sign out). Depois rode `npx expo start` de novo.
+
 **Erro "'npm' não é reconhecido…"?** O Node.js não foi instalado (ou o Prompt
 foi aberto antes da instalação). Instale e abra um Prompt de Comando novo.
 
