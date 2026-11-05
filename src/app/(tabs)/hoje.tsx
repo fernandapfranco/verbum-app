@@ -6,6 +6,7 @@ import { Pressable, View } from 'react-native';
 import { AngelSays, Button, Card, ProgressBar, Screen, T } from '@/components/ui';
 import { DEFAULT_ANGEL_NAME, greeting, pick, PLAN_ADJUSTED, WELCOME_BACK } from '@/content/angel';
 import { getTrail, TRAILS } from '@/content/trails';
+import { TalentIcon } from '@/components/TalentIcon';
 import { WeekStrip } from '@/components/WeekStrip';
 import { getCompletedLessons, useDataVersion } from '@/db/user';
 import { useGamification } from '@/hooks/useGamification';
@@ -85,7 +86,7 @@ export default function Hoje() {
           style={{ flexDirection: 'row', gap: SPACE.sm }}
         >
           <Pill icon="flame" value={g.streak} />
-          <Pill icon="diamond" value={g.talentos} />
+          <Pill icon="talento" value={g.talentos} />
         </Pressable>
       </View>
       <AngelSays text={message} mood={welcomeBack ? 'festa' : 'feliz'} />
@@ -235,14 +236,14 @@ export default function Hoje() {
   );
 }
 
-function Pill({ icon, value }: { icon: 'flame' | 'diamond'; value: number }) {
+function Pill({ icon, value }: { icon: 'flame' | 'talento'; value: number }) {
   const { c, dark } = useTheme();
   const flame = icon === 'flame';
-  const bg = flame ? (dark ? '#3A2A10' : '#FFF1D6') : c.primarySoft;
-  const fg = flame ? (dark ? '#F5C76A' : '#7A4A06') : dark ? c.text : '#1F2FA0';
+  const bg = flame ? (dark ? '#3A2A10' : '#FFF1D6') : dark ? '#33290F' : '#FFF6E0';
+  const fg = dark ? '#F5C76A' : '#7A4A06';
   return (
     <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6, backgroundColor: bg, borderRadius: 999, paddingHorizontal: 12, minHeight: 36 }}>
-      <Ionicons name={icon} size={16} color={flame ? '#E8902A' : c.primary} />
+      {flame ? <Ionicons name="flame" size={16} color="#E8902A" /> : <TalentIcon size={18} />}
       <T variant="bodyStrong" color={fg}>
         {value}
       </T>

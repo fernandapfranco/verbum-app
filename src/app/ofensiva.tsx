@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { View } from 'react-native';
 
 import { AngelSays, Button, Card, Screen, T } from '@/components/ui';
+import { TalentIcon } from '@/components/TalentIcon';
 import { WeekStrip } from '@/components/WeekStrip';
 import { buyCandle } from '@/db/user';
 import { useGamification } from '@/hooks/useGamification';
@@ -63,7 +64,10 @@ export default function Ofensiva() {
             <Ionicons key={i} name={i < g.velas ? 'flame' : 'flame-outline'} size={28} color={i < g.velas ? c.gold : c.textMuted} accessibilityLabel={i < g.velas ? 'vela' : 'espaço vazio'} />
           ))}
         </View>
-        <T>Você tem {g.talentos} talentos.</T>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: SPACE.sm }}>
+          <TalentIcon size={22} />
+          <T>Você tem {g.talentos} talentos.</T>
+        </View>
         <Button title={`Comprar vela · ${CANDLE_PRICE} talentos`} icon="flame-outline" onPress={buy} />
         {msg && <T variant="caption">{msg}</T>}
       </Card>
