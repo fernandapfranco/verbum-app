@@ -7,7 +7,7 @@ import { Platform } from 'react-native';
 import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 
-import type { ReaderThemeId } from '@/theme/tokens';
+import type { AppThemePref, ReaderThemeId } from '@/theme/tokens';
 import type { TrailId } from '@/content/trails';
 
 export type ReadBefore = 'nunca' | 'trechos' | 'bastante';
@@ -62,6 +62,8 @@ interface SettingsState {
   angelName: string;
   /** Como a pessoa quer ser chamada (opcional). */
   userName: string;
+  /** Tema do app: seguir o celular, claro ou escuro. */
+  appTheme: AppThemePref;
   reader: ReaderPrefs;
   notifications: NotificationPrefs;
   /** Último capítulo aberto, para "continuar de onde parou". */
@@ -76,6 +78,7 @@ interface SettingsState {
   setUserName: (name: string) => void;
   setNotifications: (n: Partial<NotificationPrefs>) => void;
   setReader: (r: Partial<ReaderPrefs>) => void;
+  setAppTheme: (t: AppThemePref) => void;
   setLastRead: (bookId: string, chapter: number) => void;
   touchOpened: () => string | null;
   resetAll: () => void;
@@ -87,7 +90,8 @@ const initial = {
   angelName: '',
   userName: '',
   notifications: { enabled: false, daily: true, time: '20:00', streakRisk: true, angelus: false } as NotificationPrefs,
-  reader: { fontSize: 19, theme: 'claro' as ReaderThemeId, showVerseNumbers: true },
+  appTheme: 'sistema' as AppThemePref,
+  reader: { fontSize: 19, theme: 'auto' as ReaderThemeId, showVerseNumbers: true },
   lastRead: null,
   lastOpenedAt: null,
 };
@@ -114,6 +118,7 @@ export const useSettings = create<SettingsState>()(
       setUserName: (userName) => set({ userName }),
       setNotifications: (n) => set({ notifications: { ...get().notifications, ...n } }),
       setReader: (r) => set({ reader: { ...get().reader, ...r } }),
+      setAppTheme: (appTheme) => set({ appTheme }),
       setLastRead: (bookId, chapter) => set({ lastRead: { bookId, chapter, at: new Date().toISOString() } }),
       /** Marca a abertura do app e devolve a abertura anterior. */
       touchOpened: () => {
@@ -125,8 +130,13 @@ export const useSettings = create<SettingsState>()(
     }),
     {
       name: 'verbum.settings',
-      version: 2,
-      migrate: (persisted) => ({ ...initial, ...(persisted as object) }) as SettingsState,
+      version: 3,
+      migrate: (persisted, version) => {
+        const s = { ...initial, ...(persisted as object) } as SettingsState;
+        // v3: o fundo "claro" era o padrão; passa a seguir o tema do app.
+        if (version < 3 && s.reader?.theme === 'claro') s.reader = { ...s.reader, theme: 'auto' };
+        return s;
+      },
       // Na web (só usada para testes), o SQLite precisa de uma operação
       // assíncrona antes das síncronas: a hidratação é feita em _layout.
       skipHydration: Platform.OS === 'web',

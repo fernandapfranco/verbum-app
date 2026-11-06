@@ -1,5 +1,7 @@
-import { createContext, useContext, useMemo, type ReactNode } from 'react';
-import { useColorScheme } from 'react-native';
+import { createContext, useContext, useEffect, useMemo, type ReactNode } from 'react';
+import { Appearance, useColorScheme } from 'react-native';
+
+import { useSettings } from '@/store/settings';
 
 import { DARK, LIGHT, type Palette } from './tokens';
 
@@ -13,11 +15,18 @@ interface Theme {
 const ThemeContext = createContext<Theme>({ dark: false, c: LIGHT });
 
 export function AppThemeProvider({ children }: { children: ReactNode }) {
+  const pref = useSettings((s) => s.appTheme);
   const scheme = useColorScheme();
-  const value = useMemo<Theme>(
-    () => ({ dark: scheme === 'dark', c: scheme === 'dark' ? DARK : LIGHT }),
-    [scheme],
-  );
+  // Também ajusta os elementos do sistema (teclado, alertas, seletores).
+  useEffect(() => {
+    try {
+      Appearance.setColorScheme?.(pref === 'claro' ? 'light' : pref === 'escuro' ? 'dark' : 'unspecified');
+    } catch {
+      // web ou versão sem suporte: o tema do app continua funcionando
+    }
+  }, [pref]);
+  const dark = pref === 'escuro' || (pref === 'sistema' && scheme === 'dark');
+  const value = useMemo<Theme>(() => ({ dark, c: dark ? DARK : LIGHT }), [dark]);
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }
 

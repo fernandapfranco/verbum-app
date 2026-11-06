@@ -61,7 +61,12 @@ export const DARK: Palette = {
   overlay: 'rgba(0, 0, 0, 0.6)',
 };
 
-export type ReaderThemeId = 'claro' | 'sepia' | 'noturno';
+/** Tema do app: seguir o celular, ou fixo. */
+export type AppThemePref = 'sistema' | 'claro' | 'escuro';
+
+/** Fundo da leitura. `auto` = igual ao tema do app (claro ou noturno). */
+export type ReaderThemeId = 'auto' | 'claro' | 'sepia' | 'noturno';
+export type ConcreteReaderTheme = Exclude<ReaderThemeId, 'auto'>;
 
 export interface ReaderPalette {
   bg: string;
@@ -71,11 +76,17 @@ export interface ReaderPalette {
   link: string;
 }
 
-export const READER_THEMES: Record<ReaderThemeId, ReaderPalette> = {
+export const READER_THEMES: Record<ConcreteReaderTheme, ReaderPalette> = {
   claro: { bg: '#FFFFFF', text: '#12142B', muted: '#4A4E6A', verseNumber: '#2F45D6', link: '#2F45D6' },
   sepia: { bg: '#F4ECD8', text: '#3D3020', muted: '#6B5A40', verseNumber: '#8A5A1E', link: '#5A3A10' },
   noturno: { bg: '#0E1022', text: '#E3E5F5', muted: '#A7ABC8', verseNumber: '#F2B544', link: '#8C9BFF' },
 };
+
+/** Fundo efetivo da leitura, dado o tema do app. */
+export function resolveReaderTheme(theme: ReaderThemeId, appDark: boolean): ConcreteReaderTheme {
+  if (theme === 'auto') return appDark ? 'noturno' : 'claro';
+  return theme;
+}
 
 export type HighlightColor = 'amarelo' | 'verde' | 'azul' | 'rosa';
 

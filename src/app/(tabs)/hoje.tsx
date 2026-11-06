@@ -7,7 +7,7 @@ import { AngelSays, Button, Card, ProgressBar, Screen, T } from '@/components/ui
 import { DEFAULT_ANGEL_NAME, greeting, pick, PLAN_ADJUSTED, WELCOME_BACK } from '@/content/angel';
 import { getSeriesFor, TRAILS } from '@/content/trails';
 import { LiturgyChip } from '@/components/LiturgyChip';
-import { SacredIcon } from '@/components/SacredIcon';
+import { SacredIcon, TrailIcon } from '@/components/SacredIcon';
 import { liturgicalDay, nextSeasonStart } from '@/lib/liturgy';
 import { gospelOfDay } from '@/lib/lectionary';
 import { TalentIcon } from '@/components/TalentIcon';
@@ -26,7 +26,7 @@ import { SPACE, useTheme } from '@/theme';
 const DAY = 86_400_000;
 
 export default function Hoje() {
-  const { c } = useTheme();
+  const { c, dark } = useTheme();
   const angelName = useSettings((s) => s.angelName) || DEFAULT_ANGEL_NAME;
   const track = useSettings((s) => s.onboarding.track);
   const lastRead = useSettings((s) => s.lastRead);
@@ -82,11 +82,15 @@ export default function Hoje() {
   const upcoming = nextSeasonStart(todayISO());
   const seriesInfo = (() => {
     if (lit.season === 'advento') return { s: getSeriesFor('advento'), line: 'Estamos no Advento. Prepare o coração para o Natal.' };
-    if (upcoming.season === 'advento' && upcoming.inDays <= 30)
+    if (lit.season === 'quaresma' || lit.season === 'triduo')
+      return { s: getSeriesFor('quaresma'), line: 'Estamos na Quaresma. Um caminho de volta para Deus até a Páscoa.' };
+    if ((upcoming.season === 'advento' || upcoming.season === 'quaresma') && upcoming.inDays <= 30) {
+      const name = upcoming.season === 'advento' ? 'O Advento' : 'A Quaresma';
       return {
-        s: getSeriesFor('advento'),
-        line: `O Advento começa em ${formatDate(upcoming.start)} (faltam ${upcoming.inDays} dias). A trilha já está disponível.`,
+        s: getSeriesFor(upcoming.season),
+        line: `${name} começa em ${formatDate(upcoming.start)} (faltam ${upcoming.inDays} dias). A trilha já está disponível.`,
       };
+    }
     return null;
   })();
   const nextToRead = today?.chapters.find((u) => !plan.read.has(chapterKey(u)));
@@ -210,8 +214,8 @@ export default function Hoje() {
           style={{ borderLeftWidth: 0 }}
         >
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: SPACE.sm }}>
-            <SacredIcon name="coroa-advento" size={22} color="#6B3FA0" />
-            <T variant="label" color="#6B3FA0">
+            <TrailIcon id={seriesInfo.s.id} size={22} color={dark ? '#C3A6EE' : '#6B3FA0'} />
+            <T variant="label" color={dark ? '#C3A6EE' : '#6B3FA0'}>
               Trilha do tempo litúrgico
             </T>
           </View>

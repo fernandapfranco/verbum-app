@@ -1,7 +1,7 @@
 import type { PassageRef, Reviewable } from './types';
 
 export type TrailId = 'primeiros-passos' | 'voltando-para-casa';
-export type SeriesId = 'advento';
+export type SeriesId = 'advento' | 'quaresma';
 
 export type LessonStep =
   | { kind: 'texto'; titulo?: string; corpo: string }
@@ -537,7 +537,247 @@ export const SERIES: readonly Series[] = [
               'Deus escolheu chegar pequeno, pobre e sem lugar na estalagem. Os primeiros a saber foram pastores trabalhando de madrugada. O Natal é para todos — principalmente para quem acha que não tem lugar.',
           },
           { kind: 'oracao', prayerId: 'gloria' },
-          { kind: 'texto', titulo: 'Feliz Natal! 🎄', corpo: 'Você completou a série do Advento. Que a luz de Belém fique acesa no seu coração o ano inteiro.' },
+          { kind: 'texto', titulo: 'Feliz Natal! 🎄', corpo: 'Você completou a trilha do Advento. Que a luz de Belém fique acesa no seu coração o ano inteiro.' },
+        ],
+      },
+    ],
+  },
+  {
+    id: 'quaresma',
+    season: 'quaresma',
+    titulo: 'Quaresma: voltar para casa',
+    subtitulo: 'Trilha do tempo litúrgico · 10 encontros',
+    paraQuem:
+      'Das Cinzas à Páscoa: um encontro por semana, mais três para a Semana Santa e um para o domingo da Ressurreição. Para viver a Quaresma sem peso, como um caminho de volta para Deus.',
+    licoes: [
+      {
+        id: 'cinzas',
+        titulo: 'Cinzas · Voltai para mim',
+        resumo: 'O que é a Quaresma e por que ela começa com cinzas.',
+        minutos: 5,
+        ...R(['CIC 540', 'CIC 1430–1431', 'CIC 1438', 'Normas Universais do Ano Litúrgico 27–31']),
+        passos: [
+          {
+            kind: 'texto',
+            titulo: 'Quarenta dias',
+            corpo:
+              'A Quaresma são os quarenta dias de preparação para a Páscoa. O número lembra os quarenta anos do povo no deserto e os quarenta dias de Jesus em jejum. Ela começa na Quarta-feira de Cinzas e vai até a Quinta-feira Santa.',
+          },
+          {
+            kind: 'texto',
+            titulo: 'Por que cinzas?',
+            corpo:
+              'As cinzas na testa dizem duas coisas: somos frágeis ("lembra-te que és pó") e queremos mudar de vida ("convertei-vos e crede no Evangelho"). Não é um sinal de tristeza, e sim de recomeço.',
+          },
+          {
+            kind: 'leitura',
+            ref: { bookId: 'joel', chapter: 2, from: 12, to: 13 },
+            antes: 'Na Missa de Cinzas, a Igreja lê este convite do profeta Joel:',
+          },
+          {
+            kind: 'texto',
+            corpo:
+              '"Rasgai os vossos corações, e não os vossos vestidos." Deus não quer só gestos por fora; quer o coração. E o motivo para voltar é ele mesmo: "benigno, paciente e de muita misericórdia".',
+          },
+          { kind: 'reflexao', pergunta: 'O que você gostaria que fosse diferente na sua vida até a Páscoa?' },
+        ],
+      },
+      {
+        id: 'no-deserto',
+        titulo: '1ª semana · No deserto',
+        resumo: 'Jesus enfrenta a tentação com a Palavra de Deus.',
+        minutos: 5,
+        ...R(['CIC 538–540', 'CIC 2849']),
+        passos: [
+          {
+            kind: 'leitura',
+            ref: { bookId: 'mateus', chapter: 4, from: 1, to: 11 },
+            antes: 'No 1º Domingo da Quaresma, todo ano, a Igreja lê as tentações de Jesus no deserto:',
+          },
+          {
+            kind: 'texto',
+            corpo:
+              'As três tentações são as nossas de sempre: viver só para as necessidades do corpo, usar Deus para se exibir e trocar Deus pelo poder. Jesus não discute com o tentador: responde com a Palavra de Deus. O deserto é lugar de luta, mas também de encontro.',
+          },
+          { kind: 'reflexao', pergunta: 'Qual é a tentação que mais aparece no seu dia a dia? Que frase da Bíblia poderia ajudar você nessa hora?' },
+        ],
+      },
+      {
+        id: 'escutai-o',
+        titulo: '2ª semana · Ouvi-o',
+        resumo: 'Na montanha, a glória de Jesus antes da cruz.',
+        minutos: 5,
+        ...R(['CIC 554–556']),
+        passos: [
+          {
+            kind: 'leitura',
+            ref: { bookId: 'mateus', chapter: 17, from: 1, to: 9 },
+            antes: 'No 2º Domingo, o Evangelho é sempre a Transfiguração:',
+          },
+          {
+            kind: 'texto',
+            corpo:
+              'Antes de ver Jesus sofrer, os discípulos o veem cheio de luz. É como se Deus dissesse: a cruz não é o fim da história. E o Pai dá uma única ordem: "Ouvi-o". A Quaresma é um bom tempo para escutar mais e falar menos.',
+          },
+          { kind: 'reflexao', pergunta: 'Em que momento do dia você poderia reservar alguns minutos de silêncio para ouvir Jesus?' },
+        ],
+      },
+      {
+        id: 'no-segredo',
+        titulo: '3ª semana · Oração, jejum e esmola',
+        resumo: 'Três caminhos, vividos no segredo.',
+        minutos: 6,
+        ...R(['CIC 1434', 'CIC 1438', 'CIC 2447']),
+        passos: [
+          {
+            kind: 'leitura',
+            ref: { bookId: 'mateus', chapter: 6, from: 1, to: 6 },
+            antes: 'Jesus fala da esmola e da oração. Este é o Evangelho da Quarta-feira de Cinzas:',
+          },
+          { kind: 'leitura', ref: { bookId: 'mateus', chapter: 6, from: 16, to: 18 }, antes: 'E do jejum:' },
+          {
+            kind: 'texto',
+            corpo:
+              'Oração é voltar-se para Deus; jejum é ter domínio sobre si; esmola é voltar-se para o próximo. Jesus pede que tudo seja feito "em secreto": não para ser visto, mas por amor. Um sacrifício pequeno e constante vale mais que uma promessa enorme que dura dois dias.',
+          },
+          { kind: 'reflexao', pergunta: 'Escolha um gesto concreto para cada caminho: uma oração, um jejum e uma partilha. Quais serão os seus?' },
+        ],
+      },
+      {
+        id: 'o-pai-que-corre',
+        titulo: '4ª semana · O Pai que corre',
+        resumo: 'Laetare: a alegria de ser recebido de volta.',
+        minutos: 7,
+        ...R(['CIC 1439', 'CIC 1422–1424', 'CIC 1451–1453']),
+        passos: [
+          {
+            kind: 'texto',
+            corpo:
+              'O 4º Domingo da Quaresma se chama "Laetare" ("alegra-te"): as vestes podem ser rosa, porque a Páscoa já está perto. É um bom momento para lembrar por que voltamos: porque somos esperados.',
+          },
+          {
+            kind: 'leitura',
+            ref: { bookId: 'lucas', chapter: 15, from: 11, to: 24 },
+            antes: 'A parábola mais conhecida sobre o perdão. Repare em quem corre:',
+          },
+          {
+            kind: 'texto',
+            corpo:
+              'O filho prepara um discurso; o pai nem deixa ele terminar. Corre, abraça e faz festa. É isso que acontece na Confissão: Deus não espera a gente chegar perfeito. A Quaresma é o tempo em que muita gente volta a se confessar; se fizer tempo que você não vai, este pode ser o momento.',
+          },
+          { kind: 'oracao', prayerId: 'ato-de-contricao' },
+          { kind: 'reflexao', pergunta: 'O que impede você de "levantar-se e ir buscar o Pai"?' },
+        ],
+      },
+      {
+        id: 'pelas-suas-chagas',
+        titulo: '5ª semana · Pelas suas chagas',
+        resumo: 'O Servo sofredor anunciado por Isaías.',
+        minutos: 5,
+        ...R(['CIC 601', 'CIC 615', 'CIC 1505']),
+        passos: [
+          {
+            kind: 'leitura',
+            ref: { bookId: 'isaias', chapter: 53, from: 4, to: 6 },
+            antes: 'Séculos antes de Jesus, Isaías descreveu um servo de Deus que sofreria por todos. A Igreja lê este texto na Sexta-feira Santa:',
+          },
+          {
+            kind: 'texto',
+            corpo:
+              '"Nós fomos sarados pelas suas pisaduras." Jesus não ficou de longe da nossa dor: tomou sobre si o que nos machuca. Olhar para a cruz é descobrir até onde vai o amor de Deus.',
+          },
+          { kind: 'reflexao', pergunta: 'Que dor ou ferida sua você gostaria de entregar a Jesus nesta semana?' },
+        ],
+      },
+      {
+        id: 'ramos',
+        titulo: 'Domingo de Ramos · Bendito o que vem',
+        resumo: 'Jesus entra em Jerusalém, humilde, montado num jumentinho.',
+        minutos: 5,
+        ...R(['CIC 559–560']),
+        passos: [
+          {
+            kind: 'leitura',
+            ref: { bookId: 'lucas', chapter: 19, from: 28, to: 40 },
+            antes: 'Com o Domingo de Ramos começa a Semana Santa. Nas igrejas, todos levam ramos, como o povo de Jerusalém:',
+          },
+          {
+            kind: 'texto',
+            corpo:
+              'Jesus é rei, mas não chega num cavalo de guerra: vem num jumentinho, sinal de paz e humildade. A mesma multidão que canta "Bendito" vai gritar "Crucifica-o" dias depois. A Semana Santa nos pergunta: como recebo Jesus quando o caminho dele passa pela cruz?',
+          },
+          { kind: 'reflexao', pergunta: 'Como você quer viver esta Semana Santa? Anote um compromisso simples.' },
+        ],
+      },
+      {
+        id: 'lava-pes',
+        titulo: 'Quinta-feira Santa · Amou-os até o fim',
+        resumo: 'A Última Ceia, o lava-pés e a Eucaristia.',
+        minutos: 6,
+        ...R(['CIC 610–611', 'CIC 1337', 'CIC 1823']),
+        passos: [
+          {
+            kind: 'leitura',
+            ref: { bookId: 'joao', chapter: 13, from: 1, to: 15 },
+            antes: 'Na Missa da Ceia do Senhor, que abre o Tríduo Pascal, a Igreja lê este Evangelho:',
+          },
+          {
+            kind: 'texto',
+            corpo:
+              'Naquela noite Jesus nos deu a Eucaristia e mostrou o que ela significa: lavar os pés uns dos outros. Lavar pés era tarefa de escravo. O Mestre se ajoelha e diz: "Assim façais vós também". Depois da Missa, as igrejas ficam abertas para quem quiser velar um pouco com Jesus.',
+          },
+          { kind: 'reflexao', pergunta: 'A quem você pode "lavar os pés" nesta semana, com um serviço escondido?' },
+        ],
+      },
+      {
+        id: 'sexta-feira-santa',
+        titulo: 'Sexta-feira Santa · Tudo está cumprido',
+        resumo: 'Junto à cruz, com Maria.',
+        minutos: 6,
+        ...R(['CIC 613–618', 'CIC 964', 'CIC 2605']),
+        passos: [
+          {
+            kind: 'texto',
+            corpo:
+              'A Sexta-feira Santa é o único dia do ano sem Missa. A Igreja se reúne para ouvir a Paixão, rezar por todo o mundo e adorar a Cruz. É dia de jejum e abstinência, e de silêncio.',
+          },
+          {
+            kind: 'leitura',
+            ref: { bookId: 'joao', chapter: 19, from: 25, to: 30 },
+            antes: 'Leia devagar. Fique um pouco ao lado de Maria e do discípulo amado:',
+          },
+          {
+            kind: 'texto',
+            corpo:
+              'Mesmo na cruz, Jesus cuida dos seus: entrega Maria ao discípulo, e o discípulo a Maria. A Igreja vê nesse gesto Maria se tornando mãe de todos nós. "Tudo está cumprido": o amor foi até o fim.',
+          },
+          { kind: 'reflexao', pergunta: 'Escreva uma frase de agradecimento a Jesus pela cruz.' },
+        ],
+      },
+      {
+        id: 'ressuscitou',
+        titulo: 'Páscoa · Ele está vivo!',
+        resumo: 'Maria Madalena encontra o Ressuscitado.',
+        minutos: 6,
+        ...R(['CIC 638–641', 'CIC 1169']),
+        passos: [
+          {
+            kind: 'leitura',
+            ref: { bookId: 'joao', chapter: 20, from: 11, to: 18 },
+            antes: 'Na manhã de Páscoa, Maria Madalena chora junto ao sepulcro vazio:',
+          },
+          {
+            kind: 'texto',
+            corpo:
+              'Ela só reconhece Jesus quando ele a chama pelo nome: "Maria". A Ressurreição é isso: Jesus vivo, que conhece cada um pelo nome. A tristeza vira missão, e Maria corre para contar aos outros.',
+          },
+          {
+            kind: 'texto',
+            corpo:
+              'A Páscoa não é um dia só: são cinquenta dias de festa até Pentecostes. Nesse tempo, no lugar do Angelus, rezamos o Regina Caeli.',
+          },
+          { kind: 'oracao', prayerId: 'regina-caeli' },
+          { kind: 'texto', titulo: 'Feliz Páscoa! Aleluia!', corpo: 'Você completou a trilha da Quaresma. Que a alegria da Ressurreição acompanhe você em todos os dias.' },
         ],
       },
     ],

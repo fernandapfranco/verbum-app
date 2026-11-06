@@ -10,12 +10,14 @@ import { SERIES, TRAILS } from '@/content/trails';
 import { usePlan } from '@/hooks/usePlan';
 import { scopeLabel } from '@/lib/plan/engine';
 import { useSettings } from '@/store/settings';
+import { TrailIcon } from '@/components/SacredIcon';
 import { FONTS, RADIUS, SPACE, useTheme } from '@/theme';
 
 export default function Perfil() {
   const { c } = useTheme();
   const angelName = useSettings((s) => s.angelName) || DEFAULT_ANGEL_NAME;
   const setAngelName = useSettings((s) => s.setAngelName);
+  const appTheme = useSettings((s) => s.appTheme);
   const { config, read } = usePlan();
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(angelName);
@@ -53,8 +55,8 @@ export default function Perfil() {
         {[...TRAILS, ...SERIES].map((t) => (
           <View key={t.id}>
             <Row
-              icon={t.id === 'primeiros-passos' ? 'footsteps-outline' : t.id === 'voltando-para-casa' ? 'home-outline' : 'sparkles-outline'}
-              title={t.id === 'advento' ? t.titulo : `Trilha ${t.titulo}`}
+              leading={<TrailIcon id={t.id} color={c.primary} />}
+              title={t.titulo}
               subtitle={t.subtitulo}
               onPress={() => router.push({ pathname: '/trilha/[id]', params: { id: t.id } })}
             />
@@ -62,6 +64,13 @@ export default function Perfil() {
           </View>
         ))}
         <Row icon="flame-outline" title="Ofensiva e talentos" subtitle="Velas de proteção" onPress={() => router.push('/ofensiva')} />
+        <Divider />
+        <Row
+          icon="contrast-outline"
+          title="Aparência"
+          subtitle={{ sistema: 'Automático (segue o celular)', claro: 'Claro', escuro: 'Escuro' }[appTheme]}
+          onPress={() => router.push('/aparencia')}
+        />
         <Divider />
         <Row icon="notifications-outline" title="Notificações" subtitle="Lembretes do anjo, ofensiva, Angelus" onPress={() => router.push('/notificacoes')} />
         <Divider />

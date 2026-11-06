@@ -18,7 +18,7 @@ import { completeLesson, saveJournalEntry } from '@/db/user';
 import { useCheckin } from '@/hooks/useGamification';
 import { refLabel } from '@/lib/bible/format';
 import { useSettings } from '@/store/settings';
-import { FONTS, RADIUS, READER_THEMES, SPACE, useTheme } from '@/theme';
+import { FONTS, RADIUS, READER_THEMES, resolveReaderTheme, SPACE, useTheme } from '@/theme';
 
 export default function Licao() {
   const { trilha, licao } = useLocalSearchParams<{ trilha: string; licao: string }>();
@@ -135,7 +135,7 @@ function StepView({
         </View>
       );
     case 'leitura': {
-      const palette = dark ? READER_THEMES.noturno : READER_THEMES[reader.theme === 'noturno' ? 'claro' : reader.theme];
+      const palette = READER_THEMES[resolveReaderTheme(reader.theme, dark)];
       return (
         <View style={{ gap: SPACE.md }}>
           {step.antes && <T muted>{step.antes}</T>}

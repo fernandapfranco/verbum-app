@@ -2,6 +2,7 @@
  * Ícones religiosos próprios do Verbum, em traço (mesmo peso dos Ionicons
  * "outline"). `accent` colore chamas, estrelas e coroas (dourado-luz por padrão).
  */
+import { Ionicons } from '@expo/vector-icons';
 import Svg, { Circle, Ellipse, G, Path, Rect } from 'react-native-svg';
 
 export type SacredIconName =
@@ -20,6 +21,18 @@ export type SacredIconName =
   | 'capela';
 
 const GOLD = '#F2B544';
+
+const TRAIL_ICON: Record<string, SacredIconName> = {
+  advento: 'coroa-advento',
+  quaresma: 'cruz',
+  'voltando-para-casa': 'capela',
+};
+
+/** Ícone de cada trilha (Primeiros Passos usa pegadas). */
+export function TrailIcon({ id, color, size = 24 }: { id: string; color: string; size?: number }) {
+  if (id === 'primeiros-passos') return <Ionicons name="footsteps-outline" size={size} color={color} />;
+  return <SacredIcon name={TRAIL_ICON[id] ?? 'cruz'} size={size} color={color} />;
+}
 const ROSE = '#D9779B';
 
 export function SacredIcon({

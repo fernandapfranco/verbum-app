@@ -12,5 +12,5 @@ export const APP_CONFIG = {
    * Nome do arquivo do banco bíblico no aparelho. Aumente o número sempre que
    * gerar um novo assets/db/bible.db, para o app substituir a cópia antiga.
    */
-  bibleDbName: 'bible-v3.db',
+  bibleDbName: 'bible-v4.db',
 } as const;

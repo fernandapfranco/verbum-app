@@ -14,7 +14,7 @@ import { parseRef } from '@/lib/bible/refs';
 import { formatDate, today } from '@/lib/dates';
 import { gospelOfDay } from '@/lib/lectionary';
 import { useSettings } from '@/store/settings';
-import { RADIUS, READER_THEMES, SPACE, useTheme } from '@/theme';
+import { RADIUS, READER_THEMES, resolveReaderTheme, SPACE, useTheme } from '@/theme';
 
 /** Evangelho do dia, segundo o Lecionário, no texto da nossa tradução. */
 export default function Evangelho() {
@@ -30,7 +30,7 @@ export default function Evangelho() {
 
   const g = gospelOfDay(date);
   const groups = useMemo(() => (g ? getPassage(db, parseRef(g.ref)) : []), [db, g?.ref]); // eslint-disable-line react-hooks/exhaustive-deps
-  const palette = dark ? READER_THEMES.noturno : READER_THEMES[reader.theme === 'noturno' ? 'claro' : reader.theme];
+  const palette = READER_THEMES[resolveReaderTheme(reader.theme, dark)];
 
   if (!g) {
     return (

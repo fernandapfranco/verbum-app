@@ -32,7 +32,7 @@ import { findBook } from '@/lib/bible/books';
 import { chapterLabel, minutesLabel, refLabel } from '@/lib/bible/format';
 import { chapterKey } from '@/lib/plan/engine';
 import { useSettings } from '@/store/settings';
-import { FONTS, HIGHLIGHTS, RADIUS, READER_THEMES, SPACE, useTheme, type HighlightColor } from '@/theme';
+import { FONTS, HIGHLIGHTS, RADIUS, READER_THEMES, resolveReaderTheme, SPACE, useTheme, type HighlightColor } from '@/theme';
 
 const FONT_MIN = 14;
 const FONT_MAX = 34;
@@ -42,7 +42,7 @@ export default function Leitor() {
   const book = findBook(params.livro);
   const chapter = Number(params.capitulo) || 1;
   const db = useSQLiteContext();
-  const { c, dark: systemDark } = useTheme();
+  const { c, dark: appDark } = useTheme();
   const reader = useSettings((s) => s.reader);
   const setReader = useSettings((s) => s.setReader);
   const setLastRead = useSettings((s) => s.setLastRead);
@@ -59,8 +59,9 @@ export default function Leitor() {
   const [showIntro, setShowIntro] = useState(true);
   const [celebrate, setCelebrate] = useState<string | null>(null);
 
-  const palette = READER_THEMES[reader.theme];
-  const readerDark = reader.theme === 'noturno';
+  const readerTheme = resolveReaderTheme(reader.theme, appDark);
+  const palette = READER_THEMES[readerTheme];
+  const readerDark = readerTheme === 'noturno';
 
   const verses = useMemo(() => (book ? getVerses(db, book.id, chapter) : []), [db, book, chapter]);
   const info = useMemo(() => (book ? getChapterInfo(db, book.id, chapter) : null), [db, book, chapter]);
@@ -141,7 +142,7 @@ export default function Leitor() {
       >
         {/* Antes de ler */}
         {(note || intro) && (
-          <View style={{ backgroundColor: readerDark ? '#1A1F2A' : systemDark ? c.surfaceAlt : '#00000008', borderRadius: RADIUS.md, padding: SPACE.md, gap: SPACE.xs }}>
+          <View style={{ backgroundColor: readerDark ? '#1A1F2A' : readerTheme === 'sepia' ? '#00000010' : '#00000008', borderRadius: RADIUS.md, padding: SPACE.md, gap: SPACE.xs }}>
             <Pressable
               onPress={() => setShowIntro(!showIntro)}
               accessibilityRole="button"
@@ -329,7 +330,8 @@ export default function Leitor() {
         <T variant="label" muted>
           Fundo
         </T>
-        <View style={{ flexDirection: 'row', gap: SPACE.sm }}>
+        <View style={{ flexDirection: 'row', flexWrap: 'wrap', gap: SPACE.sm }}>
+          <Chip label="Igual ao app" selected={reader.theme === 'auto'} onPress={() => setReader({ theme: 'auto' })} />
           <Chip label="Claro" selected={reader.theme === 'claro'} onPress={() => setReader({ theme: 'claro' })} />
           <Chip label="Sépia" selected={reader.theme === 'sepia'} onPress={() => setReader({ theme: 'sepia' })} />
           <Chip label="Noturno" selected={reader.theme === 'noturno'} onPress={() => setReader({ theme: 'noturno' })} />
