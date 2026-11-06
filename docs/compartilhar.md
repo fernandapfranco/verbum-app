@@ -19,6 +19,17 @@ o questionário, as trilhas e o leitor.
 4. Para atualizar: gere de novo e, no site da Netlify, abra o projeto →
    **Deploys** → arraste a pasta nova.
 
+### Alternativa: Vercel (atualiza sozinho a cada push)
+O `vercel.json` na raiz já traz o comando de build, a pasta `dist`, o
+redirecionamento das rotas e os cabeçalhos COOP/COEP.
+1. Em https://vercel.com → **Add New… › Project** → importe o repositório
+   `verbum-app` do GitHub. Não mude nada em Build & Output Settings.
+2. **Importante:** o app está no ramo `claude/biblia-catolica-app-kyivax`, e o
+   `main` só tem o README. Em **Settings › Git › Production Branch**, escreva
+   `claude/biblia-catolica-app-kyivax` e salve (ou junte o ramo ao `main`).
+3. Em **Deployments**, clique nos três pontinhos do último → **Redeploy**.
+   O link fica em **Domains** (ex.: `verbum-app.vercel.app`).
+
 Dica para quem recebe: no iPhone, abra no **Safari** → Compartilhar →
 "Adicionar à Tela de Início" para ficar com cara de app.
 
