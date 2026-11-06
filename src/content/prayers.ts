@@ -2,7 +2,7 @@ import type { Reviewable } from './types';
 
 /**
  * Orações. Textos tradicionais (domínio público), nas versões populares no
- * Brasil. Antes e depois da leitura: oração inicial (presença de Deus) e oração
+ * Brasil. Antes e depois da leitura: oração para se pôr na presença de Deus e oração
  * final, tradicionais — conferidas pela dona do projeto com o site do Pe. Paulo Ricardo.
  * Linhas que começam com "V." e "R." são versículo e resposta (o app destaca o "R.").
  */
@@ -42,7 +42,7 @@ export const PRAYERS: readonly Prayer[] = [
   p(
     'antes-da-leitura',
     'leitura',
-    'Oração inicial (presença de Deus)',
+    'Oração para se pôr na presença de Deus',
     'Meu Senhor e meu Deus, creio firmemente que estás aqui, que me vês, que me ouves.\nAdoro-te com profunda reverência.\nPeço-te perdão dos meus pecados e graça para fazer com fruto este tempo de oração.\nMinha Mãe Imaculada, São José, meu pai e senhor, meu Anjo da Guarda, intercedei por mim.',
     'Oração tradicional para começar um tempo de oração ou de leitura: colocar-se na presença de Deus, adorá-lo, pedir perdão e pedir a ajuda de Maria, de São José e do Anjo da Guarda.',
     ['CIC 2700–2724 (a meditação e a oração mental)'],
@@ -145,7 +145,7 @@ export const PRAYERS: readonly Prayer[] = [
   p(
     'fatima',
     'marianas',
-    'Ó meu Jesus (oração de Fátima)',
+    'Ó meu Jesus',
     'Ó meu Jesus, perdoai-nos, livrai-nos do fogo do inferno, levai as almas todas para o céu e socorrei principalmente as que mais precisarem da vossa misericórdia.',
     'Rezada no terço depois de cada Glória. Foi ensinada por Nossa Senhora aos pastorinhos em Fátima (1917).',
     ['CIC 67 (revelações privadas)'],

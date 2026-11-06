@@ -9,6 +9,7 @@ import {
   epiphany,
   isReginaCaeliTime,
   liturgicalDay,
+  liturgicalYear,
   nextSeasonStart,
   yearDates,
 } from './liturgy.ts';
@@ -71,5 +72,24 @@ describe('tempo litúrgico do dia', () => {
   it('próximo tempo forte', () => {
     assert.deepEqual(nextSeasonStart('2026-11-05'), { season: 'advento', start: '2026-11-29', inDays: 24 });
     assert.equal(nextSeasonStart('2026-12-01').season, 'quaresma');
+  });
+});
+
+describe('ano litúrgico', () => {
+  it('2025–2026: tempos em sequência, do Advento ao sábado antes do Advento seguinte', () => {
+    const y = liturgicalYear('2026-11-06');
+    assert.equal(y.label, '2025–2026');
+    assert.equal(y.nextAdvent, '2026-11-29');
+    const by = Object.fromEntries(y.periods.map((p) => [p.id, p]));
+    assert.equal(by.advento.start, '2025-11-30');
+    assert.equal(by.natal.end, '2026-01-11');
+    assert.equal(by['comum-1'].end, '2026-02-17');
+    assert.equal(by.quaresma.start, '2026-02-18');
+    assert.equal(by.pascoa.start, '2026-04-05');
+    assert.equal(by.pascoa.end, '2026-05-24');
+    assert.equal(by['comum-2'].end, '2026-11-28');
+  });
+  it('a partir do 1º Domingo do Advento, já é o ano seguinte', () => {
+    assert.equal(liturgicalYear('2026-11-29').label, '2026–2027');
   });
 });

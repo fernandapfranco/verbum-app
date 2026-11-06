@@ -164,7 +164,7 @@ export default function Leitor() {
                   style={{ minHeight: 36, justifyContent: 'center' }}
                 >
                   <T variant="bodyStrong" color={palette.link}>
-                    🙏 Oração inicial antes de ler ›
+                    🙏 Pôr-se na presença de Deus antes de ler ›
                   </T>
                 </Pressable>
               </>

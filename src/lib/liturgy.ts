@@ -164,3 +164,37 @@ export function nextSeasonStart(date: ISODate): UpcomingSeason {
   const next = candidates.filter((c) => c.start > date).sort((a, b) => (a.start < b.start ? -1 : 1))[0];
   return { ...next, inDays: diffDays(date, next.start) };
 }
+
+export type SeasonPartId = 'advento' | 'natal' | 'comum-1' | 'quaresma' | 'triduo' | 'pascoa' | 'comum-2';
+
+export interface SeasonPeriod {
+  id: SeasonPartId;
+  start: ISODate;
+  /** Último dia do tempo (inclusive). */
+  end: ISODate;
+}
+
+/**
+ * Os tempos do ano litúrgico que contém `date`, do 1º Domingo do Advento ao
+ * sábado antes do Advento seguinte. `label` = "2025–2026".
+ */
+export function liturgicalYear(date: ISODate): { label: string; periods: SeasonPeriod[]; nextAdvent: ISODate } {
+  const year = parseISODate(date).getFullYear();
+  const y = date >= adventStart(year) ? year + 1 : year;
+  const prev = yearDates(y - 1);
+  const cur = yearDates(y);
+  const baptism = baptismOfTheLord(y);
+  return {
+    label: `${y - 1}–${y}`,
+    nextAdvent: cur.adventStart,
+    periods: [
+      { id: 'advento', start: prev.adventStart, end: `${y - 1}-12-24` },
+      { id: 'natal', start: `${y - 1}-12-25`, end: baptism },
+      { id: 'comum-1', start: addDays(baptism, 1), end: addDays(cur.ashWednesday, -1) },
+      { id: 'quaresma', start: cur.ashWednesday, end: addDays(cur.holyThursday, -1) },
+      { id: 'triduo', start: cur.holyThursday, end: cur.easter },
+      { id: 'pascoa', start: cur.easter, end: cur.pentecost },
+      { id: 'comum-2', start: addDays(cur.pentecost, 1), end: addDays(cur.adventStart, -1) },
+    ],
+  };
+}

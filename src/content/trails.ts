@@ -410,7 +410,7 @@ export const SERIES: readonly Series[] = [
     id: 'advento',
     season: 'advento',
     titulo: 'Advento: preparar o caminho',
-    subtitulo: 'Série do tempo litúrgico · 7 encontros',
+    subtitulo: 'Trilha do tempo litúrgico · 7 encontros',
     paraQuem:
       'Quatro semanas para preparar o coração para o Natal: um encontro curto por semana, com leituras que a Igreja faz no Advento, e um encontro para a noite de Natal.',
     licoes: [

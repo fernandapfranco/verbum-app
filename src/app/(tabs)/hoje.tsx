@@ -5,7 +5,7 @@ import { Pressable, View } from 'react-native';
 
 import { AngelSays, Button, Card, ProgressBar, Screen, T } from '@/components/ui';
 import { DEFAULT_ANGEL_NAME, greeting, pick, PLAN_ADJUSTED, WELCOME_BACK } from '@/content/angel';
-import { getSeriesFor, getTrail, TRAILS } from '@/content/trails';
+import { getSeriesFor, TRAILS } from '@/content/trails';
 import { LiturgyChip } from '@/components/LiturgyChip';
 import { liturgicalDay, nextSeasonStart } from '@/lib/liturgy';
 import { gospelOfDay } from '@/lib/lectionary';
@@ -75,7 +75,7 @@ export default function Hoje() {
 
   const today = plan.today;
 
-  // Série do tempo litúrgico: em destaque durante o tempo e nos 30 dias antes.
+  // Trilha do tempo litúrgico (série): em destaque durante o tempo e nos 30 dias antes.
   const lit = liturgicalDay(todayISO());
   const gospel = gospelOfDay(todayISO());
   const upcoming = nextSeasonStart(todayISO());
@@ -84,7 +84,7 @@ export default function Hoje() {
     if (upcoming.season === 'advento' && upcoming.inDays <= 30)
       return {
         s: getSeriesFor('advento'),
-        line: `O Advento começa em ${formatDate(upcoming.start)} (faltam ${upcoming.inDays} dias). A série já está disponível.`,
+        line: `O Advento começa em ${formatDate(upcoming.start)} (faltam ${upcoming.inDays} dias). A trilha já está disponível.`,
       };
     return null;
   })();
@@ -111,6 +111,16 @@ export default function Hoje() {
       <T variant="caption" muted style={{ marginTop: -SPACE.sm, marginLeft: 84 }}>
         — {angelName}
       </T>
+
+      <Card onPress={() => router.push('/ofensiva')} accessibilityLabel="Ver ofensiva e velas">
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+          <T variant="heading">Sua ofensiva</T>
+          <T variant="caption" muted>
+            {g.velas} {g.velas === 1 ? 'vela' : 'velas'} de proteção
+          </T>
+        </View>
+        <WeekStrip week={g.week} />
+      </Card>
 
       {/* Cartão principal (azul): o check-in de hoje, ligado à leitura do plano */}
       <Card tone="primary">
@@ -191,26 +201,17 @@ export default function Hoje() {
         </Card>
       )}
 
-      <Card onPress={() => router.push('/ofensiva')} accessibilityLabel="Ver ofensiva e velas">
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
-          <T variant="heading">Sua ofensiva</T>
-          <T variant="caption" muted>
-            {g.velas} {g.velas === 1 ? 'vela' : 'velas'} de proteção
-          </T>
-        </View>
-        <WeekStrip week={g.week} />
-      </Card>
 
       {seriesInfo?.s && (
         <Card
           onPress={() => router.push({ pathname: '/trilha/[id]', params: { id: seriesInfo.s!.id } })}
-          accessibilityLabel={`Série ${seriesInfo.s.titulo}`}
+          accessibilityLabel={`Trilha ${seriesInfo.s.titulo}`}
           style={{ borderLeftWidth: 0 }}
         >
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: SPACE.sm }}>
             <View style={{ width: 10, height: 10, borderRadius: 5, backgroundColor: '#6B3FA0' }} />
             <T variant="label" color="#6B3FA0">
-              Série do tempo litúrgico
+              Trilha do tempo litúrgico
             </T>
           </View>
           <T variant="heading">{seriesInfo.s.titulo}</T>
@@ -257,24 +258,11 @@ export default function Hoje() {
         </Card>
       )}
 
-      <View style={{ gap: SPACE.sm }}>
-        <T variant="label" muted>
-          Trilhas
+      <Pressable onPress={() => router.push('/orar')} accessibilityRole="link" style={{ minHeight: 44, justifyContent: 'center', alignItems: 'center' }}>
+        <T variant="bodyStrong" color={c.primary}>
+          Ver todas as trilhas em Orar ›
         </T>
-        {TRAILS.map((t) => (
-          <Card key={t.id} onPress={() => router.push({ pathname: '/trilha/[id]', params: { id: t.id } })} accessibilityLabel={`Trilha ${t.titulo}`}>
-            <View style={{ flexDirection: 'row', alignItems: 'center', gap: SPACE.md }}>
-              <Ionicons name={t.id === 'primeiros-passos' ? 'footsteps-outline' : 'home-outline'} size={24} color={c.primary} />
-              <View style={{ flex: 1 }}>
-                <T variant="bodyStrong">{getTrail(t.id)!.titulo}</T>
-                <T variant="caption" muted>
-                  {t.subtitulo}
-                </T>
-              </View>
-            </View>
-          </Card>
-        ))}
-      </View>
+      </Pressable>
 
       {plan.config && today?.status === 'ajustado' && (
         <T variant="caption" muted style={{ textAlign: 'center' }}>

@@ -147,6 +147,7 @@ function RootStack() {
         <Stack.Screen name="oracao/[id]" options={{ title: 'Oração' }} />
         <Stack.Screen name="terco/index" options={{ title: 'Terço' }} />
         <Stack.Screen name="evangelho" options={{ title: 'Evangelho do dia' }} />
+        <Stack.Screen name="tempos-liturgicos" options={{ title: 'Tempos litúrgicos' }} />
         <Stack.Screen name="terco/rezar" options={{ headerShown: false, gestureEnabled: false }} />
       </Stack>
     </>

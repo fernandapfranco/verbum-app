@@ -5,8 +5,9 @@ import { View } from 'react-native';
 import { LiturgyChip } from '@/components/LiturgyChip';
 import { Card, Divider, Row, Screen, T } from '@/components/ui';
 import { PRAYER_GROUPS, PRAYERS } from '@/content/prayers';
+import { SERIES, TRAILS } from '@/content/trails';
 import { today } from '@/lib/dates';
-import { isReginaCaeliTime } from '@/lib/liturgy';
+import { COLOR_HEX, isReginaCaeliTime, liturgicalDay, SEASON_NAME } from '@/lib/liturgy';
 import { mysteriesForDate, SET_NAME } from '@/lib/rosary';
 import { SPACE, useTheme } from '@/theme';
 
@@ -19,6 +20,8 @@ export default function Orar() {
   const nearAngelus = [6, 12, 18].some((h) => Math.abs(hour - h) <= 1);
   const suggested = nearAngelus ? marian : 'antes-da-leitura';
   const s = PRAYERS.find((p) => p.id === suggested)!;
+  const lit = liturgicalDay(today());
+  const trails = [...SERIES, ...TRAILS];
 
   return (
     <Screen>
@@ -64,6 +67,41 @@ export default function Orar() {
           <Ionicons name="chevron-forward" size={20} color={c.textMuted} />
         </View>
       </Card>
+
+      <Card onPress={() => router.push('/tempos-liturgicos')} accessibilityLabel="Tempos litúrgicos: o que são, quando começam e terminam">
+        <View style={{ flexDirection: 'row', gap: SPACE.md, alignItems: 'center' }}>
+          <Ionicons name="calendar-outline" size={26} color={c.primary} />
+          <View style={{ flex: 1 }}>
+            <T variant="heading">Tempos litúrgicos</T>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
+              <View style={{ width: 8, height: 8, borderRadius: 4, backgroundColor: COLOR_HEX[lit.color] }} />
+              <T variant="caption" muted>
+                Agora: {SEASON_NAME[lit.season]} · quando começa e termina cada tempo
+              </T>
+            </View>
+          </View>
+          <Ionicons name="chevron-forward" size={20} color={c.textMuted} />
+        </View>
+      </Card>
+
+      <View style={{ gap: SPACE.sm }}>
+        <T variant="label" color={c.goldText}>
+          Trilhas
+        </T>
+        <Card>
+          {trails.map((t, i) => (
+            <View key={t.id}>
+              {i > 0 && <Divider />}
+              <Row
+                icon={'season' in t ? 'leaf-outline' : t.id === 'primeiros-passos' ? 'footsteps-outline' : 'home-outline'}
+                title={t.titulo}
+                subtitle={t.subtitulo}
+                onPress={() => router.push({ pathname: '/trilha/[id]', params: { id: t.id } })}
+              />
+            </View>
+          ))}
+        </Card>
+      </View>
 
       {PRAYER_GROUPS.map((g) => {
         const items = PRAYERS.filter((p) => p.grupo === g.id && (g.id !== 'do-dia' || p.id === marian));
