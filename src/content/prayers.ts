@@ -71,7 +71,7 @@ export const PRAYERS: readonly Prayer[] = [
     'Angelus',
     'V. O Anjo do Senhor anunciou a Maria.\nR. E ela concebeu do Espírito Santo.\nAve Maria…\n\nV. Eis aqui a serva do Senhor.\nR. Faça-se em mim segundo a vossa palavra.\nAve Maria…\n\nV. E o Verbo se fez carne.\nR. E habitou entre nós.\nAve Maria…\n\nV. Rogai por nós, santa Mãe de Deus.\nR. Para que sejamos dignos das promessas de Cristo.\n\nOremos: Infundi, Senhor, como vos pedimos, a vossa graça em nossas almas, para que nós, que pela anunciação do Anjo conhecemos a encarnação de Cristo, vosso Filho, por sua paixão e morte sejamos conduzidos à glória da ressurreição. Pelo mesmo Cristo, Senhor nosso.\nAmém.',
     'Rezado às 6h, 12h e 18h, lembra o momento em que o anjo Gabriel anunciou a Maria que ela seria a mãe de Jesus. "E o Verbo se fez carne" — é daí que vem o nome do app. Onde está "Ave Maria…", reze a Ave-Maria inteira.',
-    ['Lc 1,26-38', 'Jo 1,14', 'CIC 2678'],
+    ['Lc 1,26-38', 'Jo 1,14', 'CIC 2617', 'CIC 2673–2675'],
   ),
   p(
     'regina-caeli',
@@ -79,7 +79,7 @@ export const PRAYERS: readonly Prayer[] = [
     'Regina Caeli',
     'Rainha do céu, alegrai-vos, aleluia!\nPorque aquele que merecestes trazer em vosso seio, aleluia!\nRessuscitou como disse, aleluia!\nRogai a Deus por nós, aleluia!\n\nV. Exultai e alegrai-vos, ó Virgem Maria, aleluia!\nR. Porque o Senhor ressuscitou verdadeiramente, aleluia!\n\nOremos: Ó Deus, que vos dignastes alegrar o mundo com a ressurreição do vosso Filho, Nosso Senhor Jesus Cristo, concedei-nos, vos suplicamos, que por sua Mãe, a Virgem Maria, alcancemos as alegrias da vida eterna. Pelo mesmo Cristo, Senhor nosso.\nAmém.',
     'No Tempo Pascal (do Domingo de Páscoa a Pentecostes), o Regina Caeli substitui o Angelus. É uma oração cheia de alegria pela ressurreição de Jesus.',
-    ['CIC 2678'],
+    ['CIC 2673–2675'],
   ),
 
   // Orações básicas

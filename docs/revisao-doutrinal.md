@@ -54,6 +54,16 @@ Antes de publicar nas lojas: ou tudo aprovado, ou esconder o que não foi.
 Ferramentas como o Magisterium AI podem ajudar a localizar parágrafos do CIC e
 documentos, mas **não substituem** o revisor humano.
 
+## Conferência das referências do Catecismo (6/11/2026)
+As 111 citações do CIC usadas no conteúdo (glossário, notas, introduções,
+orações, mistérios, tempos litúrgicos e trilhas) foram comparadas com o texto
+oficial em português no site do Vaticano
+(https://www.vatican.va/archive/cathechism_po/index_new/prima-pagina-cic_po.html).
+108 estavam corretas; 3 eram fracas e foram trocadas: Angelus e Regina Caeli
+(CIC 2678 → 2617 e 2673–2675) e a lição "Deus conosco" (CIC 532 removido).
+Isso confere **só as referências** (se o parágrafo citado trata do assunto).
+O conteúdo em si continua aguardando o revisor doutrinal.
+
 ## Histórico de revisões
 | Data | Revisor | Itens | Observações |
 |---|---|---|---|
