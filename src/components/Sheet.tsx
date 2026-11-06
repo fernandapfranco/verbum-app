@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { KeyboardAvoidingView, Modal, Platform, Pressable, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { RADIUS, SPACE, useTheme } from '@/theme';
+import { RADIUS, SPACE, useTheme, MAX_CONTENT_WIDTH } from '@/theme';
 
 import { T } from './ui';
 
@@ -39,6 +39,9 @@ export function Sheet({
             paddingBottom: SPACE.lg + insets.bottom,
             gap: SPACE.md,
             maxHeight: '80%',
+            width: '100%',
+            maxWidth: MAX_CONTENT_WIDTH,
+            alignSelf: 'center',
           }}
         >
           <View style={{ alignSelf: 'center', width: 40, height: 4, borderRadius: 2, backgroundColor: c.border }} />
