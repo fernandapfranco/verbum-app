@@ -511,7 +511,7 @@ export const SERIES: readonly Series[] = [
         titulo: 'Deus conosco',
         resumo: 'O Emanuel prometido por Isaías e o sonho de José.',
         minutos: 6,
-        ...R(['CIC 437', 'CIC 497', 'CIC 532']),
+        ...R(['CIC 437', 'CIC 497']),
         passos: [
           { kind: 'leitura', ref: { bookId: 'isaias', chapter: 9, from: 6, to: 7 }, antes: 'Séculos antes, Isaías anunciou um menino que traria a paz:' },
           { kind: 'leitura', ref: { bookId: 'mateus', chapter: 1, from: 18, to: 24 }, antes: 'E Mateus conta como José acolheu esse mistério:' },

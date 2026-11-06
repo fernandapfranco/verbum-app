@@ -72,6 +72,7 @@ docs/               plano, texto bíblico, revisão doutrinal, qualidade do text
 
 ## Armadilhas conhecidas
 - Na **web** (só usada para testes automatizados), o SQLite precisa de uma operação assíncrona antes das síncronas — tratado em `src/app/_layout.tsx` + `skipHydration` em `src/store/settings.ts`. A web não tem FTS5: a busca usa um LIKE de reserva. Não é alvo de produção.
+- **Desempenho na web** (o link da Vercel é usado por pessoas de verdade): cada consulta *síncrona* ao SQLite trava a tela até o worker responder (espera ativa) — no iPhone isso pesa. Por isso: `userDb()` guarda leituras em memória até a próxima escrita (`withReadCache` em `src/db/user.ts`), o banco bíblico guarda o que já leu (`cached` em `src/db/bible.ts`), e as preferências gravam em segundo plano na web (`src/store/settings.ts`). Evite consultas em loops ou contagens sobre `verses` (use os totais de `chapters`). A página web usa `public/index.html` (viewport-fit=cover, 100dvh, cor de fundo).
 - Migrações de `user.db`: nunca editar uma já publicada; sempre acrescentar.
 - Correções do texto bíblico vão em `content/bible/correcoes.json` (nunca editar o banco à mão). Só corrigir erro de OCR; palavra reconstruída vai também em `conferir`.
 - `src/config.ts`: responsável = Fernanda, contato pelo LinkedIn (projeto pessoal/experimental). Para as lojas, falta um **e-mail de contato** e revisão jurídica dos Termos/Política.

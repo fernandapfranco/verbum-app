@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <!-- viewport-fit=cover: no iPhone, o app ocupa a tela toda e as margens
+         seguras (barra de início, entalhe) chegam ao app como safe-area. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#F6F7FB" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0E1022" media="(prefers-color-scheme: dark)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Verbum" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <title>%WEB_TITLE%</title>
+    <style id="expo-reset">
+      html,
+      body {
+        height: 100%;
+        background: #f6f7fb;
+      }
+      @media (prefers-color-scheme: dark) {
+        html,
+        body {
+          background: #0e1022;
+        }
+      }
+      body {
+        overflow: hidden;
+        overscroll-behavior: none;
+      }
+      #root {
+        display: flex;
+        height: 100%;
+        flex: 1;
+      }
+      /* Altura visível real no celular (sem a área atrás das barras do navegador). */
+      @supports (height: 100dvh) {
+        html,
+        body,
+        #root {
+          height: 100dvh;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <noscript>O Verbum precisa de JavaScript para funcionar.</noscript>
+    <div id="root"></div>
+  </body>
+</html>

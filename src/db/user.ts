@@ -127,7 +127,46 @@ export function userDb(): SQLiteDatabase {
     });
     version++;
   }
+  db = withReadCache(db);
   return db;
+}
+
+/**
+ * Guarda em memória o resultado das leituras (getAllSync/getFirstSync) até a
+ * próxima escrita. As telas releem os mesmos dados várias vezes por render; no
+ * celular isso é barato, mas na versão web cada consulta síncrona trava a tela
+ * por um instante (o navegador espera o worker do SQLite). Qualquer escrita
+ * (run/exec/prepare/transação) limpa a memória, antes e depois.
+ */
+function withReadCache(target: SQLiteDatabase): SQLiteDatabase {
+  const cache = new Map<string, unknown>();
+  const copy = (v: unknown) =>
+    Array.isArray(v) ? v.map((r) => (r && typeof r === 'object' ? { ...r } : r)) : v && typeof v === 'object' ? { ...v } : v;
+  const WRITES = new Set(['runSync', 'execSync', 'withTransactionSync', 'prepareSync', 'runAsync', 'execAsync', 'withTransactionAsync', 'prepareAsync']);
+  return new Proxy(target, {
+    get(t, prop) {
+      const value = Reflect.get(t, prop, t);
+      if (typeof value !== 'function') return value;
+      if (prop === 'getAllSync' || prop === 'getFirstSync') {
+        return (sql: string, ...params: unknown[]) => {
+          const k = `${String(prop)}\u0000${sql}\u0000${JSON.stringify(params)}`;
+          if (!cache.has(k)) cache.set(k, value.call(t, sql, ...params));
+          return copy(cache.get(k));
+        };
+      }
+      if (WRITES.has(String(prop))) {
+        return (...args: unknown[]) => {
+          cache.clear();
+          try {
+            return value.apply(t, args);
+          } finally {
+            cache.clear();
+          }
+        };
+      }
+      return value.bind(t);
+    },
+  });
 }
 
 /** Contador que muda a cada escrita: as telas usam para recarregar dados. */
