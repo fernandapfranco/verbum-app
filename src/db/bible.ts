@@ -133,3 +133,18 @@ export function getMeta(db: SQLiteDatabase): Record<string, string> {
     db.getAllSync<{ key: string; value: string }>('SELECT key, value FROM meta').map((r) => [r.key, r.value]),
   );
 }
+
+/** Versículos de uma referência com vários trechos ("Mt 9,35–10,1.5a.6-8"), agrupados por capítulo. */
+export function getPassage(
+  db: SQLiteDatabase,
+  parsed: { bookId: string; spans: { chapter: number; from: number; to: number | null }[] },
+): { chapter: number; verses: Verse[] }[] {
+  const groups: { chapter: number; verses: Verse[] }[] = [];
+  for (const s of parsed.spans) {
+    const verses = getVerses(db, parsed.bookId, s.chapter, s.from, s.to ?? 999);
+    const last = groups[groups.length - 1];
+    if (last && last.chapter === s.chapter) last.verses.push(...verses.filter((v) => !last.verses.some((x) => x.verse === v.verse)));
+    else groups.push({ chapter: s.chapter, verses });
+  }
+  return groups;
+}

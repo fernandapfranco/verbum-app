@@ -123,9 +123,13 @@ do leitor, preferências de notificação, último capítulo aberto.
   período do Regina Caeli.
 - **Terço** (`rosary.ts`): mistérios do dia (Rosarium Virginis Mariae 38),
   sequência de 53 Ave-Marias (terço) ou 203 (Rosário completo).
+- **Evangelho do dia** (`lectionary.ts`): identifica o dia litúrgico (tempos,
+  semanas, ciclo A/B/C, solenidades e festas, transferências do Brasil) e busca
+  a referência na tabela do Lecionário (534 entradas, geradas cruzando duas
+  compilações do Ordo Lectionum Missae). Verificado para todos os dias de 2026 a 2028.
 - **Recomendação** (`recommend.ts`): sugestão de começo a partir do questionário.
 
-Testes: **58 casos** (`npm test`) cobrindo plano, ofensiva, liturgia, terço,
+Testes: **66 casos** (`npm test`) cobrindo plano, ofensiva, liturgia, terço,
 Salmos, cânon e limpeza do texto.
 
 ## 6. Funcionalidades entregues
@@ -138,6 +142,7 @@ Salmos, cânon e limpeza do texto.
 - Bíblia com 73 livros, busca, versículos salvos.
 - Trilhas Primeiros Passos (7) e Voltando para Casa (6); série do Advento (7).
 - Plano de leitura; check-in, ofensiva, talentos, velas.
+- Evangelho do dia (tela própria, cartão na tela Hoje e na aba Orar).
 - Aba Orar: oração inicial/final, Vinde Espírito Santo, Angelus/Regina Caeli,
   básicas, marianas, ato de contrição; terço e Rosário guiados.
 - Notificações locais: lembrete diário, ofensiva em risco, Angelus/Regina Caeli
@@ -184,7 +189,7 @@ Identificadores: `app.verbum.biblia` (iOS e Android), esquema de link `verbum://
 ## 11. Próximas etapas previstas
 - Gamificação completa: XP, níveis, conquistas, baú semanal, quiz, mapa da
   peregrinação, loja de itens do anjo, versículo como imagem.
-- Liturgia: Evangelho do dia (referências por algoritmo), santo do dia, séries
+- Liturgia: 1ª leitura e salmo do dia, santo do dia, séries
   de Natal, Quaresma e Páscoa, cor do tema seguindo o tempo litúrgico.
 - Social (Supabase, região São Paulo, RLS): conta, amigos, ofensiva com amigos,
   incentivos, pedidos de oração, grupos, ligas, push remoto (exige development build).

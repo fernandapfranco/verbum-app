@@ -52,6 +52,19 @@ export default function Orar() {
         </View>
       </Card>
 
+      <Card onPress={() => router.push('/evangelho')} accessibilityLabel="Evangelho do dia">
+        <View style={{ flexDirection: 'row', gap: SPACE.md, alignItems: 'center' }}>
+          <Ionicons name="book-outline" size={26} color={c.primary} />
+          <View style={{ flex: 1 }}>
+            <T variant="heading">Evangelho do dia</T>
+            <T variant="caption" muted>
+              Segundo o Lecionário da Missa de hoje
+            </T>
+          </View>
+          <Ionicons name="chevron-forward" size={20} color={c.textMuted} />
+        </View>
+      </Card>
+
       {PRAYER_GROUPS.map((g) => {
         const items = PRAYERS.filter((p) => p.grupo === g.id && (g.id !== 'do-dia' || p.id === marian));
         return (

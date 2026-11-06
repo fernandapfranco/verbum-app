@@ -8,6 +8,7 @@ import { DEFAULT_ANGEL_NAME, greeting, pick, PLAN_ADJUSTED, WELCOME_BACK } from 
 import { getSeriesFor, getTrail, TRAILS } from '@/content/trails';
 import { LiturgyChip } from '@/components/LiturgyChip';
 import { liturgicalDay, nextSeasonStart } from '@/lib/liturgy';
+import { gospelOfDay } from '@/lib/lectionary';
 import { TalentIcon } from '@/components/TalentIcon';
 import { WeekStrip } from '@/components/WeekStrip';
 import { getCompletedLessons, useDataVersion } from '@/db/user';
@@ -76,6 +77,7 @@ export default function Hoje() {
 
   // Série do tempo litúrgico: em destaque durante o tempo e nos 30 dias antes.
   const lit = liturgicalDay(todayISO());
+  const gospel = gospelOfDay(todayISO());
   const upcoming = nextSeasonStart(todayISO());
   const seriesInfo = (() => {
     if (lit.season === 'advento') return { s: getSeriesFor('advento'), line: 'Estamos no Advento. Prepare o coração para o Natal.' };
@@ -173,6 +175,21 @@ export default function Hoje() {
           </T>
         )}
       </Card>
+
+      {gospel && (
+        <Card onPress={() => router.push('/evangelho')} accessibilityLabel={`Evangelho do dia: ${gospel.ref}`}>
+          <View style={{ flexDirection: 'row', alignItems: 'center', gap: SPACE.sm }}>
+            <Ionicons name="book" size={18} color={c.goldText} />
+            <T variant="label" color={c.goldText}>
+              Evangelho do dia
+            </T>
+          </View>
+          <T variant="heading">{gospel.ref}</T>
+          <T variant="caption" muted>
+            {gospel.title}
+          </T>
+        </Card>
+      )}
 
       <Card onPress={() => router.push('/ofensiva')} accessibilityLabel="Ver ofensiva e velas">
         <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>

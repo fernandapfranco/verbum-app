@@ -54,7 +54,24 @@
     "lucas 2:9": "E eis que se apresentou junto deles um anjo do Senhor, e com uma luz divina os cercou de refulgente luz, e tiveram grande temor.",
     "lucas 2:12": "E este é o sinal que vo-lo fará conhecer: Achareis um menino envolto em panos, e posto em uma manjedoura.",
     "isaias 9:6": "Porquanto já um pequeno se acha nascido para nós, e um filho nos foi dado a nós, e foi posto o principado sobre o seu ombro: E o nome com que se apelide será admirável, conselheiro, Deus forte, pai do futuro século, príncipe da paz.",
-    "isaias 9:7": "O seu império se estenderá cada vez mais, e a paz não terá fim: Assentar-se-á sobre o trono de Davi, e sobre o seu reino: Para o firmar e fortalecer em juízo e justiça, desde então e para sempre: Fará isto o zelo do Senhor dos exércitos."
+    "isaias 9:7": "O seu império se estenderá cada vez mais, e a paz não terá fim: Assentar-se-á sobre o trono de Davi, e sobre o seu reino: Para o firmar e fortalecer em juízo e justiça, desde então e para sempre: Fará isto o zelo do Senhor dos exércitos.",
+    "lucas 16:1": "E dizia também Jesus a seus discípulos: Havia um homem rico que tinha um feitor: E este foi acusado diante dele como quem havia dissipado os seus bens.",
+    "lucas 16:10": "O que é fiel no menos, também é fiel no mais: E o que é injusto no pouco, também é injusto no muito.",
+    "mateus 25:9": "Responderam as prudentes, dizendo: Para que não suceda talvez faltar-nos ele a nós, e a vós, ide antes aos que o vendem, e comprai o que haveis mister.",
+    "joao 2:22": "Assim que depois que ele ressurgiu dos mortos, se lembraram seus discípulos do que ele dissera, e creram na Escritura, e nas palavras que Jesus tinha dito:",
+    "mateus 25:15": "E deu a um cinco talentos, e a outro dois, e a outro deu um, a cada um segundo a sua capacidade, e partiu logo.",
+    "mateus 25:16": "O que recebera pois cinco talentos, foi-se e entrou a negociar com eles, e ganhou outros cinco.",
+    "mateus 25:23": "Seu Senhor lhe disse: Bem está, servo bom, e fiel, já que foste fiel nas coisas pequenas, dar-te-ei a intendência das grandes; entra no gozo de teu senhor.",
+    "lucas 18:39": "E os que iam adiante repreendiam-no para que se calasse. Porém ele cada vez gritava mais: Filho de Davi, tem de mim piedade.",
+    "lucas 20:38": "Ora, Deus não o é de mortos, mas de vivos: Porque todos vivem para ele.",
+    "mateus 25:42": "Porque tive fome, e não me destes de comer: Tive sede, e não me destes de beber:",
+    "lucas 21:21": "Os que nesse tempo se acharem em Judeia, fujam para os montes: E os que dentro da cidade, retirem-se: E os que nos campos, não entrem nela:",
+    "lucas 21:31": "Assim também quando vós virdes que vão sucedendo estas coisas, sabeis que está perto o Reino de Deus.",
+    "lucas 21:32": "Em verdade vos afirmo, que esta geração não passará, enquanto se não cumprirem todas estas coisas.",
+    "lucas 21:34": "Velai pois sobre vós, para que não suceda que os vossos corações se façam pesados com as demasias do comer, e do beber, e com os cuidados desta vida: E para que aquele dia vos não apanhe de repente.",
+    "lucas 21:35": "Porque ele, assim como um laço, prenderá a todos os que habitam sobre a face de toda a terra.",
+    "mateus 15:31": "De sorte que se admiravam as gentes, vendo falar os mudos, andar os coxos, ver os cegos: E engrandeciam por isso ao Deus de Israel.",
+    "mateus 9:31": "Mas eles, saindo dali, divulgaram por toda aquela terra o seu nome."
   },
   "remover": [],
   "conferir": {
@@ -66,6 +83,8 @@
     "lucas 15:27": "Começa em minúscula ('este lhe disse'); talvez falte um 'E' inicial.",
     "isaias 9:7": "'e sobre o seu reino' reconstruído: as digitalizações trazem só '…bre o seu reino' depois de um trecho de nota.",
     "lucas 2:7": "'mangedoura' (grafia antiga) atualizado para 'manjedoura'; idem 2:12.",
-    "lucas 2:8": "OCR 'revesavain'; corrigido para 'revezavam'."
+    "lucas 2:8": "OCR 'revesavain'; corrigido para 'revezavam'.",
+    "lucas 21:16-19": "Ausentes nas duas digitalizações. Precisam ser transcritos da página impressa.",
+    "mateus 25:23": "'cousas' (grafia antiga) atualizado para 'coisas'."
   }
 }

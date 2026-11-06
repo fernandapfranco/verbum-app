@@ -80,3 +80,14 @@ Depois, aumente `bibleDbName` em `src/config.ts`.
 **Próximo passo recomendado:** obter os PDFs da edição (ou uma edição do século
 XIX, como a de 1864) e revisar começando pelos Evangelhos, Salmos e textos da
 liturgia dominical. Voluntários podem trabalhar direto na planilha de suspeitos.
+
+## Lecionário (Evangelho do dia)
+As referências do Evangelho de cada dia seguem o **Ordo Lectionum Missae** (1981).
+Referências são fatos, não texto protegido. A tabela `src/content/lectionary.ts`
+é gerada por `npm run lectionary:build -- <harvous> <documentos-vaticanos>`, que
+lê como texto duas compilações independentes publicadas no GitHub
+(harvouscom/harvous, edição dos EUA; RafaelAngelRamirez/documentos-vaticanos,
+tabelas de Felix Just, S.J.), compara cada referência e registra as divergências
+em `docs/lecionario-divergencias.md`. A lista de domingos e solenidades também
+confere com o projeto brasileiro matheusantunes-dev/sejais-santo (MIT).
+O texto exibido é sempre o da nossa tradução.
