@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, type ReactNode } from 'react';
-import { Appearance, StyleSheet, useColorScheme, useWindowDimensions, View } from 'react-native';
+import { Appearance, Platform, StyleSheet, useColorScheme, useWindowDimensions, View } from 'react-native';
 
 import { useSettings } from '@/store/settings';
 
@@ -27,6 +27,14 @@ export function AppThemeProvider({ children }: { children: ReactNode }) {
   }, [pref]);
   const dark = pref === 'escuro' || (pref === 'sistema' && scheme === 'dark');
   const value = useMemo<Theme>(() => ({ dark, c: dark ? DARK : LIGHT }), [dark]);
+  // Web: a cor de fundo da página acompanha o tema (aparece atrás das barras do navegador).
+  useEffect(() => {
+    if (Platform.OS !== 'web' || typeof document === 'undefined') return;
+    const bg = dark ? DARK.bg : LIGHT.bg;
+    document.documentElement.style.backgroundColor = bg;
+    document.body.style.backgroundColor = bg;
+    document.querySelectorAll('meta[name="theme-color"]').forEach((m) => m.setAttribute('content', bg));
+  }, [dark]);
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }
 

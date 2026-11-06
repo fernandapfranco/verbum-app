@@ -96,11 +96,38 @@ const initial = {
   lastOpenedAt: null,
 };
 
+/**
+ * Leitura síncrona (o app abre já sabendo para onde ir). Escrita:
+ * - no celular, síncrona (é instantânea);
+ * - na web, em segundo plano: lá cada operação síncrona trava a tela até o
+ *   SQLite responder, e o questionário grava a cada toque. O valor mais recente
+ *   de cada chave é gravado logo em seguida (e ao esconder a página).
+ */
+const pendingWrites = new Map<string, string | null>();
+let flushTimer: ReturnType<typeof setTimeout> | null = null;
+function flushWrites() {
+  flushTimer = null;
+  for (const [k, v] of pendingWrites) {
+    (v === null ? Storage.removeItemAsync(k) : Storage.setItemAsync(k, v)).catch(() => {});
+  }
+  pendingWrites.clear();
+}
+function queueWrite(k: string, v: string | null) {
+  pendingWrites.set(k, v);
+  if (!flushTimer) flushTimer = setTimeout(flushWrites, 0);
+}
+if (Platform.OS === 'web' && typeof document !== 'undefined') {
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') flushWrites();
+  });
+}
+
 const syncStorage = {
-  getItem: (k: string) => Storage.getItemSync(k),
-  setItem: (k: string, v: string) => Storage.setItemSync(k, v),
+  getItem: (k: string) => (pendingWrites.has(k) ? pendingWrites.get(k)! : Storage.getItemSync(k)),
+  setItem: (k: string, v: string) => (Platform.OS === 'web' ? queueWrite(k, v) : Storage.setItemSync(k, v)),
   removeItem: (k: string) => {
-    Storage.removeItemSync(k);
+    if (Platform.OS === 'web') queueWrite(k, null);
+    else Storage.removeItemSync(k);
   },
 };
 
