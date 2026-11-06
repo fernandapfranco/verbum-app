@@ -7,6 +7,7 @@ import { AngelSays, Button, Card, ProgressBar, Screen, T } from '@/components/ui
 import { DEFAULT_ANGEL_NAME, greeting, pick, PLAN_ADJUSTED, WELCOME_BACK } from '@/content/angel';
 import { getSeriesFor, TRAILS } from '@/content/trails';
 import { LiturgyChip } from '@/components/LiturgyChip';
+import { SacredIcon } from '@/components/SacredIcon';
 import { liturgicalDay, nextSeasonStart } from '@/lib/liturgy';
 import { gospelOfDay } from '@/lib/lectionary';
 import { TalentIcon } from '@/components/TalentIcon';
@@ -189,7 +190,7 @@ export default function Hoje() {
       {gospel && (
         <Card onPress={() => router.push('/evangelho')} accessibilityLabel={`Evangelho do dia: ${gospel.ref}`}>
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: SPACE.sm }}>
-            <Ionicons name="book" size={18} color={c.goldText} />
+            <SacredIcon name="biblia" size={20} color={c.goldText} />
             <T variant="label" color={c.goldText}>
               Evangelho do dia
             </T>
@@ -209,7 +210,7 @@ export default function Hoje() {
           style={{ borderLeftWidth: 0 }}
         >
           <View style={{ flexDirection: 'row', alignItems: 'center', gap: SPACE.sm }}>
-            <View style={{ width: 10, height: 10, borderRadius: 5, backgroundColor: '#6B3FA0' }} />
+            <SacredIcon name="coroa-advento" size={22} color="#6B3FA0" />
             <T variant="label" color="#6B3FA0">
               Trilha do tempo litúrgico
             </T>

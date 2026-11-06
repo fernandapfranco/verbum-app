@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useState } from 'react';
 import { Pressable, View } from 'react-native';
 
+import { SacredIcon, type SacredIconName } from '@/components/SacredIcon';
 import { Card, ReviewTag, Screen, T } from '@/components/ui';
 import { SEASONS_INFO, YEAR_INTRO, type SeasonPart } from '@/content/liturgicalSeasons';
 import { formatDate, parseISODate, today } from '@/lib/dates';
@@ -12,6 +13,16 @@ const MONTHS = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', '
 const short = (iso: string) => {
   const d = parseISODate(iso);
   return `${d.getDate()} ${MONTHS[d.getMonth()]} ${d.getFullYear()}`;
+};
+
+const SEASON_ICON: Record<SeasonPart, SacredIconName> = {
+  advento: 'coroa-advento',
+  natal: 'estrela',
+  'comum-1': 'trigo',
+  quaresma: 'cruz',
+  triduo: 'calvario',
+  pascoa: 'cirio',
+  'comum-2': 'trigo',
 };
 
 function currentPart(season: Season, date: string, comum1End: string): SeasonPart {
@@ -50,7 +61,9 @@ export default function TemposLiturgicos() {
               accessibilityLabel={`${s.nome}${isNow ? ', tempo atual' : ''}, de ${formatDate(p.start)} a ${formatDate(p.end)}`}
               style={{ flexDirection: 'row', alignItems: 'center', gap: SPACE.md, minHeight: 44 }}
             >
-              <View style={{ width: 14, height: 14, borderRadius: 7, backgroundColor: COLOR_HEX[s.cor] }} />
+              <View style={{ width: 46, height: 46, borderRadius: 23, backgroundColor: COLOR_HEX[s.cor] + '2E', alignItems: 'center', justifyContent: 'center' }}>
+                <SacredIcon name={SEASON_ICON[s.id]} size={28} color={c.text} />
+              </View>
               <View style={{ flex: 1 }}>
                 <View style={{ flexDirection: 'row', alignItems: 'center', gap: SPACE.sm, flexWrap: 'wrap' }}>
                   <T variant="heading">{s.nome}</T>
@@ -63,6 +76,9 @@ export default function TemposLiturgicos() {
                 <T variant="caption" muted>
                   {short(p.start)} → {short(p.end)}
                 </T>
+                <T variant="caption" color={c.goldText} style={{ fontWeight: '600' }}>
+                  {s.vive.map((v) => v.titulo).join(' · ')}
+                </T>
               </View>
               <Ionicons name={expanded ? 'chevron-up' : 'chevron-down'} size={20} color={c.textMuted} />
             </Pressable>
@@ -73,13 +89,30 @@ export default function TemposLiturgicos() {
                 <Info label="Começa" text={s.comeca} />
                 <Info label="Termina" text={s.termina} />
                 <Info label="Cor" text={`${s.cor}${s.outrasCores ? `; ${s.outrasCores}` : ''}`} />
-                <T variant="label" color={c.goldText}>
+
+                <T variant="label" color={c.goldText} style={{ marginTop: SPACE.sm }}>
+                  O que se vive
+                </T>
+                {s.vive.map((v) => (
+                  <View key={v.titulo} style={{ backgroundColor: c.surfaceAlt, borderRadius: 16, padding: SPACE.md, gap: 4 }}>
+                    <T variant="bodyStrong">{v.titulo}</T>
+                    <T>{v.texto}</T>
+                  </View>
+                ))}
+
+                <T variant="label" color={c.goldText} style={{ marginTop: SPACE.sm }}>
                   Dias marcantes
                 </T>
                 {s.destaques.map((d) => (
                   <T key={d}>• {d}</T>
                 ))}
-                <Info label="Para viver" text={s.comoViver} />
+
+                <T variant="label" color={c.goldText} style={{ marginTop: SPACE.sm }}>
+                  Para viver na prática
+                </T>
+                {s.praticas.map((d) => (
+                  <T key={d}>• {d}</T>
+                ))}
                 <ReviewTag status={s.status} />
               </View>
             )}

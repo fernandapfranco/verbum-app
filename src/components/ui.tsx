@@ -286,12 +286,15 @@ export function AngelSays({ text, mood = 'feliz', size = 72 }: { text: string; m
 
 export function Row({
   icon,
+  leading,
   title,
   subtitle,
   onPress,
   right,
 }: {
   icon?: IconName;
+  /** Ícone próprio (ex.: SacredIcon), no lugar de `icon`. */
+  leading?: ReactNode;
   title: string;
   subtitle?: string;
   onPress?: () => void;
@@ -312,7 +315,7 @@ export function Row({
         opacity: pressed ? 0.7 : 1,
       })}
     >
-      {icon && <Ionicons name={icon} size={22} color={c.primary} />}
+      {leading ?? (icon && <Ionicons name={icon} size={22} color={c.primary} />)}
       <View style={{ flex: 1 }}>
         <T variant="bodyStrong">{title}</T>
         {subtitle ? <T variant="caption" muted>{subtitle}</T> : null}

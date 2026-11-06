@@ -21,8 +21,10 @@ export interface SeasonInfo extends Reviewable {
   sentido: string;
   /** Dias marcantes do tempo. */
   destaques: string[];
-  /** Uma sugestão simples para viver o tempo. */
-  comoViver: string;
+  /** O que se vive neste tempo: atitudes e graças próprias. */
+  vive: { titulo: string; texto: string }[];
+  /** Sugestões simples e concretas. */
+  praticas: string[];
 }
 
 const FONTES = [
@@ -45,7 +47,13 @@ export const SEASONS_INFO: readonly SeasonInfo[] = [
     sentido:
       'Advento quer dizer "chegada". São cerca de quatro semanas de espera alegre: preparamos o coração para celebrar a primeira vinda de Jesus, em Belém, e lembramos que Ele virá de novo no fim dos tempos. Até 16 de dezembro, as leituras falam mais da volta de Cristo; de 17 a 24, da preparação próxima para o Natal.',
     destaques: ['1º Domingo do Advento: começa o novo ano litúrgico', '8 de dezembro: Imaculada Conceição', '3º Domingo (Gaudete): "Alegrai-vos"'],
-    comoViver: 'Montar a coroa do Advento, acendendo uma vela a cada domingo, e reservar alguns minutos por dia para ler os Evangelhos da infância de Jesus.',
+    vive: [
+      { titulo: 'Espera', texto: 'Esperamos Jesus de dois jeitos: lembramos a sua chegada em Belém e aguardamos a sua volta gloriosa. É uma espera ativa, de quem arruma a casa para receber alguém querido.' },
+      { titulo: 'Vigilância', texto: '"Vigiai!" é a palavra do Advento (Mc 13,37). Ficar atento aos sinais de Deus no dia a dia, sem deixar o coração adormecer na correria.' },
+      { titulo: 'Esperança alegre', texto: 'Não é um tempo de tristeza: é a alegria de quem sabe que o Senhor está perto (Fl 4,4-5). O roxo aqui fala de preparação, não de luto.' },
+      { titulo: 'Com Isaías, João Batista e Maria', texto: 'São os grandes guias do Advento: o profeta anuncia, João prepara o caminho e Maria acolhe Jesus com um "sim".' },
+    ],
+    praticas: ['Montar a coroa do Advento e acender uma vela a cada domingo', 'Fazer uma boa confissão antes do Natal', 'Montar o presépio aos poucos, deixando o Menino para a noite de Natal', 'Ler o Evangelho do dia'],
     fontes: FONTES,
     status: 'rascunho',
   },
@@ -63,7 +71,12 @@ export const SEASONS_INFO: readonly SeasonInfo[] = [
       '1º de janeiro: Santa Maria, Mãe de Deus',
       'Epifania: no Brasil, no domingo entre 2 e 8 de janeiro',
     ],
-    comoViver: 'Rezar diante do presépio em família e ler Lucas 2 e Mateus 2.',
+    vive: [
+      { titulo: 'Deus conosco', texto: 'Deus se fez pequeno e próximo: o Emanuel (Mt 1,23). O Natal convida a contemplar o Menino no presépio e a se deixar amar por um Deus que não fica distante.' },
+      { titulo: 'Alegria e gratidão', texto: 'É tempo de festa, de família e de partilha. A alegria do Natal se completa quando chega também a quem está sozinho ou precisando.' },
+      { titulo: 'Jesus se manifesta', texto: 'Na Epifania, os Magos representam todos os povos que encontram Jesus; no Batismo, o Pai o apresenta: "Este é o meu Filho amado". Nós também somos chamados a ser luz.' },
+    ],
+    praticas: ['Rezar diante do presépio em família', 'Ler Lucas 2 e Mateus 2', 'Visitar ou ligar para alguém que está sozinho', 'Na Epifania, pedir a bênção da casa (costume tradicional)'],
     fontes: FONTES,
     status: 'rascunho',
   },
@@ -76,7 +89,12 @@ export const SEASONS_INFO: readonly SeasonInfo[] = [
     sentido:
       '"Comum" não quer dizer sem importância: são as semanas contadas uma a uma (ordinais), em que acompanhamos Jesus no dia a dia da sua missão, pregando e curando. O verde lembra esperança e crescimento.',
     destaques: ['2 de fevereiro: Apresentação do Senhor'],
-    comoViver: 'Ler um Evangelho inteiro, capítulo por capítulo, no ritmo do seu plano.',
+    vive: [
+      { titulo: 'Seguir Jesus no dia a dia', texto: 'Acompanhamos Jesus no começo da sua missão: chamando os discípulos, pregando e curando. Somos convidados a caminhar com Ele no cotidiano.' },
+      { titulo: 'Crescer devagar', texto: 'O verde fala de esperança e crescimento. Como a semente que cresce sem barulho (Mc 4,26-29), a fé amadurece com constância.' },
+      { titulo: 'Santidade no comum', texto: 'Trabalho, estudo, família e amizades são lugar de encontro com Deus. Não é preciso esperar um momento especial para ser santo.' },
+    ],
+    praticas: ['Ler um Evangelho inteiro, capítulo por capítulo', 'Participar da Missa aos domingos', 'Escolher uma virtude para cultivar (paciência, gratidão, generosidade…)'],
     fontes: FONTES,
     status: 'rascunho',
   },
@@ -95,7 +113,13 @@ export const SEASONS_INFO: readonly SeasonInfo[] = [
       '19 de março: São José',
       'Domingo de Ramos: entrada de Jesus em Jerusalém e início da Semana Santa',
     ],
-    comoViver: 'Escolher um pequeno sacrifício, fazer uma boa confissão e rezar a Via-Sacra numa sexta-feira.',
+    vive: [
+      { titulo: 'Conversão', texto: '"Voltai para mim de todo o coração" (Jl 2,12). Converter-se é mudar a direção da vida e voltar para os braços do Pai, como o filho pródigo.' },
+      { titulo: 'Oração, jejum e esmola', texto: 'São os três caminhos que Jesus ensina (Mt 6,1-18): mais tempo com Deus, domínio de si e partilha com quem precisa.' },
+      { titulo: 'O deserto', texto: 'Com Jesus no deserto (Mt 4,1-11), aprendemos a fazer silêncio e a enfrentar as tentações confiando na Palavra de Deus.' },
+      { titulo: 'Preparar o Batismo', texto: 'A Igreja prepara os catecúmenos para o Batismo na Páscoa, e todos nós nos preparamos para renovar as promessas do nosso Batismo na Vigília Pascal.' },
+    ],
+    praticas: ['Fazer uma boa confissão', 'Rezar a Via-Sacra numa sexta-feira', 'Jejum na Quarta-feira de Cinzas e na Sexta-feira Santa (dos 18 aos 59 anos) e abstinência de carne nas sextas (a partir dos 14 anos)', 'Participar da Campanha da Fraternidade com um gesto concreto de partilha'],
     fontes: [...FONTES, 'Código de Direito Canônico, cân. 1249–1253 (penitência)'],
     status: 'rascunho',
   },
@@ -113,7 +137,13 @@ export const SEASONS_INFO: readonly SeasonInfo[] = [
       'Sexta-feira Santa: única data do ano sem Missa; jejum e abstinência',
       'Sábado Santo à noite: Vigília Pascal',
     ],
-    comoViver: 'Participar das celebrações dos três dias e ler a Paixão em João 18 e 19.',
+    vive: [
+      { titulo: 'Amor até o fim', texto: 'Na Quinta-feira Santa, Jesus nos dá a Eucaristia e lava os pés dos discípulos: "Amou-os até o fim" (Jo 13,1). Amor que se faz serviço.' },
+      { titulo: 'A Cruz', texto: 'Na Sexta-feira Santa contemplamos o amor que se entrega por nós. Adoramos a Cruz, porque nela está a nossa salvação.' },
+      { titulo: 'Silêncio e espera', texto: 'O Sábado Santo é dia de silêncio junto ao sepulcro, com Maria, esperando a Ressurreição.' },
+      { titulo: 'Da morte à vida', texto: 'Na Vigília Pascal, a luz do círio vence a escuridão e a Igreja canta de novo o Aleluia: Cristo ressuscitou!' },
+    ],
+    praticas: ['Participar das celebrações dos três dias', 'Ficar um tempo em adoração na noite da Quinta-feira Santa', 'Ler a Paixão em João 18 e 19', 'Guardar o jejum pascal na Sexta-feira Santa'],
     fontes: FONTES,
     status: 'rascunho',
   },
@@ -132,7 +162,13 @@ export const SEASONS_INFO: readonly SeasonInfo[] = [
       'Ascensão do Senhor: no Brasil, no 7º Domingo da Páscoa',
       'Pentecostes: a vinda do Espírito Santo',
     ],
-    comoViver: 'Ler os Atos dos Apóstolos e rezar o Regina Caeli às 6h, 12h e 18h.',
+    vive: [
+      { titulo: 'Alegria da Ressurreição', texto: 'Cristo vive! A morte não tem a última palavra. Por cinquenta dias a Igreja canta o Aleluia e celebra como se fosse um único grande domingo.' },
+      { titulo: 'Encontros com o Ressuscitado', texto: 'Madalena, os discípulos de Emaús, Tomé… Jesus se deixa encontrar, e nós o reconhecemos na Palavra e no partir do pão (Lc 24,30-32).' },
+      { titulo: 'Esperar o Espírito Santo', texto: 'Como os apóstolos reunidos com Maria no cenáculo (At 1,14), a Igreja reza pedindo o Espírito Santo, que vem em Pentecostes.' },
+      { titulo: 'Missão', texto: 'Quem encontrou o Ressuscitado não guarda a notícia para si: "Ide e fazei discípulos" (Mt 28,19).' },
+    ],
+    praticas: ['Ler os Atos dos Apóstolos', 'Rezar o Regina Caeli às 6h, 12h e 18h', 'Fazer a novena ao Espírito Santo entre a Ascensão e Pentecostes', 'Comungar no tempo pascal (preceito da Igreja)'],
     fontes: FONTES,
     status: 'rascunho',
   },
@@ -152,7 +188,13 @@ export const SEASONS_INFO: readonly SeasonInfo[] = [
       '2 de novembro: Fiéis Defuntos',
       'Último domingo: Cristo Rei do Universo',
     ],
-    comoViver: 'Manter a constância: um pouco de leitura e oração todos os dias.',
+    vive: [
+      { titulo: 'Discipulado', texto: 'Domingo a domingo, ouvimos os ensinamentos e as parábolas de Jesus. É o tempo de aprender com o Mestre e colocar em prática.' },
+      { titulo: 'Fé que dá frutos', texto: 'Depois de receber o Espírito em Pentecostes, a Igreja vive a missão no dia a dia. A fé se mostra na caridade e na constância.' },
+      { titulo: 'O olhar para o fim', texto: 'Nos últimos domingos, as leituras falam da volta de Cristo e da vida eterna. Em novembro, rezamos pelos falecidos e lembramos os santos.' },
+      { titulo: 'Cristo Rei', texto: 'O ano termina proclamando que Jesus é Rei do Universo: um Rei que serve e reina pelo amor.' },
+    ],
+    praticas: ['Manter a constância: um pouco de leitura e oração todos os dias', 'Participar da adoração em Corpus Christi', 'Rezar pelos falecidos em novembro', 'Ler as parábolas de Mateus 13 e Lucas 15'],
     fontes: FONTES,
     status: 'rascunho',
   },

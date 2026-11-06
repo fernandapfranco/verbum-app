@@ -1,8 +1,9 @@
-import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 import { router } from 'expo-router';
 import { View } from 'react-native';
 
 import { LiturgyChip } from '@/components/LiturgyChip';
+import { SacredIcon, type SacredIconName } from '@/components/SacredIcon';
 import { Card, Divider, Row, Screen, T } from '@/components/ui';
 import { PRAYER_GROUPS, PRAYERS } from '@/content/prayers';
 import { SERIES, TRAILS } from '@/content/trails';
@@ -10,6 +11,9 @@ import { today } from '@/lib/dates';
 import { COLOR_HEX, isReginaCaeliTime, liturgicalDay, SEASON_NAME } from '@/lib/liturgy';
 import { mysteriesForDate, SET_NAME } from '@/lib/rosary';
 import { SPACE, useTheme } from '@/theme';
+
+const TRAIL_ICON: Record<string, SacredIconName> = { advento: 'coroa-advento', 'voltando-para-casa': 'capela' };
+const GROUP_ICON: Record<string, SacredIconName> = { leitura: 'biblia', 'do-dia': 'sino', basicas: 'cruz', marianas: 'maria', perdao: 'coracao' };
 
 export default function Orar() {
   const { c } = useTheme();
@@ -44,7 +48,7 @@ export default function Orar() {
 
       <Card onPress={() => router.push('/terco')} accessibilityLabel={`Terço guiado: ${SET_NAME[mysteriesForDate(today())]}`}>
         <View style={{ flexDirection: 'row', gap: SPACE.md, alignItems: 'center' }}>
-          <MaterialCommunityIcons name="circle-multiple-outline" size={28} color={c.primary} />
+          <SacredIcon name="terco" size={30} color={c.primary} />
           <View style={{ flex: 1 }}>
             <T variant="heading">Terço guiado</T>
             <T variant="caption" muted>
@@ -57,7 +61,7 @@ export default function Orar() {
 
       <Card onPress={() => router.push('/evangelho')} accessibilityLabel="Evangelho do dia">
         <View style={{ flexDirection: 'row', gap: SPACE.md, alignItems: 'center' }}>
-          <Ionicons name="book-outline" size={26} color={c.primary} />
+          <SacredIcon name="biblia" size={30} color={c.primary} />
           <View style={{ flex: 1 }}>
             <T variant="heading">Evangelho do dia</T>
             <T variant="caption" muted>
@@ -70,7 +74,7 @@ export default function Orar() {
 
       <Card onPress={() => router.push('/tempos-liturgicos')} accessibilityLabel="Tempos litúrgicos: o que são, quando começam e terminam">
         <View style={{ flexDirection: 'row', gap: SPACE.md, alignItems: 'center' }}>
-          <Ionicons name="calendar-outline" size={26} color={c.primary} />
+          <SacredIcon name="calendario" size={30} color={c.primary} />
           <View style={{ flex: 1 }}>
             <T variant="heading">Tempos litúrgicos</T>
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 6 }}>
@@ -85,15 +89,19 @@ export default function Orar() {
       </Card>
 
       <View style={{ gap: SPACE.sm }}>
-        <T variant="label" color={c.goldText}>
-          Trilhas
-        </T>
+        <View style={{ flexDirection: 'row', alignItems: 'center', gap: SPACE.sm }}>
+          <SacredIcon name="capela" size={18} color={c.goldText} />
+          <T variant="label" color={c.goldText}>
+            Trilhas
+          </T>
+        </View>
         <Card>
           {trails.map((t, i) => (
             <View key={t.id}>
               {i > 0 && <Divider />}
               <Row
-                icon={'season' in t ? 'leaf-outline' : t.id === 'primeiros-passos' ? 'footsteps-outline' : 'home-outline'}
+                icon={t.id === 'primeiros-passos' ? 'footsteps-outline' : undefined}
+                leading={t.id === 'primeiros-passos' ? undefined : <SacredIcon name={TRAIL_ICON[t.id] ?? 'cruz'} size={24} color={c.primary} />}
                 title={t.titulo}
                 subtitle={t.subtitulo}
                 onPress={() => router.push({ pathname: '/trilha/[id]', params: { id: t.id } })}
@@ -107,9 +115,12 @@ export default function Orar() {
         const items = PRAYERS.filter((p) => p.grupo === g.id && (g.id !== 'do-dia' || p.id === marian));
         return (
           <View key={g.id} style={{ gap: SPACE.sm }}>
-            <T variant="label" color={c.goldText}>
-              {g.titulo}
-            </T>
+            <View style={{ flexDirection: 'row', alignItems: 'center', gap: SPACE.sm }}>
+              <SacredIcon name={GROUP_ICON[g.id]} size={18} color={c.goldText} />
+              <T variant="label" color={c.goldText}>
+                {g.titulo}
+              </T>
+            </View>
             <Card>
               {items.map((p, i) => (
                 <View key={p.id}>
