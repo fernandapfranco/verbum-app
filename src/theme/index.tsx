@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useMemo, type ReactNode } from 'react';
-import { Appearance, useColorScheme } from 'react-native';
+import { Appearance, StyleSheet, useColorScheme, useWindowDimensions, View } from 'react-native';
 
 import { useSettings } from '@/store/settings';
 
@@ -32,4 +32,36 @@ export function AppThemeProvider({ children }: { children: ReactNode }) {
 
 export function useTheme(): Theme {
   return useContext(ThemeContext);
+}
+
+/** Largura máxima do conteúdo em telas grandes (computador, tablet). */
+export const MAX_CONTENT_WIDTH = 720;
+const WIDE_FROM = 768;
+
+/**
+ * No celular, ocupa a tela inteira. Em telas largas, o app fica numa coluna
+ * central, com largura boa para ler, e o resto da tela com um fundo suave.
+ */
+export function AppFrame({ children }: { children: ReactNode }) {
+  const { c } = useTheme();
+  const { width } = useWindowDimensions();
+  if (width < WIDE_FROM) return <>{children}</>;
+  return (
+    <View style={{ flex: 1, backgroundColor: c.surfaceAlt, alignItems: 'center' }}>
+      <View
+        style={{
+          flex: 1,
+          width: '100%',
+          maxWidth: MAX_CONTENT_WIDTH,
+          backgroundColor: c.bg,
+          borderLeftWidth: StyleSheet.hairlineWidth,
+          borderRightWidth: StyleSheet.hairlineWidth,
+          borderColor: c.border,
+          overflow: 'hidden',
+        }}
+      >
+        {children}
+      </View>
+    </View>
+  );
 }

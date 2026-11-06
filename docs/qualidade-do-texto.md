@@ -3,7 +3,7 @@
 > Arquivo gerado por `npm run bible:build`. Não edite à mão.
 
 - Versículos no banco: **35809**
-- Marcados para revisão humana: **5700** (15.9%)
+- Marcados para revisão humana: **5696** (15.9%)
 - Versículos que nenhuma das duas digitalizações recuperou: **160**
 - Capítulos revisados manualmente: **6**
 
@@ -64,7 +64,7 @@ A lista completa está em `content/bible/revisao/suspeitos.csv`.
 | Ageu | 38 | 5 (13.2%) | 0 |
 | Zacarias | 211 | 39 (18.5%) | 0 |
 | Malaquias | 55 | 11 (20.0%) | 0 |
-| Mateus | 1070 | 194 (18.1%) | 7 |
+| Mateus | 1070 | 190 (17.8%) | 7 |
 | Marcos | 677 | 89 (13.1%) | 3 |
 | Lucas | 1151 | 196 (17.0%) | 11 |
 | João | 879 | 121 (13.8%) | 1 |
