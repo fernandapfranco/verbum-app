@@ -5,9 +5,13 @@
 export const APP_CONFIG = {
   appName: 'Verbum',
   /** Pessoa física ou jurídica responsável pelos dados (LGPD). */
-  controllerName: '[a definir — nome do responsável pelo Verbum]',
-  /** E-mail para dúvidas e para o encarregado de dados. */
-  contactEmail: '[a definir — e-mail de contato]',
+  controllerName: 'Fernanda',
+  /**
+   * Canal de contato para dúvidas e para o encarregado de dados.
+   * ⚠️ As lojas (App Store/Google Play) exigem também um e-mail de contato.
+   */
+  contactLabel: 'LinkedIn: linkedin.com/in/fernandapedrottifranco',
+  contactUrl: 'https://www.linkedin.com/in/fernandapedrottifranco',
   /**
    * Nome do arquivo do banco bíblico no aparelho. Aumente o número sempre que
    * gerar um novo assets/db/bible.db, para o app substituir a cópia antiga.

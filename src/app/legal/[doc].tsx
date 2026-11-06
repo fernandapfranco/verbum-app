@@ -1,12 +1,13 @@
 import { Stack, useLocalSearchParams } from 'expo-router';
-import { View } from 'react-native';
+import { Linking, View } from 'react-native';
 
 import { Screen, T } from '@/components/ui';
 import { LEGAL_VERSION, PRIVACY, TERMS } from '@/content/legal';
 import { formatDate } from '@/lib/dates';
-import { SPACE } from '@/theme';
+import { SPACE, useTheme } from '@/theme';
 
 export default function LegalDoc() {
+  const { c } = useTheme();
   const { doc } = useLocalSearchParams<{ doc: string }>();
   const isPrivacy = doc === 'privacidade';
   const title = isPrivacy ? 'Política de Privacidade' : 'Termos de Uso';
@@ -22,6 +23,11 @@ export default function LegalDoc() {
         <View key={s.titulo} style={{ gap: SPACE.xs }}>
           <T variant="heading">{s.titulo}</T>
           <T>{s.corpo}</T>
+          {s.link && (
+            <T color={c.primary} onPress={() => Linking.openURL(s.link!.url)} accessibilityRole="link" style={{ textDecorationLine: 'underline' }}>
+              {s.link.label}
+            </T>
+          )}
         </View>
       ))}
     </Screen>
