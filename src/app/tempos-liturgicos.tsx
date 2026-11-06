@@ -76,9 +76,6 @@ export default function TemposLiturgicos() {
                 <T variant="caption" muted>
                   {short(p.start)} → {short(p.end)}
                 </T>
-                <T variant="caption" color={c.goldText} style={{ fontWeight: '600' }}>
-                  {s.vive.map((v) => v.titulo).join(' · ')}
-                </T>
               </View>
               <Ionicons name={expanded ? 'chevron-up' : 'chevron-down'} size={20} color={c.textMuted} />
             </Pressable>
