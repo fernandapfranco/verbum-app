@@ -1,29 +1,32 @@
 /**
  * Termos de Uso e Política de Privacidade (rascunho).
  *
- * ⚠️ Antes de publicar nas lojas: revisão por advogado e preenchimento de
- * src/config.ts (responsável pelos dados e e-mail de contato).
+ * ⚠️ Antes de publicar nas lojas: revisão por advogado e um e-mail de contato
+ * em src/config.ts (hoje o contato é pelo LinkedIn).
  *
  * Ao mudar o conteúdo de forma relevante, aumente LEGAL_VERSION: o app pedirá
  * um novo aceite na próxima abertura.
  */
 import { APP_CONFIG } from '../config';
 
-export const LEGAL_VERSION = '2026-11-05';
+export const LEGAL_VERSION = '2026-11-06';
 export const MIN_AGE = 16;
 
 export interface LegalSection {
   titulo: string;
   corpo: string;
+  /** Link mostrado abaixo do texto (ex.: canal de contato). */
+  link?: { label: string; url: string };
 }
 
-const { controllerName, contactEmail } = APP_CONFIG;
+const { controllerName, contactLabel, contactUrl } = APP_CONFIG;
+const contactLink = { label: contactLabel, url: contactUrl };
 
 export const TERMS: LegalSection[] = [
   {
     titulo: '1. O que é o Verbum',
     corpo:
-      'O Verbum é um aplicativo para ajudar você a ler a Bíblia com constância e a crescer na vida de oração, com planos de leitura, trilhas, notas explicativas e recursos de acompanhamento. O app é de inspiração católica e procura estar de acordo com o Catecismo da Igreja Católica, mas não é um documento oficial da Igreja.',
+      'O Verbum é um aplicativo para ajudar você a ler a Bíblia com constância e a crescer na vida de oração, com planos de leitura, trilhas, notas explicativas e recursos de acompanhamento. O app é de inspiração católica e procura estar de acordo com o Catecismo da Igreja Católica, mas não é um documento oficial da Igreja. Nesta fase, o Verbum é um projeto pessoal e experimental, sem fins comerciais.',
   },
   {
     titulo: '2. Quem pode usar',
@@ -51,7 +54,8 @@ export const TERMS: LegalSection[] = [
   },
   {
     titulo: '7. Contato',
-    corpo: `Responsável: ${controllerName}. Dúvidas: ${contactEmail}. Estes termos seguem a legislação brasileira.`,
+    corpo: `Responsável: ${controllerName}. Dúvidas e sugestões: pelo LinkedIn (link abaixo). Estes termos seguem a legislação brasileira.`,
+    link: contactLink,
   },
 ];
 
@@ -93,6 +97,7 @@ export const PRIVACY: LegalSection[] = [
   },
   {
     titulo: '7. Contato e encarregado',
-    corpo: `Controlador: ${controllerName}. Encarregado de dados (DPO) e dúvidas sobre privacidade: ${contactEmail}.`,
+    corpo: `Responsável pelo tratamento dos dados: ${controllerName}. Como nenhum dado sai do seu aparelho, não recebemos nem guardamos informações suas. Para dúvidas sobre privacidade ou para exercer seus direitos, fale com ${controllerName} pelo LinkedIn (link abaixo).`,
+    link: contactLink,
   },
 ];

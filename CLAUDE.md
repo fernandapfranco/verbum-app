@@ -74,7 +74,7 @@ docs/               plano, texto bíblico, revisão doutrinal, qualidade do text
 - Na **web** (só usada para testes automatizados), o SQLite precisa de uma operação assíncrona antes das síncronas — tratado em `src/app/_layout.tsx` + `skipHydration` em `src/store/settings.ts`. A web não tem FTS5: a busca usa um LIKE de reserva. Não é alvo de produção.
 - Migrações de `user.db`: nunca editar uma já publicada; sempre acrescentar.
 - Correções do texto bíblico vão em `content/bible/correcoes.json` (nunca editar o banco à mão). Só corrigir erro de OCR; palavra reconstruída vai também em `conferir`.
-- `src/config.ts` tem placeholders (responsável pelos dados, e-mail) que precisam ser preenchidos antes de publicar.
+- `src/config.ts`: responsável = Fernanda, contato pelo LinkedIn (projeto pessoal/experimental). Para as lojas, falta um **e-mail de contato** e revisão jurídica dos Termos/Política.
 
 ## Estado atual (Fase 1)
 Feito: primeiro acesso com termos/idade/LGPD, onboarding (3 perguntas, nome do anjo, escolha de trilha), trilhas Primeiros Passos (7 lições) e Voltando para Casa (6 lições), leitor (fonte, claro/sépia/noturno, destaques em 4 cores, favoritos, notas, copiar/compartilhar texto, glossário tocável, "antes de ler"), plano de leitura (6 escopos, por prazo ou minutos/dia, dias da semana, recálculo sem penalizar, estender prazo), busca, versículos salvos, diário espiritual, privacidade (consentimentos, exportar, apagar tudo), introdução dos 73 livros, notas de Marcos e dos textos das trilhas, glossário (~70 termos).
